@@ -1,0 +1,13 @@
+import Anchor from "/components/Anchor";
+import Header from "/components/Header";
+import Footer from "./Footer";
+
+export default function Layout({ children }) {
+  return (
+    <>
+      <Header />
+      <main>{children}</main>
+      <Footer></Footer>
+    </>
+  );
+}
