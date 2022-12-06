@@ -9,6 +9,7 @@ body {
 :root {
   --accent-hotpink: #f82c99;
   --accent-teal: #30d5c8;
+  --accent-teal-dark: #205e59;
   --accent-lavender: #9382b1;
   --accent-violet: #9747ff;
   --main-color: #212121;
@@ -84,14 +85,4 @@ ul {
 
 li {
   list-style: none;
-}
-
-@media (prefers-color-scheme: light) {
-  html {
-    color-scheme: light;
-  }
-  body {
-    color: var(--main-color);
-    background: var(--main-font);
-  }
 }
