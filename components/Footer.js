@@ -7,16 +7,16 @@ function Footer() {
       <div>
         <ul>
           <li>
-            <Anchor href="">CONTACT</Anchor>
+            <Anchor href="inprogress">CONTACT</Anchor>
           </li>
           <li>
             <Anchor href="">INFO</Anchor>
           </li>
           <li>
-            <Anchor href="">PRESS</Anchor>
+            <Anchor href="inprogress">PRESS</Anchor>
           </li>
           <li>
-            <Anchor href="">TERMS</Anchor>
+            <Anchor href="inprogress">TERMS</Anchor>
           </li>
         </ul>
       </div>
