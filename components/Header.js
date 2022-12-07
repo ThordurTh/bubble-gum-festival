@@ -37,7 +37,7 @@ export default function Header() {
           </li>
         </ul>
         <div className="book-now">
-          <Anchor href="/ticketFlow">Book Now</Anchor>
+          <Anchor href="/tickets">Book Now</Anchor>
         </div>
       </div>
     </nav>

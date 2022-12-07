@@ -10,7 +10,7 @@ function TicketCard(props) {
       </ul>
       <span>{props.price}</span>
       <div className="buy-now">
-        <Anchor href="/ticketflow">Buy now &#10132;</Anchor>
+        <Anchor href="/tickets">Buy now &#10132;</Anchor>
       </div>
     </div>
   );
