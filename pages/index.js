@@ -3,13 +3,32 @@ import Image from "next/image";
 import WelcomeSection from "../components/frontpage/WelcomeSection";
 import TicketSection from "../components/frontpage/TicketSection";
 import NewsSection from "../components/frontpage/NewsSection";
+import Lineup from "../components/lineup/Lineup";
+import { nanoid } from "nanoid";
 
-export default function Home() {
+export default function Home({ data }) {
   return (
     <>
-      <WelcomeSection></WelcomeSection>
+      <WelcomeSection data={data} />
+      {/* <div>
+          {data.slice(0, 5).map((item) => (
+            <Lineup key={nanoid()} name={item.name} />
+          ))}
+        </div> */}
       <TicketSection />
       <NewsSection />
     </>
   );
+}
+
+export async function getStaticProps() {
+  // Get data from api
+  const res = await fetch("http://localhost:8080/bands");
+  const data = await res.json();
+  // Return the data inside props
+  return {
+    props: {
+      data: data,
+    },
+  };
 }
