@@ -64,10 +64,12 @@ nav {
     @media screen and (min-width: 1080px) {
       flex-direction: row;
       height: 142px;
+      width: auto;
       background: none;
       justify-content: flex-end;
       transition: height 0s;
       display: flex;
+      position: absolute;
     }
     ul {
       display: flex;

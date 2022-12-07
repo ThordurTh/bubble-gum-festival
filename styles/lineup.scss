@@ -1,0 +1,72 @@
+.lineupSection {
+  h1 {
+    text-align: center;
+  }
+  .lineup-wrapper {
+    border: 12px solid var(--main-color);
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 25px;
+    @media screen and (min-width: 1080px) {
+      width: 80vw;
+    }
+    .lineup {
+      background-color: var(--main-color);
+      border-radius: var(--basic-border-radius);
+      @media screen and (min-width: 1080px) {
+        border: var(--basic-border);
+        padding: 3rem;
+      }
+    }
+  }
+}
+.lineup {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  text-align: center;
+  row-gap: 1.5rem;
+  column-gap: 0.2rem;
+  font-family: var(--font-display);
+  margin: 0 auto;
+  width: 100%;
+  padding: 1rem 1rem 2rem;
+  line-height: 1.2;
+
+  @media screen and (min-width: 1080px) {
+    width: 100%;
+    row-gap: 1.5rem;
+  }
+  li {
+    cursor: pointer;
+  }
+  li:first-child {
+    font-size: 5.653rem;
+    grid-column: 1/13;
+  }
+  @for $i from 2 through 5 {
+    li:nth-child(#{$i}) {
+      font-size: calc(28px + 1.2vw);
+      grid-column: span 6;
+    }
+  }
+  @for $i from 6 through 35 {
+    li:nth-child(#{$i}) {
+      font-size: calc(15px + 0.390625vw);
+      grid-column: span 4;
+      font-family: var(--font-copy);
+    }
+  }
+  @media screen and (min-width: 1080px) {
+    @for $i from 6 through 15 {
+      li:nth-child(#{$i}) {
+        font-size: calc(18px + 0.390625vw);
+      }
+    }
+    @for $i from 15 through 35 {
+      li:nth-child(#{$i}) {
+        grid-column: span 3;
+        font-family: var(--font-copy);
+      }
+    }
+  }
+}

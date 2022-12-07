@@ -10,11 +10,6 @@ export default function Home({ data }) {
   return (
     <>
       <WelcomeSection data={data} />
-      {/* <div>
-          {data.slice(0, 5).map((item) => (
-            <Lineup key={nanoid()} name={item.name} />
-          ))}
-        </div> */}
       <TicketSection />
       <NewsSection />
     </>

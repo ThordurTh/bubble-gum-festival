@@ -7,6 +7,7 @@ body {
 }
 
 :root {
+  // Colours
   --accent-hotpink: #f82c99;
   --accent-teal: #30d5c8;
   --accent-teal-dark: #205e59;
@@ -14,8 +15,14 @@ body {
   --accent-violet: #9747ff;
   --main-color: #212121;
   --main-font: #fff;
+  // Font family
   --font-display: "Poppins", sans-serif;
   --font-copy: "Inter", sans-serif;
+  // Borders
+  --basic-border: solid 12px var(--accent-teal);
+  --basic-border-radius: 15px;
+  --small-border: solid 6px var(--accent-teal);
+  --small-border-radius: 10px;
 }
 
 * {
@@ -24,7 +31,7 @@ body {
 
 html {
   font-size: 100%;
-} /*16px*/
+}
 
 body {
   background-color: var(--main-color);
@@ -87,4 +94,16 @@ ul {
 
 li {
   list-style: none;
+}
+
+.lines-wrapper {
+  position: absolute;
+  .background-lines {
+    // width: 120vw;
+    height: auto;
+    position: fixed;
+    top: -20%;
+    // bottom: -50vh;
+    z-index: -10;
+  }
 }

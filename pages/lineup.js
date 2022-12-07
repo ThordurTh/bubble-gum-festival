@@ -1,13 +1,20 @@
 import Lineup from "../components/lineup/Lineup";
 import { nanoid } from "nanoid";
+import BackgroundLines from "../components/BackgroundLines";
 
 export default function lineup({ data }) {
   return (
-    <div>
-      {data.slice(0, 5).map((item) => (
-        <Lineup key={nanoid()} name={item.name} />
-      ))}
-    </div>
+    <section className="lineupSection">
+      <h1>Lineup</h1>
+      <BackgroundLines />
+      <div className="lineup-wrapper">
+        <ul className="lineup">
+          {data.slice(0, 34).map((item) => (
+            <Lineup key={nanoid()} name={item.name} />
+          ))}
+        </ul>
+      </div>
+    </section>
   );
 }
 
