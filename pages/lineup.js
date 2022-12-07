@@ -1,19 +1,25 @@
-export default function lineup() {
-  return <div>lorem ipsum lorem ipsum lorem ipsum lorem ipsumlorem ipsum</div>;
+import Lineup from "../components/lineup/Lineup";
+import { nanoid } from "nanoid";
+
+export default function lineup({ data }) {
+  return (
+    <div>
+      {data.slice(0, 5).map((item) => (
+        <Lineup key={nanoid()} name={item.name} />
+      ))}
+    </div>
+  );
 }
 
-// export default function lineup({ data }) {
-//   return <img className="rnddog" src={data.message} alt="a dog" />;
-// }
-
-// //This function runs on the server (on build time)
-// export async function getServerSideProps() {
-//   const res = await fetch("https://dog.ceo/api/breeds/image/random");
-//   const data = await res.json();
-
-//   return {
-//     props: {
-//       data,
-//     },
-//   };
-// }
+export async function getStaticProps() {
+  // Get data from api
+  const res = await fetch("http://localhost:8080/bands");
+  const data = await res.json();
+  console.log(data);
+  // Return the data inside props
+  return {
+    props: {
+      data: data,
+    },
+  };
+}

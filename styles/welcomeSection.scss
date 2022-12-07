@@ -1,0 +1,34 @@
+.welcome-section {
+  .header-image {
+    width: 100%;
+    height: auto;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+    object-fit: none;
+  }
+  //   background-image: url(../assets/header-image.png);
+  //   background-size: cover;
+  ul {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    text-align: center;
+    row-gap: 1rem;
+    li:first-child {
+      font-size: 3rem;
+      grid-column: 1/7;
+    }
+    @for $i from 2 through 5 {
+      li:nth-child(#{$i}) {
+        font-size: 1.5rem;
+        grid-column: span 3;
+      }
+    }
+    @for $i from 6 through 14 {
+      li:nth-child(#{$i}) {
+        font-size: 1rem;
+        grid-column: span 2;
+      }
+    }
+  }
+}
