@@ -20,7 +20,7 @@ nav {
     position: fixed;
     z-index: 3;
     right: 1rem;
-    top: 4.5rem;
+    top: 3rem;
     cursor: pointer;
     transition: all 0.5s ease-out;
     z-index: 10;
@@ -64,10 +64,12 @@ nav {
     @media screen and (min-width: 1080px) {
       flex-direction: row;
       height: 142px;
+      width: auto;
       background: none;
       justify-content: flex-end;
       transition: height 0s;
       display: flex;
+      position: absolute;
     }
     ul {
       display: flex;
@@ -126,7 +128,7 @@ nav {
     }
   }
   .showMenu {
-    height: 65vh;
+    height: 85vh;
     transition: all 0.5s ease-out;
     border-bottom: 5px solid var(--accent-teal);
     background: var(--main-color);

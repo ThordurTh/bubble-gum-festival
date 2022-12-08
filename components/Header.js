@@ -11,6 +11,10 @@ export default function Header() {
     setNavbarOpen((prev) => !prev);
   };
 
+  const closeBurger = () => {
+    setNavbarOpen(false);
+  };
+
   return (
     <nav>
       <Anchor className="logo" href="/">
@@ -26,13 +30,13 @@ export default function Header() {
       </div>
       <div className={`menuNav ${navbarOpen ? " showMenu" : ""}`}>
         <ul>
-          <li onClick={handleToggle}>
+          <li onClick={closeBurger}>
             <Anchor href="/schedule">Schedule</Anchor>
           </li>
-          <li onClick={handleToggle}>
+          <li onClick={closeBurger}>
             <Anchor href="/lineup">Lineup</Anchor>
           </li>
-          <li onClick={handleToggle}>
+          <li onClick={closeBurger}>
             <Anchor href="/info">Info</Anchor>
           </li>
         </ul>
