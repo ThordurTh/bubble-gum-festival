@@ -7,7 +7,7 @@ function SelectTicketsForm() {
   return (
     <>
       <div>
-        <h3>REGULAR</h3>
+        <h3>REG</h3>
         <ul>
           <li>Info about the Regular Ticket type</li>
           <li>More info about the Regular Ticket type</li>
@@ -17,7 +17,7 @@ function SelectTicketsForm() {
 
       <div>
         <button
-          disabled={numRegular + numVIP == 0}
+          disabled={numRegular === 0}
           onClick={() => setNumRegular((old) => old - 1)}
         >
           -
@@ -46,7 +46,7 @@ function SelectTicketsForm() {
 
       <div>
         <button
-          disabled={numRegular + numVIP == 0}
+          disabled={numVIP === 0}
           onClick={() => setNumVIP((old) => old - 1)}
         >
           -

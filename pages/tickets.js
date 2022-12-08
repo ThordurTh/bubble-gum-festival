@@ -6,10 +6,36 @@ import SelectTicketsForm from "../components/tickets/SelectTicketsForm";
 import Heading2 from "../components/tickets/Heading2";
 import CampingOptions from "../components/tickets/CampingOptions";
 import Selections2 from "../components/tickets/Selections2";
+import CounterTest from "../components/CounterTest";
+import H2test from "../components/H2test";
 
-import { useState } from "react";
+import { useCallback, useState } from "react";
+
+const ticketTypes = [
+  {
+    key: 1,
+    type: "REG",
+    li1: "some text and benefits",
+    li2: "other stuff",
+    price: "799kr",
+  },
+  {
+    key: 2,
+    type: "VIP",
+    li1: "some text and more benefits",
+    li2: "even more stuff",
+    price: "1299kr",
+  },
+];
 
 function Tickets() {
+  const [count, setCount] = useState(0);
+
+  const test1 = JSON.stringify(count);
+  console.log(test1);
+
+  const [numRegular, setNumRegular] = useState(0);
+  const [numVIP, setNumVIP] = useState(0);
   const [step, setStep] = useState(0);
   const conditionalComponent = () => {
     switch (step) {
@@ -22,6 +48,8 @@ function Tickets() {
               <section className="wrapper-step-1">
                 <SelectTicketsForm />
                 <Selections />
+                <CounterTest parentCallback={setCount} />
+                <H2test data={count}></H2test>
               </section>
             </section>
           </>
