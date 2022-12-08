@@ -1,5 +1,4 @@
 import React from "react";
-import SelectTicketsForm from "./SelectTicketsForm";
 
 function TicketBoxReg() {
   return (
@@ -10,7 +9,6 @@ function TicketBoxReg() {
         <li>More info about the Regular Ticket type</li>
       </ul>
       <span>799kr</span>
-      <SelectTicketsForm />
     </div>
   );
 }

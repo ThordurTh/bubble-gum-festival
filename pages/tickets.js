@@ -24,6 +24,12 @@ function tickets() {
         <Heading2 />
         <CampingOptions />
         <Selections2 />
+        <div className="next-step">
+          <Anchor href="#">NEXT STEP &#10132;</Anchor>
+        </div>
+        <div className="next-step">
+          <Anchor href="#">&#10132;PREVIOUS STEP</Anchor>
+        </div>
       </section>
     </>
   );
