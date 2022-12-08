@@ -22,7 +22,6 @@ export async function getStaticProps() {
   // Get data from api
   const res = await fetch("http://localhost:8080/bands");
   const data = await res.json();
-  console.log(data);
   // Return the data inside props
   return {
     props: {
