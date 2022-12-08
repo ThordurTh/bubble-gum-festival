@@ -1,38 +1,76 @@
 import React from "react";
 import Anchor from "../components/Anchor";
 import Heading from "../components/tickets/Heading";
-import Heading2 from "../components/tickets/Heading2";
-import TicketBoxes from "../components/tickets/TicketBoxes";
 import Selections from "../components/tickets/Selections";
+import SelectTicketsForm from "../components/tickets/SelectTicketsForm";
+import Heading2 from "../components/tickets/Heading2";
 import CampingOptions from "../components/tickets/CampingOptions";
 import Selections2 from "../components/tickets/Selections2";
 
-function tickets() {
+import { useState } from "react";
+
+function Tickets() {
+  const [step, setStep] = useState(0);
+  const conditionalComponent = () => {
+    switch (step) {
+      case 0:
+        return (
+          <>
+            <section className="step-1">
+              <Heading></Heading>
+              <h3>SELECT TICKET TYPES</h3>
+              <section className="wrapper-step-1">
+                <SelectTicketsForm />
+                <Selections />
+              </section>
+            </section>
+          </>
+        );
+      case 1:
+        return (
+          <>
+            <section className="step-2">
+              <Heading2 />
+              <h3>SELECT CAMPING OPTIONS</h3>
+              <section className="wrapper-step-2">
+                <CampingOptions />
+                <Selections2 />
+              </section>
+            </section>
+          </>
+        );
+      case 2:
+        return (
+          <>
+            <h1>YOOOOOOOOOOOOOOOOOOOOOO</h1>
+          </>
+        );
+
+      default:
+        return (
+          <>
+            <h1>FINISHLINE</h1>
+          </>
+        );
+    }
+  };
+  function handleNext() {
+    setStep(step + 1);
+  }
+
+  function handleSubmit() {
+    console.log("SUCCESS");
+  }
   return (
     <>
-      <section className="step-1">
-        <Heading></Heading>
-        <h3>SELECT TICKET TYPES</h3>
-        <section className="wrapper-step-1"></section>
-        <TicketBoxes />
-        <Selections />
-        <div className="next-step">
-          <Anchor href="#">NEXT STEP &#10132;</Anchor>
-        </div>
-      </section>
-      <section className="step-2">
-        <Heading2 />
-        <CampingOptions />
-        <Selections2 />
-        <div className="next-step">
-          <Anchor href="#">NEXT STEP &#10132;</Anchor>
-        </div>
-        <div className="next-step">
-          <Anchor href="#">&#10132;PREVIOUS STEP</Anchor>
-        </div>
-      </section>
+      {conditionalComponent()}
+      {step > 0 && <button onClick={() => setStep(step - 1)}>Back</button>}
+      {(step === 0 || step === 1 || step === 2) && (
+        <button onClick={handleNext}>Next</button>
+      )}
+      {step === 3 && <button onClick={handleSubmit}>Submit</button>}
     </>
   );
 }
 
-export default tickets;
+export default Tickets;

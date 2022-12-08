@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import TicketBoxReg from "./TicketBoxReg";
-import TicketBoxVIP from "./TicketBoxVIP";
 
 function SelectTicketsForm() {
   const [numRegular, setNumRegular] = useState(0);
@@ -8,6 +6,15 @@ function SelectTicketsForm() {
 
   return (
     <>
+      <div>
+        <h3>REGULAR</h3>
+        <ul>
+          <li>Info about the Regular Ticket type</li>
+          <li>More info about the Regular Ticket type</li>
+        </ul>
+        <span>799kr</span>
+      </div>
+
       <div>
         <button
           disabled={numRegular + numVIP == 0}
@@ -23,7 +30,20 @@ function SelectTicketsForm() {
           +
         </button>
       </div>
-      <TicketBoxReg />
+
+      <div>
+        <h3>VIP</h3>
+        <ul>
+          <li>Info about the VIP Ticket type</li>
+          <li>Even more info about the VIP Ticket type</li>
+          <li>
+            Exclusive thing that you get with the VIP ticket - stage pass or
+            some shit
+          </li>
+        </ul>
+        <span>1099kr</span>
+      </div>
+
       <div>
         <button
           disabled={numRegular + numVIP == 0}
