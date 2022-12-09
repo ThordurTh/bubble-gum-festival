@@ -5,8 +5,8 @@ import Image from "next/image";
 function Heading() {
   return (
     <>
-      <Image src={progressbar1} alt="progressbar1"></Image>
       <h2>TICKETS</h2>
+      <Image src={progressbar1} alt="progressbar1"></Image>
     </>
   );
 }

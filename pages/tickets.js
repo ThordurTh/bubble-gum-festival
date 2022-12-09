@@ -6,6 +6,8 @@ import SelectTicketsForm from "../components/tickets/SelectTicketsForm";
 import Heading2 from "../components/tickets/Heading2";
 import CampingOptions from "../components/tickets/CampingOptions";
 import Selections2 from "../components/tickets/Selections2";
+import Heading3 from "../components/tickets/Heading3";
+import Heading4 from "../components/tickets/Heading4";
 import CounterTest from "../components/CounterTest";
 import H2test from "../components/H2test";
 
@@ -70,14 +72,22 @@ function Tickets() {
       case 2:
         return (
           <>
-            <h1>YOOOOOOOOOOOOOOOOOOOOOO</h1>
+            <section className="step-3">
+              <Heading3 />
+              <h3>FILL IN PERSONAL INFO</h3>
+              <section className="wrapper-step-3"></section>
+            </section>
           </>
         );
 
       default:
         return (
           <>
-            <h1>FINISHLINE</h1>
+            <section className="step-4">
+              <Heading4 />
+              <h3>FILL IN CREDIT CARD INFO</h3>
+              <section className="wrapper-step-4"></section>
+            </section>
           </>
         );
     }
