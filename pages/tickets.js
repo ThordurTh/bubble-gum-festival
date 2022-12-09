@@ -1,5 +1,4 @@
 import React from "react";
-import Anchor from "../components/Anchor";
 import Heading from "../components/tickets/Heading";
 import Selections from "../components/tickets/Selections";
 // import SelectTicketsForm from "../components/tickets/SelectTicketsForm";
@@ -8,34 +7,13 @@ import CampingOptions from "../components/tickets/CampingOptions";
 import Selections2 from "../components/tickets/Selections2";
 import Heading3 from "../components/tickets/Heading3";
 import Heading4 from "../components/tickets/Heading4";
-import CounterTest from "../components/CounterTest";
-import H2test from "../components/H2test";
+import { useState } from "react";
 
-import { useCallback, useState } from "react";
-
-const ticketTypes = [
-  {
-    key: 1,
-    type: "REG",
-    li1: "some text and benefits",
-    li2: "other stuff",
-    price: "799kr",
-  },
-  {
-    key: 2,
-    type: "VIP",
-    li1: "some text and more benefits",
-    li2: "even more stuff",
-    price: "1299kr",
-  },
-];
-
-function Tickets() {
-  const [count, setCount] = useState(0);
-
+function Tickets({ data }) {
   const [numRegular, setNumRegular] = useState(0);
   const [numVIP, setNumVIP] = useState(0);
   const [step, setStep] = useState(0);
+  const [campSelect, setCampSelect] = useState([]);
   const conditionalComponent = () => {
     switch (step) {
       case 0:
@@ -102,8 +80,6 @@ function Tickets() {
                   </div>
                 </>
                 <Selections ticketsNumber={[numRegular, numVIP]} />
-                <CounterTest parentCallback={setCount} />
-                <H2test data={count}></H2test>
               </section>
             </section>
           </>
@@ -115,8 +91,14 @@ function Tickets() {
               <Heading2 />
               <h3>SELECT CAMPING OPTIONS</h3>
               <section className="wrapper-step-2">
-                <CampingOptions />
-                <Selections2 />
+                <CampingOptions
+                  campingOptions={[data, numRegular, numVIP]}
+                  campCallback={setCampSelect}
+                />
+                <Selections2
+                  ticketsNumber={[numRegular, numVIP]}
+                  campData={campSelect}
+                />
               </section>
             </section>
           </>
@@ -155,12 +137,35 @@ function Tickets() {
     <>
       {conditionalComponent()}
       {step > 0 && <button onClick={() => setStep(step - 1)}>Back</button>}
-      {(step === 0 || step === 1 || step === 2) && (
-        <button onClick={handleNext}>Next</button>
+
+      {step === 0 && (
+        <button disabled={numVIP + numRegular === 0} onClick={handleNext}>
+          Next
+        </button>
       )}
+      {step === 1 && <button onClick={handleNext}>Next</button>}
+
+      {/* {(step === 0 || step === 1 || step === 2) && (
+        <button disabled={numVIP + numRegular === 0} onClick={handleNext}>
+          Next
+        </button>
+      )} */}
       {step === 3 && <button onClick={handleSubmit}>Submit</button>}
     </>
   );
 }
 
 export default Tickets;
+
+export async function getStaticProps() {
+  // Get data from api
+  const res = await fetch("http://localhost:8080/available-spots");
+  const data = await res.json();
+  // setOptions(data);
+
+  return {
+    props: {
+      data: data,
+    },
+  };
+}

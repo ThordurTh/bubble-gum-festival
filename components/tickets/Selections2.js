@@ -5,12 +5,12 @@ function Selections2(props) {
     <>
       <h3>YOUR SELECTION</h3>
       <ul>
-        <li>TICKET REG - 1</li>
-        <li>PRICE - 999kr</li>
+        <li>TICKET REG x {props.ticketsNumber[0]}</li>
+        <li>PRICE = {props.ticketsNumber[0] * 799}kr</li>
       </ul>
       <ul>
-        <li>TICKET VIP- 1</li>
-        <li>PRICE - 1000kr</li>
+        <li>TICKET VIP x {props.ticketsNumber[1]}</li>
+        <li>PRICE = {props.ticketsNumber[1] * 1299}kr</li>
       </ul>
       <ul>
         <li>Camping Spot selected - camp X</li>
@@ -21,7 +21,9 @@ function Selections2(props) {
       </ul>
       <ul>
         <li>Booking fee 99kr for camping</li>
-        <li>TOTAL = 99999kr</li>
+        <li>
+          {props.ticketsNumber[0] * 799 + props.ticketsNumber[1] * 1299}kr
+        </li>
       </ul>
     </>
   );

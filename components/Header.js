@@ -40,7 +40,7 @@ export default function Header() {
             <Anchor href="/info">Info</Anchor>
           </li>
         </ul>
-        <div className="book-now">
+        <div onClick={closeBurger} className="book-now">
           <Anchor href="/tickets">Book Now</Anchor>
         </div>
       </div>

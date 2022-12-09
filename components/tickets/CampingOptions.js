@@ -1,33 +1,39 @@
-import React from "react";
+import { nanoid } from "nanoid";
 
-function CampingOptions() {
+function CampingOptions({ campingOptions }) {
   return (
     <section className="camping-wrapper">
       <div className="camping-options-form">
+        <p>Available spots</p>
         <form>
-          <input type="checkbox" id="camp1" name="camp1"></input>
-          <label for="camp1">BlueBerry Beach</label>
-          <input type="checkbox" id="camp2" name="camp2"></input>
-          <label for="camp2">Cherry Camp</label>
-          <input type="checkbox" id="camp3" name="camp3"></input>
-          <label for="camp3">Licorice Lagoon</label>
-          <input type="checkbox" id="camp4" name="camp4"></input>
-          <label for="camp4">Minty Mountain</label>
-          <input type="checkbox" id="camp5" name="camp5"></input>
-          <label for="camp5">Watermelon Wonderland</label>
+          {campingOptions[0].map((item) => (
+            <div key={nanoid()}>
+              <label
+                onClick={(e) => {
+                  // campCallback((campSelect = [e.target]))
+                  console.log(e);
+                }}
+                for={item.area.replaceAll(" ", "")}
+              >
+                {item.area}
+                <input
+                  type="radio"
+                  id={item.area.replaceAll(" ", "")}
+                  name="camping-area"
+                  disabled={
+                    item.available < campingOptions[1] + campingOptions[2]
+                  }
+                ></input>
+              </label>
+
+              <span>{item.available}</span>
+            </div>
+          ))}
+          <p>
+            When booking there is a flat fee of 99 ,- for camping, only paid
+            once per purchase
+          </p>
         </form>
-        <p>
-          When booking there is a flat fee of 99 ,- for camping, only paid once
-          per purchase
-        </p>
-        <div>
-          <p>Available spots</p>
-          <p>5</p>
-          <p>54</p>
-          <p>0</p>
-          <p>23</p>
-          <p>69</p>
-        </div>
       </div>
       <div className="additional-camping-options">
         <form>
