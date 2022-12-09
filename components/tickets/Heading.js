@@ -6,7 +6,7 @@ function Heading() {
   return (
     <>
       <h2>TICKETS</h2>
-      <Image src={progressbar1} alt="progressbar1"></Image>
+      <Image className="step-bar" src={progressbar1} alt="progressbar1"></Image>
     </>
   );
 }

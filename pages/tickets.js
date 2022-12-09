@@ -8,12 +8,18 @@ import Selections2 from "../components/tickets/Selections2";
 import Heading3 from "../components/tickets/Heading3";
 import Heading4 from "../components/tickets/Heading4";
 import { useState } from "react";
+import { nanoid } from "nanoid";
 
 function Tickets({ data }) {
   const [numRegular, setNumRegular] = useState(0);
   const [numVIP, setNumVIP] = useState(0);
   const [step, setStep] = useState(0);
-  const [campSelect, setCampSelect] = useState([]);
+  const [tentForTwo, setTentForTwo] = useState(0);
+  const [tentForThree, setTentForThree] = useState(0);
+  const [green, setGreen] = useState(false);
+  const [ownTent, setOwnTent] = useState(false);
+  const [campSelect, setCampSelect] = useState("");
+
   const conditionalComponent = () => {
     switch (step) {
       case 0:
@@ -24,7 +30,7 @@ function Tickets({ data }) {
               <h3>SELECT TICKET TYPES</h3>
               <section className="wrapper-step-1">
                 {/* SELECTING TICKETS */}
-                <>
+                <div className="reg-ticket green-border">
                   <div>
                     <h3>REG</h3>
                     <ul>
@@ -49,7 +55,8 @@ function Tickets({ data }) {
                       +
                     </button>
                   </div>
-
+                </div>
+                <div className="vip-ticket green-border">
                   <div>
                     <h3>VIP</h3>
                     <ul>
@@ -78,30 +85,147 @@ function Tickets({ data }) {
                       +
                     </button>
                   </div>
-                </>
-                <Selections ticketsNumber={[numRegular, numVIP]} />
+                </div>
+
+                <Selections
+                  regularTickets={numRegular}
+                  vipTickets={numVIP}
+                  campingSpot={campSelect}
+                  greenCamping={green}
+                  tentSetup1={tentForTwo}
+                  tentSetup2={tentForThree}
+                  ownTent={ownTent}
+                />
               </section>
             </section>
           </>
         );
       case 1:
         return (
-          <>
-            <section className="step-2">
-              <Heading2 />
-              <h3>SELECT CAMPING OPTIONS</h3>
-              <section className="wrapper-step-2">
-                <CampingOptions
+          <section className="step-2">
+            <Heading2 />
+            <h3>SELECT CAMPING OPTIONS</h3>
+            <section className="wrapper-step-2">
+              <div className="camping-options-form green-border">
+                <p>Available spots</p>
+                <form
+                  onChange={(event) => {
+                    console.log(event.target.value);
+                    setCampSelect(event.target.value);
+                  }}
+                >
+                  {data.map((item) => (
+                    <div key={nanoid()}>
+                      <label htmlFor={item.area.replaceAll(" ", "")}>
+                        {item.area}
+                        <input
+                          type="radio"
+                          id={item.area.replaceAll(" ", "")}
+                          name="camping-area"
+                          disabled={item.available < numRegular + numVIP}
+                          value={item.area}
+                        ></input>
+                      </label>
+
+                      <span>{item.available}</span>
+                    </div>
+                  ))}
+                  <p>
+                    When booking there is a flat fee of 99 ,- for camping, only
+                    paid once per purchase
+                  </p>
+                  {/* IMAGE OF MAP */}
+                </form>
+              </div>
+              <div className="additional-camping-options green-border">
+                <form>
+                  <p>Select this if you are pretentious</p>
+                  <label
+                    htmlFor="greencamping"
+                    onChange={() => setGreen((prev) => !prev)}
+                  >
+                    <input
+                      type="checkbox"
+                      id="greencamping"
+                      name="greencamping"
+                    ></input>
+                    Green camping 249kr{" "}
+                  </label>
+                </form>
+              </div>
+              <div className="tents-wrapper green-border">
+                <div className="two-person-tent">
+                  <p>2 person tent 299kr</p>
+                  <button
+                    disabled={tentForTwo === 0}
+                    onClick={() => setTentForTwo((old) => old - 1)}
+                  >
+                    -
+                  </button>
+                  {tentForTwo}
+                  <button
+                    disabled={
+                      numRegular + numVIP < 2 ||
+                      tentForTwo === 2 ||
+                      (numRegular + numVIP === 2) & (tentForTwo === 1) ||
+                      tentForThree === 1
+                    }
+                    onClick={() => setTentForTwo((old) => old + 1)}
+                  >
+                    +
+                  </button>
+                </div>
+                <div className="three-person-tent">
+                  <p>3 person tent 399kr</p>
+                  <button
+                    disabled={tentForThree === 0}
+                    onClick={() => setTentForThree((old) => old - 1)}
+                  >
+                    -
+                  </button>
+                  {tentForThree}
+                  <button
+                    disabled={
+                      numRegular + numVIP < 3 ||
+                      tentForThree === 1 ||
+                      tentForTwo >= 1
+                    }
+                    onClick={() => setTentForThree((old) => old + 1)}
+                  >
+                    +
+                  </button>
+                </div>
+                <form>
+                  <p>I brought my own tent POG</p>
+                  <label
+                    htmlFor="owntent"
+                    onChange={() => setOwnTent((prev) => !prev)}
+                  >
+                    <input type="checkbox" id="owntent" name="owntent"></input>
+                    Already have a tent
+                  </label>
+                </form>
+              </div>
+              <Selections
+                regularTickets={numRegular}
+                vipTickets={numVIP}
+                campingSpot={campSelect}
+                greenCamping={green}
+                tentSetup1={tentForTwo}
+                tentSetup2={tentForThree}
+                ownTent={ownTent}
+              />
+              {/* <Selections2></Selections2> */}
+              {/* <CampingOptions
                   campingOptions={[data, numRegular, numVIP]}
                   campCallback={setCampSelect}
-                />
-                <Selections2
+                /> */}
+              {/* <Selections2
                   ticketsNumber={[numRegular, numVIP]}
                   campData={campSelect}
-                />
-              </section>
+                /> */}
             </section>
-          </>
+          </section>
         );
       case 2:
         return (

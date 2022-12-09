@@ -1,0 +1,58 @@
+.green-border {
+  border: var(--basic-border);
+  border-radius: var(--basic-border-radius);
+}
+
+.step-bar {
+  width: 100%;
+  height: auto;
+}
+
+.wrapper-step-1 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  .reg-ticket {
+    grid-column: 1/2;
+    grid-row: 1/2;
+    padding: 1rem;
+  }
+  .vip-ticket {
+    grid-column: 1/2;
+    grid-row: 2/2;
+    padding: 1rem;
+  }
+  .summary {
+    grid-column: 3/4;
+    grid-row: 1/3;
+    padding: 1rem;
+  }
+}
+.wrapper-step-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1rem;
+  .camping-options-form {
+    grid-column: 1/2;
+    grid-row: 1/3;
+    padding: 1rem;
+  }
+  .additional-camping-options {
+    grid-column: 2/3;
+    grid-row: 1/2;
+    padding: 1rem;
+  }
+  .tents-wrapper {
+    grid-column: 2/3;
+    grid-row: 2/3;
+    padding: 1rem;
+  }
+  .summary {
+    grid-column: 3/4;
+    grid-row: 1/3;
+    padding: 1rem;
+  }
+}
+.total-amount {
+  border-top: 1px solid white;
+}
