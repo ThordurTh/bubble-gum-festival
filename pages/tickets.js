@@ -2,7 +2,7 @@ import React from "react";
 import Anchor from "../components/Anchor";
 import Heading from "../components/tickets/Heading";
 import Selections from "../components/tickets/Selections";
-import SelectTicketsForm from "../components/tickets/SelectTicketsForm";
+// import SelectTicketsForm from "../components/tickets/SelectTicketsForm";
 import Heading2 from "../components/tickets/Heading2";
 import CampingOptions from "../components/tickets/CampingOptions";
 import Selections2 from "../components/tickets/Selections2";
@@ -33,9 +33,6 @@ const ticketTypes = [
 function Tickets() {
   const [count, setCount] = useState(0);
 
-  const test1 = JSON.stringify(count);
-  console.log(test1);
-
   const [numRegular, setNumRegular] = useState(0);
   const [numVIP, setNumVIP] = useState(0);
   const [step, setStep] = useState(0);
@@ -48,8 +45,63 @@ function Tickets() {
               <Heading></Heading>
               <h3>SELECT TICKET TYPES</h3>
               <section className="wrapper-step-1">
-                <SelectTicketsForm />
-                <Selections />
+                {/* SELECTING TICKETS */}
+                <>
+                  <div>
+                    <h3>REG</h3>
+                    <ul>
+                      <li>Info about the Regular Ticket type</li>
+                      <li>More info about the Regular Ticket type</li>
+                    </ul>
+                    <span>799</span>
+                  </div>
+
+                  <div>
+                    <button
+                      disabled={numRegular === 0}
+                      onClick={() => setNumRegular((old) => old - 1)}
+                    >
+                      -
+                    </button>
+                    {numRegular}
+                    <button
+                      disabled={numRegular + numVIP > 3}
+                      onClick={() => setNumRegular((old) => old + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+
+                  <div>
+                    <h3>VIP</h3>
+                    <ul>
+                      <li>Info about the VIP Ticket type</li>
+                      <li>Even more info about the VIP Ticket type</li>
+                      <li>
+                        Exclusive thing that you get with the VIP ticket - stage
+                        pass or some shit
+                      </li>
+                    </ul>
+                    <span>1299</span>
+                  </div>
+
+                  <div>
+                    <button
+                      disabled={numVIP === 0}
+                      onClick={() => setNumVIP((old) => old - 1)}
+                    >
+                      -
+                    </button>
+                    {numVIP}
+                    <button
+                      disabled={numVIP + numRegular > 3}
+                      onClick={() => setNumVIP((old) => old + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                </>
+                <Selections ticketsNumber={[numRegular, numVIP]} />
                 <CounterTest parentCallback={setCount} />
                 <H2test data={count}></H2test>
               </section>

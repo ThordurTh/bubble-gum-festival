@@ -5,12 +5,12 @@ function Selections(props) {
     <>
       <h3>YOUR SELECTION</h3>
       <ul>
-        <li>TICKET REG - 1</li>
-        <li>PRICE - 999kr</li>
+        <li>TICKET REG - {props.ticketsNumber[0]}</li>
+        <li></li>
       </ul>
       <ul>
-        <li>TICKET VIP- 1</li>
-        <li>PRICE - 1000kr</li>
+        <li>TICKET VIP- {props.ticketsNumber[1]}</li>
+        <li></li>
       </ul>
       <ul>
         <li>TOTAL = 99999kr</li>

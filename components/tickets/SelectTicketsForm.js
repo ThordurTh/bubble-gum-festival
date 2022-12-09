@@ -3,7 +3,6 @@ import React, { useState } from "react";
 function SelectTicketsForm() {
   const [numRegular, setNumRegular] = useState(0);
   const [numVIP, setNumVIP] = useState(0);
-
   return (
     <>
       <div>
