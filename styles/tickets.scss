@@ -79,3 +79,9 @@ input {
     width: 60px;
   }
 }
+
+.participants-details {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
