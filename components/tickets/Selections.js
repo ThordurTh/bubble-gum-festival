@@ -8,10 +8,17 @@ function Selections({
   tentSetup1,
   tentSetup2,
   ownTent,
+  firstName,
+  lastName,
 }) {
   return (
     <section className="summary green-border">
       <h3>SUMMARY</h3>
+      <h4>Participants</h4>
+      <ul className="participants-details">
+        <li>First Name: {firstName} </li>
+        <li> Last Name: {lastName} </li>
+      </ul>
       <ul>
         {campingSpot !== "" && <li>Camping spot: {campingSpot}</li>}
         {regularTickets > 0 && (

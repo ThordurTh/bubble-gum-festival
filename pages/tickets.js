@@ -20,6 +20,48 @@ function Tickets({ data }) {
   const [green, setGreen] = useState(false);
   const [ownTent, setOwnTent] = useState(false);
   const [campSelect, setCampSelect] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+
+  let numberOfTickets = numRegular + numVIP;
+  // console.log(numberOfTickets);
+  // const test99 = () => {
+  //   for (let x = 0; x < numberOfTickets; x++) {
+  //     console.log(x);
+  //     <div>Amazing</div>;
+  //   }
+  // };
+
+  function handleReservation() {
+    console.log("AMAZING");
+    console.log(typeof campSelect);
+    const options = {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: `{"area":${JSON.stringify(campSelect)},"amount":${JSON.stringify(
+        numRegular
+      )}}`,
+    };
+
+    fetch("http://localhost:8080/reserve-spot", options)
+      .then((response) => response.json())
+      .then((response) => console.log(response))
+      .catch((err) => console.error(err));
+
+    // fetch("http://localhost:8080/reserve-spot", {
+    //   method: "PUT",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: {
+    //     area: { campSelect },
+    //     amount: { numberOfTickets },
+    //   },
+    // })
+    //   .then((response) => console.log(response))
+    //   .catch((err) => console.error(err));
+  }
 
   const conditionalComponent = () => {
     switch (step) {
@@ -111,7 +153,7 @@ function Tickets({ data }) {
                 <p>Available spots</p>
                 <form
                   onChange={(event) => {
-                    console.log(event.target.value);
+                    // console.log(event.target.value);
                     setCampSelect(event.target.value);
                   }}
                 >
@@ -235,7 +277,47 @@ function Tickets({ data }) {
               <Heading3 />
               <h3>FILL IN PERSONAL INFO</h3>
               <section className="wrapper-step-3">
-                <PersonalInfo regularTickets={numRegular} vipTickets={numVIP} />
+                <form>
+                  <div className="participant-form">
+                    <div>
+                      <label htmlFor="firstName">First name</label>
+                      <input
+                        id="firstName"
+                        name="firstName"
+                        type="text"
+                        placeholder="First Name..."
+                        required
+                        pattern="[a-z A-Z]"
+                        onBlur={(e) => setFirstName(e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="lastName">Last name</label>
+                      <input
+                        id="lastName"
+                        name="lastName"
+                        type="text"
+                        placeholder="Last Name..."
+                        required
+                        pattern="[a-z A-Z]"
+                        onBlur={(e) => setLastName(e.target.value)}
+                      />
+                    </div>
+
+                    <div>
+                      <label htmlFor="email">Email</label>
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        placeholder="Email..."
+                        required
+                        onBlur={(e) => setEmail(e.target.value)}
+                      />
+                    </div>
+                  </div>
+                </form>
+
                 <Selections
                   regularTickets={numRegular}
                   vipTickets={numVIP}
@@ -244,6 +326,8 @@ function Tickets({ data }) {
                   tentSetup1={tentForTwo}
                   tentSetup2={tentForThree}
                   ownTent={ownTent}
+                  firstName={firstName}
+                  lastName={lastName}
                 />
               </section>
             </section>
@@ -258,6 +342,15 @@ function Tickets({ data }) {
               <h3>FILL IN CREDIT CARD INFO</h3>
               <section className="wrapper-step-4"></section>
             </section>
+            <Selections
+              regularTickets={numRegular}
+              vipTickets={numVIP}
+              campingSpot={campSelect}
+              greenCamping={green}
+              tentSetup1={tentForTwo}
+              tentSetup2={tentForThree}
+              ownTent={ownTent}
+            />
           </>
         );
     }
@@ -279,7 +372,8 @@ function Tickets({ data }) {
           Next
         </button>
       )}
-      {step === 1 && <button onClick={handleNext}>Next</button>}
+      {step === 1 && <button onClick={handleReservation}>Next</button>}
+      {step === 2 && <button onClick={handleNext}>Next</button>}
 
       {/* {(step === 0 || step === 1 || step === 2) && (
         <button disabled={numVIP + numRegular === 0} onClick={handleNext}>
