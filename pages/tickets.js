@@ -7,6 +7,7 @@ import CampingOptions from "../components/tickets/CampingOptions";
 import Selections2 from "../components/tickets/Selections2";
 import Heading3 from "../components/tickets/Heading3";
 import Heading4 from "../components/tickets/Heading4";
+import PersonalInfo from "../components/tickets/PersonalInfo";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 
@@ -233,7 +234,18 @@ function Tickets({ data }) {
             <section className="step-3">
               <Heading3 />
               <h3>FILL IN PERSONAL INFO</h3>
-              <section className="wrapper-step-3"></section>
+              <section className="wrapper-step-3">
+                <PersonalInfo regularTickets={numRegular} vipTickets={numVIP} />
+                <Selections
+                  regularTickets={numRegular}
+                  vipTickets={numVIP}
+                  campingSpot={campSelect}
+                  greenCamping={green}
+                  tentSetup1={tentForTwo}
+                  tentSetup2={tentForThree}
+                  ownTent={ownTent}
+                />
+              </section>
             </section>
           </>
         );

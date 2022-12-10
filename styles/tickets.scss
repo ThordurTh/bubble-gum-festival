@@ -56,3 +56,26 @@
 .total-amount {
   border-top: 1px solid white;
 }
+
+.input.container {
+  text-align: left;
+}
+
+input {
+  margin-top: 0.5rem;
+  text-transform: capitalize;
+}
+.birthday-container {
+  display: inline-block;
+  margin-right: 5px;
+  margin-left: 5px;
+}
+
+.date-field {
+  width: 30px;
+  text-align: center;
+
+  &--year {
+    width: 60px;
+  }
+}
