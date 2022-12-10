@@ -169,7 +169,8 @@ function Tickets({ data }) {
                       numRegular + numVIP < 2 ||
                       tentForTwo === 2 ||
                       (numRegular + numVIP === 2) & (tentForTwo === 1) ||
-                      tentForThree === 1
+                      tentForThree === 1 ||
+                      ownTent === true
                     }
                     onClick={() => setTentForTwo((old) => old + 1)}
                   >
@@ -189,7 +190,8 @@ function Tickets({ data }) {
                     disabled={
                       numRegular + numVIP < 3 ||
                       tentForThree === 1 ||
-                      tentForTwo >= 1
+                      tentForTwo >= 1 ||
+                      ownTent === true
                     }
                     onClick={() => setTentForThree((old) => old + 1)}
                   >
