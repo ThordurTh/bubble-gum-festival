@@ -7,7 +7,7 @@ import CampingOptions from "../components/tickets/CampingOptions";
 import Selections2 from "../components/tickets/Selections2";
 import Heading3 from "../components/tickets/Heading3";
 import Heading4 from "../components/tickets/Heading4";
-import PersonalInfo from "../components/tickets/PersonalInfo";
+import LastStepForm from "../components/tickets/LastStepForm";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 
@@ -43,6 +43,7 @@ function Tickets({ data }) {
         numRegular
       )}}`,
     };
+    handleNext();
 
     fetch("http://localhost:8080/reserve-spot", options)
       .then((response) => response.json())
@@ -344,6 +345,7 @@ function Tickets({ data }) {
               <h3>FILL IN CREDIT CARD INFO</h3>
               <section className="wrapper-step-4"></section>
             </section>
+            <LastStepForm />
             <Selections
               regularTickets={numRegular}
               vipTickets={numVIP}
