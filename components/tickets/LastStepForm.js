@@ -24,8 +24,17 @@ function LastStepForm(props) {
         .required("Postcode Required")
         .matches(/\d/, "Postcode must only be numbers!"),
       creditCard: Yup.string()
-        .required("Credit Card Number Required...")
+        .required("Credit Card Number Required")
         .matches(/\d/, "Credit Card must only be numbers"),
+      month: Yup.string()
+        .required("Month Number Required")
+        .matches(/\d/, "Month must only be numbers"),
+      year: Yup.string()
+        .required("Year is Required")
+        .matches(/\d/, "Year must only be numbers"),
+      cww: Yup.string()
+        .required("CWW is Required")
+        .matches(/\d/, "CWW must only be numbers"),
     }),
 
     onSubmit: (values) => {
@@ -42,7 +51,6 @@ function LastStepForm(props) {
             id="buyerFirstName"
             name="buyerFirstName"
             type="text"
-            placeholder="First Name..."
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.buyerFirstName}
@@ -58,7 +66,6 @@ function LastStepForm(props) {
             id="buyerLastName"
             name="buyerLastName"
             type="text"
-            placeholder="Last Name..."
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.buyerLastName}
@@ -74,7 +81,6 @@ function LastStepForm(props) {
             id="buyerEmail"
             name="buyerEmail"
             type="email"
-            placeholder="Email..."
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.buyerEmail}
@@ -90,7 +96,6 @@ function LastStepForm(props) {
             id="street"
             name="street"
             type="text"
-            placeholder="Street Name..."
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.street}
@@ -101,12 +106,11 @@ function LastStepForm(props) {
         </div>
 
         <div className="input-container">
-          <label htmlFor="city">Street Name:</label>
+          <label htmlFor="city">City:</label>
           <input
             id="city"
             name="city"
             type="text"
-            placeholder="City..."
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.city}
@@ -122,7 +126,6 @@ function LastStepForm(props) {
             id="postcode"
             name="postcode"
             type="text"
-            placeholder="Postcode..."
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.postcode}
@@ -140,7 +143,6 @@ function LastStepForm(props) {
             id="creditCard"
             name="creditCard"
             type="text"
-            placeholder="Credit Card Number..."
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.creditCard}
@@ -148,6 +150,57 @@ function LastStepForm(props) {
           />
           {formik.touched.creditCard && formik.errors.creditCard ? (
             <p className="error">{formik.errors.creditCard}</p>
+          ) : null}
+        </div>
+
+        <div className="input-container">
+          <label htmlFor="month">Month</label>
+          <input
+            className="month"
+            id="month"
+            name="month"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.month}
+            maxLength={2}
+          />
+          {formik.touched.month && formik.errors.month ? (
+            <p className="error">{formik.errors.month}</p>
+          ) : null}
+        </div>
+
+        <div className="input-container">
+          <label htmlFor="year">Year:</label>
+          <input
+            className="year"
+            id="year"
+            name="year"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.year}
+            maxLength={4}
+          />
+          {formik.touched.year && formik.errors.year ? (
+            <p className="error">{formik.errors.year}</p>
+          ) : null}
+        </div>
+
+        <div className="input-container">
+          <label htmlFor="cww">CWW:</label>
+          <input
+            className="cww"
+            id="cww"
+            name="cww"
+            type="text"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.year}
+            maxLength={4}
+          />
+          {formik.touched.cww && formik.errors.cww ? (
+            <p className="error">{formik.errors.cww}</p>
           ) : null}
         </div>
 
