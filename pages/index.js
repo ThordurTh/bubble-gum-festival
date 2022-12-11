@@ -7,6 +7,7 @@ import Lineup from "../components/lineup/Lineup";
 import { nanoid } from "nanoid";
 
 export default function Home({ data }) {
+  console.log(typeof data);
   return (
     <>
       <WelcomeSection data={data} />

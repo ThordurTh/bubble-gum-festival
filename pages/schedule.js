@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
+import Acts from "../components/program/Acts";
 
 export default function Schedule({ data }) {
   // const [schedules, setSchedules] = useState([]);
@@ -25,6 +26,8 @@ export default function Schedule({ data }) {
       <button>Saturday</button>
       <button>Sunday</button>
       <ul>
+        <Acts data={data}></Acts>
+
         {/* {Object.keys(data.Wintergreen).map((key) => (
           <div key={key}>
             <p>
@@ -36,7 +39,7 @@ export default function Schedule({ data }) {
           <p key={nanoid()} name={item.name} />
         ))} */}
       </ul>
-      <p>{JSON.stringify(data.Wintergreen)}</p>
+      {/* <p>{JSON.stringify(data.Wintergreen)}</p> */}
       {/* <button onClick={data}></button> */}
     </div>
   );
@@ -47,11 +50,11 @@ export async function getStaticProps() {
   const res = await fetch("http://localhost:8080/schedule");
   const data = await res.json();
   // setOptions(data);
-  console.log(data);
+  // console.log(data);
 
   return {
     props: {
-      data: JSON.stringify(data),
+      data: data,
     },
   };
 }
