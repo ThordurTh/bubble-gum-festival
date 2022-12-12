@@ -26,12 +26,12 @@ function Tickets({ data }) {
 
   let numberOfTickets = numRegular + numVIP;
   // console.log(numberOfTickets);
-  // const test99 = () => {
-  //   for (let x = 0; x < numberOfTickets; x++) {
-  //     console.log(x);
-  //     <div>Amazing</div>;
-  //   }
-  // };
+  const formElements = [];
+
+  for (let x = 0; x < numberOfTickets; x++) {
+    console.log(x);
+    formElements.push(<div>Amazing</div>);
+  }
 
   function handleReservation() {
     console.log("AMAZING");
@@ -49,19 +49,6 @@ function Tickets({ data }) {
       .then((response) => response.json())
       .then((response) => console.log(response))
       .catch((err) => console.error(err));
-
-    // fetch("http://localhost:8080/reserve-spot", {
-    //   method: "PUT",
-    //   headers: {
-    //     "Content-Type": "application/json",
-    //   },
-    //   body: {
-    //     area: { campSelect },
-    //     amount: { numberOfTickets },
-    //   },
-    // })
-    //   .then((response) => console.log(response))
-    //   .catch((err) => console.error(err));
   }
 
   const conditionalComponent = () => {
@@ -152,12 +139,7 @@ function Tickets({ data }) {
             <section className="wrapper-step-2">
               <div className="camping-options-form green-border">
                 <p>Available spots</p>
-                <form
-                  onChange={(event) => {
-                    // console.log(event.target.value);
-                    setCampSelect(event.target.value);
-                  }}
-                >
+                <form>
                   {data.map((item) => (
                     <div key={nanoid()}>
                       <label htmlFor={item.area.replaceAll(" ", "")}>
@@ -168,6 +150,10 @@ function Tickets({ data }) {
                           name="camping-area"
                           disabled={item.available < numRegular + numVIP}
                           value={item.area}
+                          checked={campSelect === item.area}
+                          onChange={() => {
+                            setCampSelect(item.area);
+                          }}
                         ></input>
                       </label>
 
@@ -261,15 +247,6 @@ function Tickets({ data }) {
                 tentSetup2={tentForThree}
                 ownTent={ownTent}
               />
-              {/* <Selections2></Selections2> */}
-              {/* <CampingOptions
-                  campingOptions={[data, numRegular, numVIP]}
-                  campCallback={setCampSelect}
-                /> */}
-              {/* <Selections2
-                  ticketsNumber={[numRegular, numVIP]}
-                  campData={campSelect}
-                /> */}
             </section>
           </section>
         );
@@ -281,6 +258,7 @@ function Tickets({ data }) {
               <h3>FILL IN PERSONAL INFO</h3>
               <section className="wrapper-step-3">
                 <form>
+                  {formElements}
                   <div className="participant-form">
                     <div>
                       <label htmlFor="firstName">First name</label>
