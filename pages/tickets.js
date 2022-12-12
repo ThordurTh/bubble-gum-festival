@@ -22,14 +22,14 @@ function Tickets({ data }) {
   const [campSelect, setCampSelect] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [reserveID, setReserveID] = useState(null);
+  const [reserveID, setReserveID] = useState("");
 
   let numberOfTickets = numRegular + numVIP;
   // console.log(numberOfTickets);
   const formElements = [];
 
   for (let x = 0; x < numberOfTickets; x++) {
-    console.log(x);
+    // console.log(x);
     formElements.push(<div>Amazing</div>);
   }
 
@@ -44,12 +44,13 @@ function Tickets({ data }) {
       )}}`,
     };
     handleNext();
-    console.log(reserveID);
+
     fetch("http://localhost:8080/reserve-spot", options)
       .then((response) => response.json())
       // .then((response) => console.log(response.id))
       .then((response) => setReserveID(JSON.stringify(response.id)))
       .catch((err) => console.error(err));
+    console.log(typeof reserveID);
   }
 
   const conditionalComponent = () => {
@@ -324,7 +325,7 @@ function Tickets({ data }) {
               <h3>FILL IN CREDIT CARD INFO</h3>
               <section className="wrapper-step-4"></section>
             </section>
-            <LastStepForm reserveID={reserveID} />
+            <LastStepForm responseID={reserveID} />
             <Selections
               regularTickets={numRegular}
               vipTickets={numVIP}

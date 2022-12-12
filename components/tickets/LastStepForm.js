@@ -2,21 +2,21 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-function LastStepForm(
-  regularTickets,
-  vipTickets,
-  campingSpot,
-  greenCamping,
-  tentSetup1,
-  tentSetup2,
-  ownTent,
-  firstName,
-  lastName,
-  reserveID
-) {
-  function someFunction({ campingSpot }) {
-    console.log({ campingSpot });
-  }
+function LastStepForm({ responseID }) {
+  // function sendReservation() {
+  //   console.log(typeof { responseID });
+  //   const options = {
+  //     method: "POST",
+  //     headers: { "Content-Type": "application/json" },
+  //     body: `{"id":${responseID}}`,
+  //   };
+
+  //   fetch("http://localhost:8080/fullfill-reservation", options)
+  //     .then((response) => response.json())
+  //     .then((response) => console.log(response))
+  //     .catch((err) => console.error(err));
+
+  // }
 
   const formik = useFormik({
     initialValues: {
@@ -53,7 +53,7 @@ function LastStepForm(
     }),
 
     onSubmit: (values) => {
-      const options = {
+      const options1 = {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -75,8 +75,19 @@ function LastStepForm(
 
       fetch(
         "https://ypdhllrxtglwfvyagfdu.supabase.co/rest/v1/customerinfo",
-        options
+        options1
       )
+        .then((response) => response.json())
+        .then((response) => console.log(response))
+        .catch((err) => console.error(err));
+
+      const options2 = {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: `{"id":${responseID}}`,
+      };
+
+      fetch("http://localhost:8080/fullfill-reservation", options2)
         .then((response) => response.json())
         .then((response) => console.log(response))
         .catch((err) => console.error(err));
@@ -170,6 +181,7 @@ function LastStepForm(
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.postcode}
+            maxLength={4}
           />
           {formik.touched.postcode && formik.errors.postcode ? (
             <p className="error">{formik.errors.postcode}</p>
@@ -240,26 +252,24 @@ function LastStepForm(
           ) : null}
         </div>
 
-        <button type="submit" onClick={someFunction}>
-          Buy
-        </button>
+        <button type="submit">Buy</button>
       </form>
     </>
   );
 }
 
-function sendReservation(props) {
-  fetch("https://localhost:8080/fullfill-reservation", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: `{
-      "id": ${JSON.stringify(props.reserveID)},
-    }`,
-  })
-    .then((response) => console.log(response))
-    .catch((err) => console.error(err));
-}
+// function sendReservation() {
+//   fetch("https://localhost:8080/fullfill-reservation", {
+//     method: "POST",
+//     headers: {
+//       "Content-Type": "application/json",
+//     },
+//     body: `{
+//       "id": ${JSON.stringify({ reserveID })},
+//     }`,
+//   })
+//     .then((response) => console.log(response))
+//     .catch((err) => console.error(err));
+// }
 
 export default LastStepForm;
