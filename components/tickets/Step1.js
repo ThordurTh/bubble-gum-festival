@@ -1,5 +1,4 @@
 import React from "react";
-import Anchor from "../Anchor";
 import Heading from "./Heading";
 import Selections from "./Selections";
 import SelectTicketsForm from "./SelectTicketsForm";

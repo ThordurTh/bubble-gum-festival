@@ -1,4 +1,3 @@
-import Anchor from "../Anchor";
 import TicketCard from "./TicketCard";
 
 const ticketTypes = [

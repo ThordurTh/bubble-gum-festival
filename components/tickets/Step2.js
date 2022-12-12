@@ -1,5 +1,4 @@
 import React from "react";
-import Anchor from "../Anchor";
 import Heading2 from "./Heading2";
 import CampingOptions from "./CampingOptions";
 import Selections2 from "./Selections2";
