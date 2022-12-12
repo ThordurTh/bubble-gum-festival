@@ -22,7 +22,7 @@ function Tickets({ data }) {
   const [campSelect, setCampSelect] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
+  const [reserveID, setReserveID] = useState(null);
 
   let numberOfTickets = numRegular + numVIP;
   // console.log(numberOfTickets);
@@ -44,10 +44,11 @@ function Tickets({ data }) {
       )}}`,
     };
     handleNext();
-
+    console.log(reserveID);
     fetch("http://localhost:8080/reserve-spot", options)
       .then((response) => response.json())
-      .then((response) => console.log(response))
+      // .then((response) => console.log(response.id))
+      .then((response) => setReserveID(JSON.stringify(response.id)))
       .catch((err) => console.error(err));
   }
 
@@ -332,6 +333,7 @@ function Tickets({ data }) {
               tentSetup1={tentForTwo}
               tentSetup2={tentForThree}
               ownTent={ownTent}
+              reserveID={reserveID}
             />
           </>
         );

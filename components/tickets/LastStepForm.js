@@ -2,7 +2,22 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
-function LastStepForm(props) {
+function LastStepForm(
+  regularTickets,
+  vipTickets,
+  campingSpot,
+  greenCamping,
+  tentSetup1,
+  tentSetup2,
+  ownTent,
+  firstName,
+  lastName,
+  reserveID
+) {
+  function someFunction({ campingSpot }) {
+    console.log({ campingSpot });
+  }
+
   const formik = useFormik({
     initialValues: {
       buyerFirstName: "",
@@ -38,10 +53,36 @@ function LastStepForm(props) {
     }),
 
     onSubmit: (values) => {
-      // Here we do what we want with the values, post them to the database
+      const options = {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          apikey:
+            "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlwZGhsbHJ4dGdsd2Z2eWFnZmR1Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2NzA3Nzc1ODAsImV4cCI6MTk4NjM1MzU4MH0.eFsC2swBs_Ue_3gaotH8lxAyIwSiupUuuozfu5KDQuE",
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InlwZGhsbHJ4dGdsd2Z2eWFnZmR1Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTY3MDc3NzU4MCwiZXhwIjoxOTg2MzUzNTgwfQ.NWTxNAJ4BLntV1L3RyBdAZ1ogSVnfujKVZ_Y3ErXv4c",
+          Prefer: "return=representation",
+        },
+        body: `{
+          "buyerFirstName": ${JSON.stringify(values.buyerFirstName)},
+          "buyerLastName": ${JSON.stringify(values.buyerLastName)},
+          "buyerEmail": ${JSON.stringify(values.buyerEmail)},
+          "street": ${JSON.stringify(values.street)},
+          "city": ${JSON.stringify(values.city)},
+          "postcode": ${JSON.stringify(values.postcode)}
+        }`,
+      };
+
+      fetch(
+        "https://ypdhllrxtglwfvyagfdu.supabase.co/rest/v1/customerinfo",
+        options
+      )
+        .then((response) => response.json())
+        .then((response) => console.log(response))
+        .catch((err) => console.error(err));
     },
   });
-  console.log(formik.values);
+
   return (
     <>
       <form onSubmit={formik.handleSubmit}>
@@ -129,7 +170,6 @@ function LastStepForm(props) {
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.postcode}
-            maxLength={4}
           />
           {formik.touched.postcode && formik.errors.postcode ? (
             <p className="error">{formik.errors.postcode}</p>
@@ -145,8 +185,7 @@ function LastStepForm(props) {
             type="text"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.creditCard}
-            maxLength={16}
+            maxLength={12}
           />
           {formik.touched.creditCard && formik.errors.creditCard ? (
             <p className="error">{formik.errors.creditCard}</p>
@@ -162,7 +201,6 @@ function LastStepForm(props) {
             type="text"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.month}
             maxLength={2}
           />
           {formik.touched.month && formik.errors.month ? (
@@ -179,7 +217,6 @@ function LastStepForm(props) {
             type="text"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.year}
             maxLength={4}
           />
           {formik.touched.year && formik.errors.year ? (
@@ -196,7 +233,6 @@ function LastStepForm(props) {
             type="text"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            value={formik.values.year}
             maxLength={4}
           />
           {formik.touched.cww && formik.errors.cww ? (
@@ -204,10 +240,26 @@ function LastStepForm(props) {
           ) : null}
         </div>
 
-        <button type="submit">Buy</button>
+        <button type="submit" onClick={someFunction}>
+          Buy
+        </button>
       </form>
     </>
   );
+}
+
+function sendReservation(props) {
+  fetch("https://localhost:8080/fullfill-reservation", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: `{
+      "id": ${JSON.stringify(props.reserveID)},
+    }`,
+  })
+    .then((response) => console.log(response))
+    .catch((err) => console.error(err));
 }
 
 export default LastStepForm;
