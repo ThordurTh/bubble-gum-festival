@@ -1,5 +1,4 @@
 import React from "react";
-import Anchor from "../Anchor";
 import { nanoid } from "nanoid";
 import Lineup from "../lineup/Lineup";
 import headerImage from "../../assets/header-image.png";
