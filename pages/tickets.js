@@ -324,7 +324,7 @@ function Tickets({ data }) {
               <h3>FILL IN CREDIT CARD INFO</h3>
               <section className="wrapper-step-4"></section>
             </section>
-            <LastStepForm />
+            <LastStepForm reserveID={reserveID} />
             <Selections
               regularTickets={numRegular}
               vipTickets={numVIP}
@@ -333,7 +333,6 @@ function Tickets({ data }) {
               tentSetup1={tentForTwo}
               tentSetup2={tentForThree}
               ownTent={ownTent}
-              reserveID={reserveID}
             />
           </>
         );
