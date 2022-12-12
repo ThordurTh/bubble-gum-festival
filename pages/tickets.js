@@ -8,6 +8,7 @@ import Selections2 from "../components/tickets/Selections2";
 import Heading3 from "../components/tickets/Heading3";
 import Heading4 from "../components/tickets/Heading4";
 import LastStepForm from "../components/tickets/LastStepForm";
+import Participants from "../components/tickets/Participants";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 
@@ -30,7 +31,7 @@ function Tickets({ data }) {
 
   for (let x = 0; x < numberOfTickets; x++) {
     // console.log(x);
-    formElements.push(<div>Amazing</div>);
+    formElements.push(<Participants />);
   }
 
   function handleReservation() {
@@ -141,7 +142,7 @@ function Tickets({ data }) {
             <section className="wrapper-step-2">
               <div className="camping-options-form green-border">
                 <p>Available spots</p>
-                <form>
+                <form className="camping-spot-radio">
                   {data.map((item) => (
                     <div key={nanoid()}>
                       <label htmlFor={item.area.replaceAll(" ", "")}>
@@ -180,6 +181,10 @@ function Tickets({ data }) {
                       type="checkbox"
                       id="greencamping"
                       name="greencamping"
+                      checked={green}
+                      onChange={() => {
+                        setGreen(green);
+                      }}
                     ></input>
                     Green camping 249kr{" "}
                   </label>
@@ -235,7 +240,15 @@ function Tickets({ data }) {
                     htmlFor="owntent"
                     onChange={() => setOwnTent((prev) => !prev)}
                   >
-                    <input type="checkbox" id="owntent" name="owntent"></input>
+                    <input
+                      type="checkbox"
+                      id="owntent"
+                      name="owntent"
+                      checked={ownTent}
+                      onChange={() => {
+                        setOwnTent(ownTent);
+                      }}
+                    ></input>
                     Already have a tent
                   </label>
                 </form>
@@ -260,45 +273,7 @@ function Tickets({ data }) {
               <h3>FILL IN PERSONAL INFO</h3>
               <section className="wrapper-step-3">
                 <form>
-                  {formElements}
-                  <div className="participant-form">
-                    <div>
-                      <label htmlFor="firstName">First name</label>
-                      <input
-                        id="firstName"
-                        name="firstName"
-                        type="text"
-                        placeholder="First Name..."
-                        required
-                        pattern="[a-z A-Z]"
-                        onBlur={(e) => setFirstName(e.target.value)}
-                      />
-                    </div>
-                    <div>
-                      <label htmlFor="lastName">Last name</label>
-                      <input
-                        id="lastName"
-                        name="lastName"
-                        type="text"
-                        placeholder="Last Name..."
-                        required
-                        pattern="[a-z A-Z]"
-                        onBlur={(e) => setLastName(e.target.value)}
-                      />
-                    </div>
-
-                    <div>
-                      <label htmlFor="email">Email</label>
-                      <input
-                        id="email"
-                        name="email"
-                        type="email"
-                        placeholder="Email..."
-                        required
-                        onBlur={(e) => setEmail(e.target.value)}
-                      />
-                    </div>
-                  </div>
+                  <div className="participant-form">{formElements}</div>
                 </form>
 
                 <Selections
@@ -356,7 +331,11 @@ function Tickets({ data }) {
           Next
         </button>
       )}
-      {step === 1 && <button onClick={handleReservation}>Next</button>}
+      {step === 1 && (
+        <button disable={campSelect === ""} onClick={handleReservation}>
+          Next
+        </button>
+      )}
       {step === 2 && <button onClick={handleNext}>Next</button>}
 
       {/* {(step === 0 || step === 1 || step === 2) && (
