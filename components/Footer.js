@@ -1,10 +1,15 @@
 import React from "react";
 import Anchor from "./Anchor";
+import Image from "next/image";
+import facebook from "../assets/facebook.png";
+import instagram from "../assets/instagram.png";
+import twitter from "../assets/twitter.png";
+import spotify from "../assets/spotify.png";
 
 function Footer() {
   return (
     <footer>
-      <div>
+      <nav className="footer-nav">
         <ul>
           <li>
             <Anchor href="inprogress">CONTACT</Anchor>
@@ -19,23 +24,31 @@ function Footer() {
             <Anchor href="inprogress">TERMS</Anchor>
           </li>
         </ul>
-      </div>
-      <div className="socials">
+      </nav>
+      <nav className="socials">
         <ul>
           <li>
-            <Anchor href="">Insta</Anchor>
+            <Anchor href="">
+              <Image className="social-icon" src={facebook}></Image>
+            </Anchor>
           </li>
           <li>
-            <Anchor href="">fb</Anchor>
+            <Anchor href="">
+              <Image className="social-icon" src={instagram}></Image>
+            </Anchor>
           </li>
           <li>
-            <Anchor href="">twitter</Anchor>
+            <Anchor href="">
+              <Image className="social-icon" src={twitter}></Image>
+            </Anchor>
           </li>
           <li>
-            <Anchor href="">spotify</Anchor>
+            <Anchor href="">
+              <Image className="social-icon" src={spotify}></Image>
+            </Anchor>
           </li>
         </ul>
-      </div>
+      </nav>
     </footer>
   );
 }

@@ -16,7 +16,7 @@ export default function Header() {
   };
 
   return (
-    <nav>
+    <nav className="main-nav">
       <Anchor className="logo" href="/">
         <Image src={logo} alt="logo"></Image>
       </Anchor>
