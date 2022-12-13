@@ -35,16 +35,18 @@ const infocards = [
 ];
 function CampsSection() {
   return (
-    <section>
+    <div className="margin">
       <h1>CAMPS INFO</h1>
-      {infocards.map((item) => (
-        <CampsCard
-          key={item.key}
-          infotitle={item.infotitle}
-          infotext={item.infotext}
-        />
-      ))}
-    </section>
+      <section className="info-cards">
+        {infocards.map((item) => (
+          <CampsCard
+            key={item.key}
+            infotitle={item.infotitle}
+            infotext={item.infotext}
+          />
+        ))}
+      </section>
+    </div>
   );
 }
 

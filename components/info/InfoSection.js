@@ -2,7 +2,7 @@ import React from "react";
 
 function InfoSection() {
   return (
-    <section>
+    <section className="info-section">
       <h1>BUBBLEGUM FESTIVAL INFO</h1>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam nisl
