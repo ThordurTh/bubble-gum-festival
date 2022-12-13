@@ -29,22 +29,38 @@ function Footer() {
         <ul>
           <li>
             <Anchor href="">
-              <Image className="social-icon" src={facebook}></Image>
+              <Image
+                className="social-icon"
+                alt="facebook icon"
+                src={facebook}
+              ></Image>
             </Anchor>
           </li>
           <li>
             <Anchor href="">
-              <Image className="social-icon" src={instagram}></Image>
+              <Image
+                className="social-icon"
+                alt="instagram icon"
+                src={instagram}
+              ></Image>
             </Anchor>
           </li>
           <li>
             <Anchor href="">
-              <Image className="social-icon" src={twitter}></Image>
+              <Image
+                className="social-icon"
+                alt="twitter icon"
+                src={twitter}
+              ></Image>
             </Anchor>
           </li>
           <li>
             <Anchor href="">
-              <Image className="social-icon" src={spotify}></Image>
+              <Image
+                className="social-icon"
+                alt="spotify icon"
+                src={spotify}
+              ></Image>
             </Anchor>
           </li>
         </ul>

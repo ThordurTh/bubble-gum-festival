@@ -1,9 +1,16 @@
-import React from "react";
 import { nanoid } from "nanoid";
 import Lineup from "../lineup/Lineup";
 import headerImage from "../../assets/header-image.png";
 import Image from "next/image";
 import BackgroundLines from "../BackgroundLines";
+// import Countdown from "react-countdown";
+import Countdown from "./Countdown";
+
+// console.log(Date.parse("04 Jul 2023 00:12:00 GMT"));
+// const date1 = new Date();
+// const date2 = new Date("7/4/2023");
+// const diffTime = Math.abs(date2 - date1);
+// console.log(diffTime);
 
 export default function WelcomeSection({ data }) {
   return (
@@ -16,7 +23,13 @@ export default function WelcomeSection({ data }) {
           <Lineup key={nanoid()} name={item.name} />
         ))}
       </ul>
-      <div className="countdown">123d9h34m22s</div>
+      <section className="countdown-wrapper">
+        {/* <Countdown seconds={Date.parse("04 Jul 2023 00:12:00 GMT") / 100000} /> */}
+        {/* <Countdown seconds={date / 1000} /> */}
+        <Countdown
+          seconds={Math.abs(new Date("7/4/2023") - new Date()) / 1000}
+        />
+      </section>
     </section>
   );
 }

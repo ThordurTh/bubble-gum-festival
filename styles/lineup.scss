@@ -22,6 +22,13 @@
     .lineup {
       opacity: 0.95;
       border-radius: var(--basic-border-radius);
+      background: linear-gradient(
+        180deg,
+        rgba(248, 44, 153, 0.9) 0%,
+        rgba(48, 213, 200, 0.9) 100%
+      );
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       @media screen and (min-width: 1080px) {
         border: var(--basic-border);
         padding: 3rem;
@@ -39,13 +46,6 @@
   font-weight: 600;
   padding: 1rem 1rem 2rem;
   line-height: 1.2;
-  background: linear-gradient(
-    180deg,
-    rgba(248, 44, 153, 0.9) 0%,
-    rgba(48, 213, 200, 0.9) 100%
-  );
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
 
   @media screen and (min-width: 1080px) {
     width: 100%;
