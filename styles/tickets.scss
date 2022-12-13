@@ -93,3 +93,15 @@ input[type="text"] {
 .credit-card {
   color: blue;
 }
+
+.wrapper-step-3 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1rem;
+  .participant-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    padding: 1rem;
+  }
+}

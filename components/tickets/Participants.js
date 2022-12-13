@@ -1,9 +1,11 @@
 import React from "react";
-import { nanoid } from "nanoid";
 
-function Participants() {
+function Participants({ setFirstName, setLastName, setEmail, firstName }) {
+  const changeHandler = (e) => {
+    setFirstName(e.target.value);
+  };
   return (
-    <div key={nanoid}>
+    <>
       <div>
         <label htmlFor="firstName">First name</label>
         <input
@@ -12,35 +14,37 @@ function Participants() {
           type="text"
           placeholder="First Name..."
           required
-          pattern="[a-z A-Z]"
-          onBlur={(e) => setFirstName(e.target.value)}
+          onChange={changeHandler}
+          // value={firstName}
         />
-        <div>
-          <label htmlFor="lastName">Last name</label>
-          <input
-            id="lastName"
-            name="lastName"
-            type="text"
-            placeholder="Last Name..."
-            required
-            pattern="[a-z A-Z]"
-            onBlur={(e) => setLastName(e.target.value)}
-          />
-        </div>
-
-        <div>
-          <label htmlFor="email">Email</label>
-          <input
-            id="email"
-            name="email"
-            type="email"
-            placeholder="Email..."
-            required
-            onBlur={(e) => setEmail(e.target.value)}
-          />
-        </div>
       </div>
-    </div>
+      <div>
+        <label htmlFor="lastName">Last name</label>
+        <input
+          id="lastName"
+          name="lastName"
+          type="text"
+          placeholder="Last Name..."
+          required
+          onChange={(e) => setLastName(e.target.value)}
+          // onBlur={}
+          // value={lastName}
+        />
+      </div>
+      <div>
+        <label htmlFor="email">Email</label>
+        <input
+          id="email"
+          name="email"
+          type="text"
+          placeholder="email..."
+          required
+          onChange={(e) => setEmail(e.target.value)}
+          // onBlur={}
+          // value={email}
+        />
+      </div>
+    </>
   );
 }
 

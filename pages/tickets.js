@@ -23,15 +23,40 @@ function Tickets({ data }) {
   const [campSelect, setCampSelect] = useState("");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
   const [reserveID, setReserveID] = useState("");
 
   let numberOfTickets = numRegular + numVIP;
   // console.log(numberOfTickets);
   const formElements = [];
 
-  for (let x = 0; x < numberOfTickets; x++) {
+  for (let x = 0; x < numRegular; x++) {
     // console.log(x);
-    formElements.push(<Participants />);
+    formElements.push(
+      <div key={nanoid()} className="participant">
+        <h3>REG</h3>
+        <Participants
+          setFirstName={setFirstName}
+          firstName={firstName}
+          setLastName={setLastName}
+          setEmail={setEmail}
+        />
+      </div>
+    );
+  }
+  for (let x = 0; x < numVIP; x++) {
+    // console.log(x);
+    formElements.push(
+      <div key={nanoid()} className="participant">
+        <h3>VIP</h3>
+        <Participants
+          setFirstName={setFirstName}
+          firstName={firstName}
+          setLastName={setLastName}
+          setEmail={setEmail}
+        />
+      </div>
+    );
   }
 
   function handleReservation() {
@@ -272,8 +297,8 @@ function Tickets({ data }) {
               <Heading3 />
               <h3>FILL IN PERSONAL INFO</h3>
               <section className="wrapper-step-3">
-                <form>
-                  <div className="participant-form">{formElements}</div>
+                <form className="participant-form green-border">
+                  {formElements}
                 </form>
 
                 <Selections
@@ -284,8 +309,6 @@ function Tickets({ data }) {
                   tentSetup1={tentForTwo}
                   tentSetup2={tentForThree}
                   ownTent={ownTent}
-                  firstName={firstName}
-                  lastName={lastName}
                 />
               </section>
             </section>
@@ -309,6 +332,9 @@ function Tickets({ data }) {
               tentSetup1={tentForTwo}
               tentSetup2={tentForThree}
               ownTent={ownTent}
+              firstName={firstName}
+              lastName={lastName}
+              email={email}
             />
           </>
         );
@@ -318,9 +344,9 @@ function Tickets({ data }) {
     setStep(step + 1);
   }
 
-  function handleSubmit() {
-    console.log("SUCCESS");
-  }
+  // function handleSubmit() {
+  //   console.log("SUCCESS");
+  // }
   return (
     <>
       {conditionalComponent()}
@@ -332,7 +358,7 @@ function Tickets({ data }) {
         </button>
       )}
       {step === 1 && (
-        <button disable={campSelect === ""} onClick={handleReservation}>
+        <button disabled={campSelect === ""} onClick={handleReservation}>
           Next
         </button>
       )}
@@ -343,7 +369,7 @@ function Tickets({ data }) {
           Next
         </button>
       )} */}
-      {step === 3 && <button onClick={handleSubmit}>Submit</button>}
+      {/* {step === 3 && <button onClick={handleSubmit}>Submit</button>} */}
     </>
   );
 }
