@@ -4,9 +4,11 @@ import maps from "../../assets/map.webp";
 
 function Map() {
   return (
-    <section>
+    <section className="map-section">
       <h1>MAP</h1>
-      <Image src={maps} alt="map"></Image>
+      <div className="map">
+        <Image src={maps} alt="map"></Image>
+      </div>
     </section>
   );
 }
