@@ -11,6 +11,7 @@ import LastStepForm from "../components/tickets/LastStepForm";
 import Participants from "../components/tickets/Participants";
 import { useState } from "react";
 import { nanoid } from "nanoid";
+import clone from "just-clone";
 
 function Tickets({ data }) {
   const [numRegular, setNumRegular] = useState(0);
@@ -21,10 +22,12 @@ function Tickets({ data }) {
   const [green, setGreen] = useState(false);
   const [ownTent, setOwnTent] = useState(false);
   const [campSelect, setCampSelect] = useState("");
-  const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
   const [reserveID, setReserveID] = useState("");
+
+  const [participantsFullName, setParticipantsFullName] = useState({});
+  const [participantsEmail, setParticipantsEmail] = useState({});
+
+  // console.log(participantsFirstName["participantFirstName1"]["firstName"]);
 
   let numberOfTickets = numRegular + numVIP;
   // console.log(numberOfTickets);
@@ -33,13 +36,17 @@ function Tickets({ data }) {
   for (let x = 0; x < numRegular; x++) {
     // console.log(x);
     formElements.push(
-      <div key={nanoid()} className="participant">
+      <div className="participant">
         <h3>REG</h3>
         <Participants
-          setFirstName={setFirstName}
-          firstName={firstName}
-          setLastName={setLastName}
-          setEmail={setEmail}
+          updateStateFullName={updateStateFullName}
+          participantFullName={`participantFullName${x}`}
+          participantsFullName={participantsFullName}
+          fullName={`fullName${x}`}
+          updateStateEmail={updateStateEmail}
+          participantEmail={`participantEmail${x}`}
+          participantsEmail={participantsEmail}
+          email={`email${x}`}
         />
       </div>
     );
@@ -47,16 +54,38 @@ function Tickets({ data }) {
   for (let x = 0; x < numVIP; x++) {
     // console.log(x);
     formElements.push(
-      <div key={nanoid()} className="participant">
+      <div className="participant">
         <h3>VIP</h3>
         <Participants
-          setFirstName={setFirstName}
-          firstName={firstName}
-          setLastName={setLastName}
-          setEmail={setEmail}
+          updateStateFullName={updateStateFullName}
+          participantFullName={`participantFullName${x + 2}`}
+          participantsFullName={participantsFullName}
+          fullName={`fullName${x + 2}`}
+          updateStateEmail={updateStateEmail}
+          participantEmail={`participantEmail${x + 2}`}
+          participantsEmail={participantsEmail}
+          email={`email${x + 2}`}
         />
       </div>
     );
+  }
+
+  function updateStateFullName(participantFullName, fullName, value) {
+    setParticipantsFullName((old) => {
+      const copy = clone(old);
+      copy[participantFullName] = {};
+      copy[participantFullName][fullName] = value;
+      return copy;
+    });
+  }
+
+  function updateStateEmail(participantEmail, email, value) {
+    setParticipantsEmail((old) => {
+      const copy = clone(old);
+      copy[participantEmail] = {};
+      copy[participantEmail][email] = value;
+      return copy;
+    });
   }
 
   function handleReservation() {
@@ -299,6 +328,16 @@ function Tickets({ data }) {
               <section className="wrapper-step-3">
                 <form className="participant-form green-border">
                   {formElements}
+                  {/* <Participants
+                    updateStateFullName={updateStateFullName}
+                    participantFullName="participantFullName1"
+                    participantsFullName={participantsFullName}
+                    fullName="fullName"
+                    updateStateEmail={updateStateEmail}
+                    participantEmail="participantEmail1"
+                    participantsEmail={participantsEmail}
+                    email="email"
+                  /> */}
                 </form>
 
                 <Selections
@@ -332,9 +371,6 @@ function Tickets({ data }) {
               tentSetup1={tentForTwo}
               tentSetup2={tentForThree}
               ownTent={ownTent}
-              firstName={firstName}
-              lastName={lastName}
-              email={email}
             />
           </>
         );

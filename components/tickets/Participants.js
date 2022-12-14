@@ -1,49 +1,42 @@
 import React from "react";
-
-function Participants({ setFirstName, setLastName, setEmail, firstName }) {
-  const changeHandler = (e) => {
-    setFirstName(e.target.value);
-  };
+import { useState } from "react";
+function Participants(props) {
   return (
     <>
-      <div>
-        <label htmlFor="firstName">First name</label>
-        <input
-          id="firstName"
-          name="firstName"
-          type="text"
-          placeholder="First Name..."
-          required
-          onChange={changeHandler}
-          // value={firstName}
-        />
-      </div>
-      <div>
-        <label htmlFor="lastName">Last name</label>
-        <input
-          id="lastName"
-          name="lastName"
-          type="text"
-          placeholder="Last Name..."
-          required
-          onChange={(e) => setLastName(e.target.value)}
-          // onBlur={}
-          // value={lastName}
-        />
-      </div>
-      <div>
-        <label htmlFor="email">Email</label>
-        <input
-          id="email"
-          name="email"
-          type="text"
-          placeholder="email..."
-          required
-          onChange={(e) => setEmail(e.target.value)}
-          // onBlur={}
-          // value={email}
-        />
-      </div>
+      <label>Full Name</label>
+      <input
+        id={props.fullName}
+        name={props.fullName}
+        type="text"
+        placeholder="Full Name..."
+        value={
+          props.participantsFullName[props.participantFullName[props.fullName]]
+        }
+        onChange={(e) =>
+          props.updateStateFullName(
+            props.participantFullName,
+            props.fullName,
+            e.target.value
+          )
+        }
+      />
+      <br />
+      <label>Email</label>
+      <br />
+      <input
+        id="email"
+        name={props.email}
+        type="text"
+        placeholder="Email..."
+        value={props.participantsEmail[props.participantEmail[props.email]]}
+        onChange={(e) =>
+          props.updateStateEmail(
+            props.participantEmail,
+            props.email,
+            e.target.value
+          )
+        }
+      />
     </>
   );
 }

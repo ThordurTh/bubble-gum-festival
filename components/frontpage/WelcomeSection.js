@@ -16,7 +16,11 @@ export default function WelcomeSection({ data }) {
   return (
     <section className="welcome-section">
       <BackgroundLines />
-      <Image src={headerImage} className="header-image"></Image>
+      <Image
+        src={headerImage}
+        className="header-image"
+        alt="image of a stage and crowd"
+      ></Image>
       <h1>BUBBLE GUM FESTIVAL 2023</h1>
       <ul className="lineup">
         {data.slice(0, 14).map((item) => (
@@ -26,9 +30,9 @@ export default function WelcomeSection({ data }) {
       <section className="countdown-wrapper">
         {/* <Countdown seconds={Date.parse("04 Jul 2023 00:12:00 GMT") / 100000} /> */}
         {/* <Countdown seconds={date / 1000} /> */}
-        <Countdown
+        {/* <Countdown
           seconds={Math.abs(new Date("7/4/2023") - new Date()) / 1000}
-        />
+        /> */}
       </section>
     </section>
   );
