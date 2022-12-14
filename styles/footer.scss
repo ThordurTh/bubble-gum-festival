@@ -10,8 +10,8 @@ footer {
       flex-direction: column;
       align-items: center;
       gap: 1rem;
-      padding: 2rem 0 1rem;
-      font-size: calc(18px + 0.390625vw);
+      padding: 1rem 0 1rem;
+      // font-size: calc(18px + 0.390625vw);
       color: var(--accent-violet);
       @media screen and (min-width: 1080px) {
         flex-direction: row;
@@ -26,7 +26,7 @@ footer {
       justify-content: space-around;
       padding: 2.3rem 0 0;
       .social-icon {
-        width: 100%;
+        width: 32px;
         height: auto;
       }
       @media screen and (min-width: 1080px) {

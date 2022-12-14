@@ -15,7 +15,7 @@
   .filtering {
     display: flex;
     gap: 1rem;
-    justify-content: space-between;
+    justify-content: space-evenly;
     //   margin: 1rem;
     flex-wrap: wrap;
     width: 100%;
@@ -29,6 +29,8 @@
       color: white;
       text-transform: capitalize;
       font-size: calc(15px + 0.390625vw);
+      width: 10rem;
+      text-align: center;
     }
     .active {
       background-color: var(--accent-teal);
