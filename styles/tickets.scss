@@ -193,3 +193,21 @@ input[type="text"] {
     padding: 1rem;
   }
 }
+
+.modal {
+  display: none;
+  visibility: hidden;
+  pointer-events: none;
+  width: 1000px;
+  height: 750px;
+  background-color: var(--font-color);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+
+.modal-show {
+  display: flex;
+  visibility: initial;
+  pointer-events: initial;
+}

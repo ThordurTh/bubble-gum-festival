@@ -70,6 +70,15 @@ function Tickets({ data }) {
     );
   }
 
+  // const test5Arr = [];
+
+  // for (let x = 0; x < 4; x++) {
+  //   test5Arr.push(
+  //     `participantsFullName[participantFullName${x}][fullName${x}]`
+  //   );
+  //   console.log(test5Arr);
+  // }
+
   function updateStateFullName(participantFullName, fullName, value) {
     setParticipantsFullName((old) => {
       const copy = clone(old);
@@ -377,6 +386,30 @@ function Tickets({ data }) {
               tentSetup1={tentForTwo}
               tentSetup2={tentForThree}
               ownTent={ownTent}
+              participantsFullName0={
+                participantsFullName["participantFullName0"]["fullName0"]
+              }
+              participantsFullName1={
+                participantsFullName["participantFullName1"]["fullName1"]
+              }
+              participantsFullName2={
+                participantsFullName["participantFullName2"]["fullName2"]
+              }
+              participantsFullName3={
+                participantsFullName["participantFullName3"]["fullName3"]
+              }
+              participantsEmail0={
+                participantsEmail["participantEmail0"]["email0"]
+              }
+              participantsEmail1={
+                participantsEmail["participantEmail1"]["email1"]
+              }
+              participantsEmail2={
+                participantsEmail["participantEmail2"]["email2"]
+              }
+              participantsEmail3={
+                participantsEmail["participantEmail3"]["email3"]
+              }
             />
           </>
         );

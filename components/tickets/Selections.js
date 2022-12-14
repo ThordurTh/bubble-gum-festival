@@ -8,15 +8,52 @@ function Selections({
   tentSetup1,
   tentSetup2,
   ownTent,
+  participantsFullName0,
+  participantsFullName1,
+  participantsFullName2,
+  participantsFullName3,
+  participantsEmail0,
+  participantsEmail1,
+  participantsEmail2,
+  participantsEmail3,
 }) {
   return (
+    // participantsFullName.participantFullName0.fullName0
+    // participantsFullName[participantFullName0]
     <section className="summary green-border">
       <h3>SUMMARY</h3>
-      <h4>Participants</h4>
       {
-        <ul className="participants-details">
-          <li>First Name:</li>
-        </ul>
+        <>
+          <div className="participants-details">
+            {participantsFullName0 !== undefined && (
+              <>
+                <h4>Participants</h4>
+                <ul>
+                  <li>Full Name: {participantsFullName0}</li>
+                  <li>Email: {participantsEmail0}</li>
+                </ul>
+              </>
+            )}
+            {participantsFullName1 !== undefined && (
+              <ul>
+                <li>Full Name: {participantsFullName1}</li>
+                <li>Email: {participantsEmail1}</li>
+              </ul>
+            )}
+            {participantsFullName2 !== undefined && (
+              <ul>
+                <li>Full Name: {participantsFullName2}</li>
+                <li>Email: {participantsEmail2}</li>
+              </ul>
+            )}
+            {participantsFullName3 !== undefined && (
+              <ul>
+                <li>Full Name: {participantsFullName3}</li>
+                <li>Email: {participantsEmail3}</li>
+              </ul>
+            )}
+          </div>
+        </>
       }
       <ul>
         {campingSpot !== "" && <li>Camping spot: {campingSpot}</li>}

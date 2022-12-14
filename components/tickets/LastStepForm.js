@@ -1,22 +1,13 @@
-import React from "react";
+import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 
 function LastStepForm({ responseID }) {
-  // function sendReservation() {
-  //   console.log(typeof { responseID });
-  //   const options = {
-  //     method: "POST",
-  //     headers: { "Content-Type": "application/json" },
-  //     body: `{"id":${responseID}}`,
-  //   };
+  const [showModal, setShowModal] = useState(false);
 
-  //   fetch("http://localhost:8080/fullfill-reservation", options)
-  //     .then((response) => response.json())
-  //     .then((response) => console.log(response))
-  //     .catch((err) => console.error(err));
-
-  // }
+  const handleClick = () => {
+    setShowModal(true);
+  };
 
   const formik = useFormik({
     initialValues: {
@@ -251,25 +242,16 @@ function LastStepForm({ responseID }) {
             <p className="error">{formik.errors.cww}</p>
           ) : null}
         </div>
-
-        <button type="submit">Buy</button>
+        <div className={`modal ${showModal ? " modal-show" : " "}`}>
+          Modal
+          <li>{responseID.slice(1, -2)}</li>
+        </div>
+        <button type="submit" onClick={handleClick}>
+          Buy
+        </button>
       </form>
     </>
   );
 }
-
-// function sendReservation() {
-//   fetch("https://localhost:8080/fullfill-reservation", {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: `{
-//       "id": ${JSON.stringify({ reserveID })},
-//     }`,
-//   })
-//     .then((response) => console.log(response))
-//     .catch((err) => console.error(err));
-// }
 
 export default LastStepForm;
