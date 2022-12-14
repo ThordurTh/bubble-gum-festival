@@ -115,28 +115,32 @@ function Tickets({ data }) {
           <>
             <section className="step-1">
               <Heading></Heading>
-              <h3>SELECT TICKET TYPES</h3>
+              <h3 className="underline tickets-h3">SELECT TICKET TYPES</h3>
               <section className="wrapper-step-1">
                 {/* SELECTING TICKETS */}
                 <div className="reg-ticket green-border">
-                  <div>
+                  <div className="tickets-wrapper-boxes">
                     <h3>REG</h3>
                     <ul>
-                      <li>Info about the Regular Ticket type</li>
-                      <li>More info about the Regular Ticket type</li>
+                      <li>Regular access to the Festival</li>
+                      <li>
+                        Regular access to Festival aminites and other facilities
+                      </li>
                     </ul>
-                    <span>799</span>
+                    <span>PRICE: 799,-</span>
                   </div>
 
-                  <div>
+                  <div className="tickets-buttons-wrapper">
                     <button
+                      className="tickets-ticket-buttons"
                       disabled={numRegular === 0}
                       onClick={() => setNumRegular((old) => old - 1)}
                     >
                       -
                     </button>
-                    {numRegular}
+                    <div>{numRegular}</div>
                     <button
+                      className="tickets-ticket-buttons"
                       disabled={numRegular + numVIP > 3}
                       onClick={() => setNumRegular((old) => old + 1)}
                     >
@@ -145,7 +149,7 @@ function Tickets({ data }) {
                   </div>
                 </div>
                 <div className="vip-ticket green-border">
-                  <div>
+                  <div className="tickets-wrapper-boxes">
                     <h3>VIP</h3>
                     <ul>
                       <li>Info about the VIP Ticket type</li>
@@ -155,18 +159,20 @@ function Tickets({ data }) {
                         pass or some shit
                       </li>
                     </ul>
-                    <span>1299</span>
+                    <span>PRICE: 1299,-</span>
                   </div>
 
-                  <div>
+                  <div className="tickets-buttons-wrapper">
                     <button
+                      className="tickets-ticket-buttons"
                       disabled={numVIP === 0}
                       onClick={() => setNumVIP((old) => old - 1)}
                     >
                       -
                     </button>
-                    {numVIP}
+                    <div>{numVIP}</div>
                     <button
+                      className="tickets-ticket-buttons"
                       disabled={numVIP + numRegular > 3}
                       onClick={() => setNumVIP((old) => old + 1)}
                     >
@@ -192,7 +198,7 @@ function Tickets({ data }) {
         return (
           <section className="step-2">
             <Heading2 />
-            <h3>SELECT CAMPING OPTIONS</h3>
+            <h3 className="underline tickets-h3">SELECT CAMPING OPTIONS</h3>
             <section className="wrapper-step-2">
               <div className="camping-options-form green-border">
                 <p>Available spots</p>
@@ -324,7 +330,7 @@ function Tickets({ data }) {
           <>
             <section className="step-3">
               <Heading3 />
-              <h3>FILL IN PERSONAL INFO</h3>
+              <h3 className="underline tickets-h3">FILL IN PERSONAL INFO</h3>
               <section className="wrapper-step-3">
                 <form className="participant-form green-border">
                   {formElements}
@@ -359,7 +365,7 @@ function Tickets({ data }) {
           <>
             <section className="step-4">
               <Heading4 />
-              <h3>FILL IN CREDIT CARD INFO</h3>
+              <h3 className="underline tickets-h3">FILL IN CREDIT CARD INFO</h3>
               <section className="wrapper-step-4"></section>
             </section>
             <LastStepForm responseID={reserveID} />

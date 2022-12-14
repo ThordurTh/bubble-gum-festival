@@ -1,3 +1,4 @@
+// GENERAL STYLING FOR THE TICKETS PAGE
 .green-border {
   border: var(--basic-border);
   border-radius: var(--basic-border-radius);
@@ -6,12 +7,22 @@
 .step-bar {
   width: 100%;
   height: auto;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
+.underline {
+  border-bottom: 6px solid var(--accent-lavender);
+  display: inline;
+  margin: 1rem;
+}
+
+// STEP 1/4 STYLING
 .wrapper-step-1 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 1rem;
+  margin-top: 3rem;
   .reg-ticket {
     grid-column: 1/2;
     grid-row: 1/2;
@@ -28,6 +39,83 @@
     padding: 1rem;
   }
 }
+
+.heading {
+  margin-bottom: 2rem;
+}
+
+.step-1 {
+  padding: 2rem;
+}
+
+.tickets-wrapper-boxes {
+  display: grid;
+  grid-template-columns: 1fr;
+  ul {
+    display: grid;
+    gap: 1rem;
+  }
+  span {
+    font-size: 1.5rem;
+  }
+}
+button:disabled {
+  border: none;
+}
+
+button:enabled {
+  border: none;
+}
+.tickets-buttons-wrapper {
+  margin: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.8rem;
+  div {
+    background-color: var(--accent-hotpink);
+    border-radius: 10px;
+    font-size: 1.7rem;
+    color: var(--main-font);
+    width: 45px;
+    height: 45px;
+    text-align: center;
+  }
+  .tickets-ticket-buttons {
+    background-color: var(--tickets-button);
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    font-size: 2rem;
+    color: var(--main-font);
+  }
+  .tickets-ticket-buttons:active {
+    filter: brightness(120%);
+  }
+  .tickets-ticket-buttons:hover {
+    filter: brightness(120%);
+  }
+}
+
+@media (max-width: 768px) {
+  .wrapper-step-1 {
+    grid-template-columns: 1fr;
+    .summary {
+      grid-column: 1;
+      grid-row: 3/3;
+    }
+  }
+  .tickets-h2 {
+    font-size: 3rem;
+  }
+  .tickets-h3 {
+    font-size: 1.75rem;
+  }
+  .underline {
+    margin: 0;
+  }
+}
+
 .wrapper-step-2 {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;

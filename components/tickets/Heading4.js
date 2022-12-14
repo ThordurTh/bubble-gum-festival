@@ -5,7 +5,7 @@ import Image from "next/image";
 function Heading4() {
   return (
     <>
-      <h2>TICKETS</h2>
+      <h2 className="underline tickets-h2">TICKETS</h2>
       <Image src={progressbar4} alt="progressbar4"></Image>
     </>
   );

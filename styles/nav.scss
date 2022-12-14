@@ -2,6 +2,8 @@
 
 .main-nav {
   position: relative;
+  margin-top: 1rem;
+  margin-right: 1rem;
   @media screen and (min-width: 1080px) {
     display: flex;
     flex-direction: row;
