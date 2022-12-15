@@ -1,7 +1,7 @@
 import React from "react";
-import CampsSection from "../components/info/CampsSection";
-import InfoSection from "../components/info/InfoSection";
-import Map from "../components/info/Map";
+import CampsSection from "../Components/info/CampsSection";
+import InfoSection from "../Components/info/InfoSection";
+import Map from "../Components/info/Map";
 function info() {
   return (
     <>

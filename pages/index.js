@@ -1,9 +1,9 @@
 import Head from "next/head";
 import Image from "next/image";
-import WelcomeSection from "../components/frontpage/WelcomeSection";
-import TicketSection from "../components/frontpage/TicketSection";
-import NewsSection from "../components/frontpage/NewsSection";
-import Lineup from "../components/lineup/Lineup";
+import WelcomeSection from "../Components/frontpage/WelcomeSection";
+import TicketSection from "../Components/frontpage/TicketSection";
+import NewsSection from "../Components/frontpage/NewsSection";
+import Lineup from "../Components/lineup/Lineup";
 import { nanoid } from "nanoid";
 
 export default function Home({ data }) {

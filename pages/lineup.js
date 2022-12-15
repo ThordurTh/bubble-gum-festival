@@ -1,6 +1,6 @@
-import Lineup from "../components/lineup/Lineup";
+import Lineup from "../Components/lineup/Lineup";
 import { nanoid } from "nanoid";
-import BackgroundLines from "../components/BackgroundLines";
+import BackgroundLines from "../Components/BackgroundLines";
 
 export default function lineup({ data }) {
   return (

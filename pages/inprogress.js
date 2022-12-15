@@ -1,5 +1,5 @@
 import React from "react";
-import ComingSoon from "../components/inprogress/ComingSoon";
+import ComingSoon from "../Components/inprogress/ComingSoon";
 
 function inprogress() {
   return (
