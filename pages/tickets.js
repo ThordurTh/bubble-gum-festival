@@ -309,6 +309,7 @@ function Tickets({ data }) {
                       id="owntent"
                       name="owntent"
                       checked={ownTent}
+                      disabled={tentForTwo > 0 || tentForThree > 0}
                       onChange={() => {
                         setOwnTent(ownTent);
                       }}

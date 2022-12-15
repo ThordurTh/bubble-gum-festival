@@ -4,6 +4,7 @@ import headerImage from "../../assets/header-image.png";
 import Image from "next/image";
 import BackgroundLines from "../BackgroundLines";
 import Countdown from "./Countdown";
+import Anchor from "../Anchor";
 
 // console.log(Date.parse("04 Jul 2023 00:12:00 GMT"));
 // const date1 = new Date();
@@ -26,6 +27,9 @@ export default function WelcomeSection({ data }) {
           <Lineup key={nanoid()} name={item.name} />
         ))}
       </ul>
+      <div className="book-now-front">
+        <Anchor href="/tickets">Book Now</Anchor>
+      </div>
       <section className="countdown-wrapper">
         {/* <Countdown seconds={Date.parse("04 Jul 2023 00:12:00 GMT") / 100000} /> */}
         {/* <Countdown seconds={date / 1000} /> */}
