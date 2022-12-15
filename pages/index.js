@@ -10,9 +10,11 @@ export default function Home({ data }) {
   // console.log(typeof data);
   return (
     <>
-      <WelcomeSection data={data} />
-      <TicketSection />
-      <NewsSection />
+      <div className="front-wrapper">
+        <WelcomeSection data={data} />
+        <TicketSection />
+        <NewsSection />
+      </div>
     </>
   );
 }

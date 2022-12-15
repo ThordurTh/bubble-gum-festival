@@ -1,18 +1,18 @@
 import TicketCard from "./TicketCard";
-
+import BackgroundLines from "../BackgroundLines";
 const ticketTypes = [
   {
     key: 1,
     type: "REG",
-    li1: "some text and benefits",
+    li1: "Entry to all stages",
     li2: "other stuff",
     price: "999kr",
   },
   {
     key: 2,
     type: "VIP",
-    li1: "some text and more benefits",
-    li2: "even more stuff",
+    li1: "Exclusive discounts",
+    li2: "Entry to the front row",
     price: "1199kr",
   },
 ];
@@ -20,8 +20,8 @@ const ticketTypes = [
 function TicketSection() {
   return (
     <section className="ticket-section">
-      <h2>Tickets</h2>
-      <div>
+      <h2 className="underline">Tickets</h2>
+      <div className="ticket-cards">
         {ticketTypes.map((item) => (
           <TicketCard
             key={item.key}

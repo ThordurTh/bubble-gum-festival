@@ -1,6 +1,8 @@
 import "../styles/globals.scss";
 import "../styles/nav.scss";
 import "../styles/welcomeSection.scss";
+import "../styles/ticketSection.scss";
+import "../styles/newsSection.scss";
 import "../styles/tickets.scss";
 import "../styles/lineup.scss";
 import "../styles/info.scss";
