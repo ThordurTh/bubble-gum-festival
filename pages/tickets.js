@@ -5,6 +5,7 @@ import Heading3 from "../components/tickets/Heading3";
 import Heading4 from "../components/tickets/Heading4";
 import LastStepForm from "../components/tickets/LastStepForm";
 import Participants from "../components/tickets/Participants";
+import BackgroundLines from "../components/BackgroundLines";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 import clone from "just-clone";
@@ -118,8 +119,10 @@ function Tickets({ data }) {
       case 0:
         return (
           <>
+            <BackgroundLines></BackgroundLines>
             <section className="step-1">
               <Heading></Heading>
+
               <h3 className="underline tickets-h3">SELECT TICKET TYPES</h3>
               <section className="wrapper-step-1">
                 {/* SELECTING TICKETS */}
