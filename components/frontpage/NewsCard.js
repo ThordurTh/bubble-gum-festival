@@ -3,12 +3,14 @@ import Image from "next/image";
 
 function NewsCard(props) {
   return (
-    <div>
-      <Image src="" alt="something"></Image>
-      <h3>{props.heading}</h3>
-      <p>{props.paragraph}</p>
-      <div className="buy-now">
-        <Anchor href="/ticketflow">Read &#10132;</Anchor>
+    <div className="news-card">
+      <Image src={props.image} alt="something"></Image>
+      <div className="news-content">
+        <h3>{props.heading}</h3>
+        <p>{props.paragraph}</p>
+        <div className="buy-now">
+          <Anchor href="/ticketflow">&#10132;</Anchor>
+        </div>
       </div>
     </div>
   );
