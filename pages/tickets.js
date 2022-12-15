@@ -227,10 +227,7 @@ function Tickets({ data }) {
                       <span>{item.available}</span>
                     </div>
                   ))}
-                  <p>
-                    When booking there is a flat fee of 99 ,- for camping, only
-                    paid once per purchase
-                  </p>
+
                   {/* IMAGE OF MAP */}
                 </form>
               </div>
