@@ -21,6 +21,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 3rem;
+  justify-content: center;
   article {
     @media screen and (min-width: 1080px) {
       max-width: 28%;
@@ -37,5 +38,9 @@
 }
 
 .margin {
+  margin: 5%;
+}
+
+.info-section {
   margin: 5%;
 }
