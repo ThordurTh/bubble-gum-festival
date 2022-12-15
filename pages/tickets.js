@@ -1,10 +1,6 @@
-import React from "react";
 import Heading from "../components/tickets/Heading";
 import Selections from "../components/tickets/Selections";
-// import SelectTicketsForm from "../components/tickets/SelectTicketsForm";
 import Heading2 from "../components/tickets/Heading2";
-import CampingOptions from "../components/tickets/CampingOptions";
-import Selections2 from "../components/tickets/Selections2";
 import Heading3 from "../components/tickets/Heading3";
 import Heading4 from "../components/tickets/Heading4";
 import LastStepForm from "../components/tickets/LastStepForm";

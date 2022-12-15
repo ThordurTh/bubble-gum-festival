@@ -1,7 +1,6 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import Acts from "../components/program/Acts";
 
 export default function Schedule({ data }) {
   const types = [
@@ -37,10 +36,6 @@ export default function Schedule({ data }) {
     );
   }
 
-  const handleToggle = () => {
-    setActive((prev) => !prev);
-  };
-
   const stages = ["Tutti Frutti", "Wintergreen", "Sour Apple"];
 
   function getAct(item) {
@@ -64,13 +59,6 @@ export default function Schedule({ data }) {
       <h1>Program</h1>
       <div className="filtering">
         <ToggleGroup />
-        {/* <button onClick={() => setDay("mon")}>Monday</button>
-        <button onClick={() => setDay("tue")}>Tuesday</button>
-        <button onClick={() => setDay("wed")}>Wednesday</button>
-        <button onClick={() => setDay("thu")}>Thursday</button>
-        <button onClick={() => setDay("fri")}>Friday</button>
-        <button onClick={() => setDay("sat")}>Saturday</button>
-        <button onClick={() => setDay("sun")}>Sunday</button> */}
       </div>
       <div className="stages">
         <section className="tutti-frutti">
@@ -94,7 +82,6 @@ export async function getStaticProps() {
   // Get data from api
   const res = await fetch("http://localhost:8080/schedule");
   const data = await res.json();
-  // setOptions(data);
 
   return {
     props: {

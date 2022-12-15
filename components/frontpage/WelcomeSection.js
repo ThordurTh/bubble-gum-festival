@@ -3,7 +3,6 @@ import Lineup from "../lineup/Lineup";
 import headerImage from "../../assets/header-image.png";
 import Image from "next/image";
 import BackgroundLines from "../BackgroundLines";
-// import Countdown from "react-countdown";
 import Countdown from "./Countdown";
 
 // console.log(Date.parse("04 Jul 2023 00:12:00 GMT"));
