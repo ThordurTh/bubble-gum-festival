@@ -105,7 +105,7 @@ function Tickets({ data }) {
     };
     handleNext();
 
-    fetch("http://localhost:8080/reserve-spot", options)
+    fetch("https://touchgrassfestival.fly.dev/reserve-spot", options)
       .then((response) => response.json())
       // .then((response) => console.log(response.id))
       .then((response) => setReserveID(JSON.stringify(response.id)))
@@ -449,7 +449,7 @@ export default Tickets;
 
 export async function getStaticProps() {
   // Get data from api
-  const res = await fetch("http://localhost:8080/available-spots");
+  const res = await fetch("https://touchgrassfestival.fly.dev/available-spots");
   const data = await res.json();
   // setOptions(data);
 

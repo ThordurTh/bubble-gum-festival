@@ -80,7 +80,7 @@ export default function Schedule({ data }) {
 
 export async function getStaticProps() {
   // Get data from api
-  const res = await fetch("http://localhost:8080/schedule");
+  const res = await fetch("https://touchgrassfestival.fly.dev/schedule");
   const data = await res.json();
 
   return {
