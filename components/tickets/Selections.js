@@ -1,4 +1,5 @@
 import React from "react";
+import { nanoid } from "nanoid";
 
 function Selections({
   regularTickets,
@@ -28,7 +29,7 @@ function Selections({
             {participantsFullName0 !== undefined && (
               <>
                 <h4>Participants</h4>
-                <ul>
+                <ul key={nanoid()}>
                   <li>Full Name: {participantsFullName0}</li>
                   <li>Email: {participantsEmail0}</li>
                 </ul>

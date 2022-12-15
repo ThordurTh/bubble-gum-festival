@@ -1,4 +1,3 @@
-import Anchor from "../Anchor";
 import NewsCard from "./NewsCard";
 
 const news = [
