@@ -203,132 +203,134 @@ function Tickets({ data }) {
         );
       case 1:
         return (
-          <section className="step-2">
-            <Heading2 />
-            <h3 className="underline tickets-h3">SELECT CAMPING OPTIONS</h3>
-            <section className="wrapper-step-2">
-              <div className="camping-options-form green-border">
-                <p>Available spots</p>
-                <form className="camping-spot-radio">
-                  {data.map((item) => (
-                    <div key={nanoid()}>
-                      <label htmlFor={item.area.replaceAll(" ", "")}>
-                        {item.area}
-                        <input
-                          type="radio"
-                          id={item.area.replaceAll(" ", "")}
-                          name="camping-area"
-                          disabled={item.available < numRegular + numVIP}
-                          value={item.area}
-                          checked={campSelect === item.area}
-                          onChange={() => {
-                            setCampSelect(item.area);
-                          }}
-                        ></input>
-                      </label>
+          <>
+            <BackgroundLines></BackgroundLines>
+            <section className="step-2">
+              <Heading2 />
+              <h3 className="underline tickets-h3">SELECT CAMPING OPTIONS</h3>
+              <section className="wrapper-step-2">
+                <div className="camping-options-form green-border">
+                  <p>Available spots</p>
+                  <form className="camping-spot-radio">
+                    {data.map((item) => (
+                      <div key={nanoid()}>
+                        <label htmlFor={item.area.replaceAll(" ", "")}>
+                          {item.area}
+                          <span>{item.available}</span>
+                          <input
+                            type="radio"
+                            id={item.area.replaceAll(" ", "")}
+                            name="camping-area"
+                            disabled={item.available < numRegular + numVIP}
+                            value={item.area}
+                            checked={campSelect === item.area}
+                            onChange={() => {
+                              setCampSelect(item.area);
+                            }}
+                          ></input>
+                        </label>
+                      </div>
+                    ))}
 
-                      <span>{item.available}</span>
-                    </div>
-                  ))}
-
-                  {/* IMAGE OF MAP */}
-                </form>
-              </div>
-              <div className="additional-camping-options green-border">
-                <form>
-                  <p>Select this if you are pretentious</p>
-                  <label
-                    htmlFor="greencamping"
-                    onChange={() => setGreen((prev) => !prev)}
-                  >
-                    <input
-                      type="checkbox"
-                      id="greencamping"
-                      name="greencamping"
-                      checked={green}
-                      onChange={() => {
-                        setGreen(green);
-                      }}
-                    ></input>
-                    Green camping 249kr{" "}
-                  </label>
-                </form>
-              </div>
-              <div className="tents-wrapper green-border">
-                <div className="two-person-tent">
-                  <p>2 person tent 299kr</p>
-                  <button
-                    disabled={tentForTwo === 0}
-                    onClick={() => setTentForTwo((old) => old - 1)}
-                  >
-                    -
-                  </button>
-                  {tentForTwo}
-                  <button
-                    disabled={
-                      numRegular + numVIP < 2 ||
-                      tentForTwo === 2 ||
-                      (numRegular + numVIP === 2) & (tentForTwo === 1) ||
-                      tentForThree === 1 ||
-                      ownTent === true
-                    }
-                    onClick={() => setTentForTwo((old) => old + 1)}
-                  >
-                    +
-                  </button>
+                    {/* IMAGE OF MAP */}
+                  </form>
                 </div>
-                <div className="three-person-tent">
-                  <p>3 person tent 399kr</p>
-                  <button
-                    disabled={tentForThree === 0}
-                    onClick={() => setTentForThree((old) => old - 1)}
-                  >
-                    -
-                  </button>
-                  {tentForThree}
-                  <button
-                    disabled={
-                      numRegular + numVIP < 3 ||
-                      tentForThree === 1 ||
-                      tentForTwo >= 1 ||
-                      ownTent === true
-                    }
-                    onClick={() => setTentForThree((old) => old + 1)}
-                  >
-                    +
-                  </button>
+                <div className="additional-camping-options green-border">
+                  <form>
+                    <p>Select this if you are pretentious</p>
+                    <label
+                      htmlFor="greencamping"
+                      onChange={() => setGreen((prev) => !prev)}
+                    >
+                      <input
+                        type="checkbox"
+                        id="greencamping"
+                        name="greencamping"
+                        checked={green}
+                        onChange={() => {
+                          setGreen(green);
+                        }}
+                      ></input>
+                      Green camping 249kr{" "}
+                    </label>
+                  </form>
                 </div>
-                <form>
-                  <p>I brought my own tent POG</p>
-                  <label
-                    htmlFor="owntent"
-                    onChange={() => setOwnTent((prev) => !prev)}
-                  >
-                    <input
-                      type="checkbox"
-                      id="owntent"
-                      name="owntent"
-                      checked={ownTent}
-                      disabled={tentForTwo > 0 || tentForThree > 0}
-                      onChange={() => {
-                        setOwnTent(ownTent);
-                      }}
-                    ></input>
-                    Already have a tent
-                  </label>
-                </form>
-              </div>
-              <Selections
-                regularTickets={numRegular}
-                vipTickets={numVIP}
-                campingSpot={campSelect}
-                greenCamping={green}
-                tentSetup1={tentForTwo}
-                tentSetup2={tentForThree}
-                ownTent={ownTent}
-              />
+                <div className="tents-wrapper green-border">
+                  <div className="two-person-tent">
+                    <p>2 person tent 299kr</p>
+                    <button
+                      disabled={tentForTwo === 0}
+                      onClick={() => setTentForTwo((old) => old - 1)}
+                    >
+                      -
+                    </button>
+                    {tentForTwo}
+                    <button
+                      disabled={
+                        numRegular + numVIP < 2 ||
+                        tentForTwo === 2 ||
+                        (numRegular + numVIP === 2) & (tentForTwo === 1) ||
+                        tentForThree === 1 ||
+                        ownTent === true
+                      }
+                      onClick={() => setTentForTwo((old) => old + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                  <div className="three-person-tent">
+                    <p>3 person tent 399kr</p>
+                    <button
+                      disabled={tentForThree === 0}
+                      onClick={() => setTentForThree((old) => old - 1)}
+                    >
+                      -
+                    </button>
+                    {tentForThree}
+                    <button
+                      disabled={
+                        numRegular + numVIP < 3 ||
+                        tentForThree === 1 ||
+                        tentForTwo >= 1 ||
+                        ownTent === true
+                      }
+                      onClick={() => setTentForThree((old) => old + 1)}
+                    >
+                      +
+                    </button>
+                  </div>
+                  <form>
+                    <p>I brought my own tent POG</p>
+                    <label
+                      htmlFor="owntent"
+                      onChange={() => setOwnTent((prev) => !prev)}
+                    >
+                      <input
+                        type="checkbox"
+                        id="owntent"
+                        name="owntent"
+                        checked={ownTent}
+                        disabled={tentForTwo > 0 || tentForThree > 0}
+                        onChange={() => {
+                          setOwnTent(ownTent);
+                        }}
+                      ></input>
+                      Already have a tent
+                    </label>
+                  </form>
+                </div>
+                <Selections
+                  regularTickets={numRegular}
+                  vipTickets={numVIP}
+                  campingSpot={campSelect}
+                  greenCamping={green}
+                  tentSetup1={tentForTwo}
+                  tentSetup2={tentForThree}
+                  ownTent={ownTent}
+                />
+              </section>
             </section>
-          </section>
+          </>
         );
       case 2:
         return (
