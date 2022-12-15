@@ -8,7 +8,6 @@ import "../styles/schedule.scss";
 import "../styles/footer.scss";
 
 import Layout from "../Components/Layout";
-import WelcomeSection from "../components/frontpage/WelcomeSection";
 
 function MyApp({ Component, pageProps }) {
   return (
