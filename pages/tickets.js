@@ -161,11 +161,10 @@ function Tickets({ data }) {
                   <div className="tickets-wrapper-boxes">
                     <h3>VIP</h3>
                     <ul>
-                      <li>Info about the VIP Ticket type</li>
-                      <li>Even more info about the VIP Ticket type</li>
+                      <li>VIP access to the Festival</li>
+                      <li>Backstage access on all scenes</li>
                       <li>
-                        Exclusive thing that you get with the VIP ticket - stage
-                        pass or some shit
+                        Meet and greet with artists & access to VIP lounge
                       </li>
                     </ul>
                     <span>PRICE: 1299,-</span>
