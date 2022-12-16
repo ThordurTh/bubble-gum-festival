@@ -41,7 +41,7 @@ function LastStepForm({ responseID }) {
         .matches(/^SW\d{4}$/, "Postcode must be 4 digits"),
       creditCard: Yup.string()
         .required("Credit Card Number Required")
-        .matches(/^SW\d{16}$/, "Credit Card must be 12 digits"),
+        .matches(/\d{12}$/, "Credit Card must be 12 digits"),
       month: Yup.string()
         .required("Month Number Required")
         .matches(/0[1-9]|1[0-2]/, "Month number must be between 01 - 12"),
@@ -50,7 +50,7 @@ function LastStepForm({ responseID }) {
         .matches(/(2)[2-9]|30/, "Year must be between 22-30"),
       cww: Yup.string()
         .required("CWW is Required")
-        .matches(/^SW\d{4}$/, "CWW must only be only 4 digits"),
+        .matches(/\d{4}$/, "CWW must only be only 4 digits"),
     }),
 
     onSubmit: (values) => {
