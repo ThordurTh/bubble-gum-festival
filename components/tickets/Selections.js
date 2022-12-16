@@ -19,30 +19,27 @@ function Selections({
       console.log(element.fullName);
       console.log(element.email);
       console.log(element.ticketType);
-      participants.push(<p>{element.fullName}</p>);
+      participants.push(
+        <div key={key}>
+          <p>{element.ticketType}</p>
+          <ul>
+            <li>Full Name: {element.fullName}</li>
+            <li>Email: {element.email}</li>
+          </ul>
+        </div>
+      );
     }
   }
 
-  console.log();
   return (
     // participantsFullName.participantFullName0.fullName0
     // participantsFullName[participantFullName0]
     <section className="summary green-border">
       <h3>SUMMARY</h3>
-      {participants}
+
       {
         <>
-          <div className="participants-details">
-            {/* {participantsFullName0 !== undefined && (
-              <>
-                <h4>Participants</h4>
-                <ul key={nanoid()}>
-                  <li>Full Name: {participantsFullName0}</li>
-                  <li>Email: {participantsEmail0}</li>
-                </ul>
-              </>
-            )} */}
-          </div>
+          <div className="participants-details">{participants}</div>
         </>
       }
       <div className="items-container">
@@ -86,9 +83,11 @@ function Selections({
                 ,-
               </li>
               <li className="disclaimer">
-                A booking fee of 99,- wil be paid alongside of your purchase.
-                This is in order for us to keep improving and ensuring the best
-                experience for our customers.
+                <small>
+                  A booking fee of 99,- wil be paid alongside of your purchase.
+                  This is in order for us to keep improving and ensuring the
+                  best experience for our customers.
+                </small>
               </li>
             </>
           ) : (

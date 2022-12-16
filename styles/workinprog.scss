@@ -1,6 +1,14 @@
 .work-in-prog {
   display: flex;
   flex-direction: column;
+
+  h1 {
+    @media screen and (min-width: 1080px) {
+      font-size: 5.653rem;
+    }
+    font-size: 2rem;
+    margin-left: 5%;
+  }
   .soon-section {
     @media screen and (min-width: 1080px) {
       border: var(--basic-border);
@@ -25,6 +33,17 @@
     margin-top: 5%;
     justify-content: center;
 
+    h2 {
+      @media screen and (min-width: 1080px) {
+        font-size: 5rem;
+        padding: 0%;
+        margin-left: 0%;
+      }
+      font-size: 1.5rem;
+      padding: 10%;
+      margin-left: 10%;
+    }
+
     .button-soon {
       @media screen and (min-width: 1080px) {
         display: flex;
@@ -38,11 +57,10 @@
         font-family: var(--font-copy);
         font-weight: bold;
         text-transform: uppercase;
+        padding: 2%;
+        margin-bottom: 0%;
       }
-    }
-
-    .button-soon {
-      padding: 3%;
+      padding: 5%;
       margin: auto;
       background-color: var(--accent-hotpink);
       border-radius: var(--basic-border-radius);
@@ -51,6 +69,7 @@
       font-family: var(--font-copy);
       font-weight: bold;
       text-transform: uppercase;
+      margin-bottom: 10%;
     }
   }
 }

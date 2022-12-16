@@ -19,8 +19,18 @@ function LastStepForm({ responseID }) {
       postcode: "",
     },
     validationSchema: Yup.object({
-      buyerFirstName: Yup.string().required("First Name is Required"),
-      buyerLastName: Yup.string().required("Last Name is Required"),
+      buyerFirstName: Yup.string()
+        .required("First Name is Required")
+        .matches(
+          /^[a-zA-Z]+$/,
+          "First Name cannot contain special characters or spaces"
+        ),
+      buyerLastName: Yup.string()
+        .required("Last Name is Required")
+        .matches(
+          /^[a-zA-Z]+$/,
+          "Last Name cannot contain special characters or spaces"
+        ),
       buyerEmail: Yup.string()
         .email("Invalid email address")
         .required("Email Address is required"),
@@ -28,19 +38,19 @@ function LastStepForm({ responseID }) {
       city: Yup.string().required("City is Required"),
       postcode: Yup.string()
         .required("Postcode Required")
-        .matches(/\d/, "Postcode must only be numbers!"),
+        .matches(/^SW\d{4}$/, "Postcode must be 4 digits"),
       creditCard: Yup.string()
         .required("Credit Card Number Required")
-        .matches(/\d/, "Credit Card must only be numbers"),
+        .matches(/^SW\d{16}$/, "Credit Card must be 12 digits"),
       month: Yup.string()
         .required("Month Number Required")
-        .matches(/\d/, "Month must only be numbers"),
+        .matches(/0[1-9]|1[0-2]/, "Month number must be between 01 - 12"),
       year: Yup.string()
         .required("Year is Required")
-        .matches(/\d/, "Year must only be numbers"),
+        .matches(/(2)[2-9]|30/, "Year must be between 22-30"),
       cww: Yup.string()
         .required("CWW is Required")
-        .matches(/\d/, "CWW must only be numbers"),
+        .matches(/^SW\d{4}$/, "CWW must only be only 4 digits"),
     }),
 
     onSubmit: (values) => {
@@ -212,7 +222,7 @@ function LastStepForm({ responseID }) {
         </div>
 
         <div className="input-container">
-          <label htmlFor="year">Year:</label>
+          <label htmlFor="year">Year ending digits:</label>
           <input
             className="year"
             id="year"
@@ -220,7 +230,7 @@ function LastStepForm({ responseID }) {
             type="text"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
-            maxLength={4}
+            maxLength={2}
           />
           {formik.touched.year && formik.errors.year ? (
             <p className="error">{formik.errors.year}</p>
