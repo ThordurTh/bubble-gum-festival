@@ -5,18 +5,17 @@ function Participants(props) {
     <>
       <label>Full Name</label>
       <input
-        id={props.fullName}
-        name={props.fullName}
+        id="{props.fullName}"
+        name="{props.fullName}"
         type="text"
         placeholder="Full Name..."
-        value={
-          props.participantsFullName[props.participantFullName[props.fullName]]
-        }
+        value={props[props.participantKey]?.fullName}
         onChange={(e) =>
-          props.updateStateFullName(
-            props.participantFullName,
-            props.fullName,
-            e.target.value
+          props.setParticipantsInfo(
+            props.participantKey,
+            "fullName",
+            e.target.value,
+            props.ticketType
           )
         }
       />
@@ -25,15 +24,16 @@ function Participants(props) {
       <br />
       <input
         id="email"
-        name={props.email}
+        name="{props.email}"
         type="text"
         placeholder="Email..."
-        value={props.participantsEmail[props.participantEmail[props.email]]}
+        value={props[props.participantKey]?.email}
         onChange={(e) =>
-          props.updateStateEmail(
-            props.participantEmail,
-            props.email,
-            e.target.value
+          props.setParticipantsInfo(
+            props.participantKey,
+            "email",
+            e.target.value,
+            props.ticketType
           )
         }
       />

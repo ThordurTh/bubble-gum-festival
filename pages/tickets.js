@@ -21,8 +21,7 @@ function Tickets({ data }) {
   const [campSelect, setCampSelect] = useState("");
   const [reserveID, setReserveID] = useState("");
 
-  const [participantsFullName, setParticipantsFullName] = useState({});
-  const [participantsEmail, setParticipantsEmail] = useState({});
+  const [participantsInfo, setParticipantsInfo] = useState({});
 
   // console.log(participantsFirstName["participantFirstName1"]["firstName"]);
 
@@ -36,36 +35,58 @@ function Tickets({ data }) {
       <div className="participant">
         <h3>REG</h3>
         <Participants
-          updateStateFullName={updateStateFullName}
-          participantFullName={`participantFullName${x}`}
-          participantsFullName={participantsFullName}
-          fullName={`fullName${x}`}
-          updateStateEmail={updateStateEmail}
-          participantEmail={`participantEmail${x}`}
-          participantsEmail={participantsEmail}
-          email={`email${x}`}
+          setParticipantsInfo={updateStateParticipant}
+          participantKey={x}
+          participantsInfo={participantsInfo}
+          ticketType="regular"
         />
       </div>
     );
   }
-  for (let x = 0; x < numVIP; x++) {
+  for (let x = numRegular; x < numRegular + numVIP; x++) {
     // console.log(x);
     formElements.push(
       <div className="participant">
         <h3>VIP</h3>
         <Participants
-          updateStateFullName={updateStateFullName}
-          participantFullName={`participantFullName${x + 2}`}
-          participantsFullName={participantsFullName}
-          fullName={`fullName${x + 2}`}
-          updateStateEmail={updateStateEmail}
-          participantEmail={`participantEmail${x + 2}`}
-          participantsEmail={participantsEmail}
-          email={`email${x + 2}`}
+          setParticipantsInfo={updateStateParticipant}
+          participantKey={x}
+          participantsInfo={participantsInfo}
+          ticketType="vip"
         />
       </div>
     );
   }
+
+  function updateStateParticipant(key, property, value, ticketType) {
+    setParticipantsInfo((old) => {
+      const copy = clone(old);
+
+      if (typeof copy[key] !== "object") {
+        copy[key] = { ticketType };
+      }
+      copy[key][property] = value;
+      return copy;
+    });
+  }
+  // for (let x = 0; x < numVIP; x++) {
+  //   // console.log(x);
+  //   formElements.push(
+  //     <div className="participant">
+  //       <h3>VIP</h3>
+  //       <Participants
+  //         updateStateFullName={updateStateFullName}
+  //         participantFullName={`participantFullName${x + 2}`}
+  //         participantsFullName={participantsFullName}
+  //         fullName={`fullName${x + 2}`}
+  //         updateStateEmail={updateStateEmail}
+  //         participantEmail={`participantEmail${x + 2}`}
+  //         participantsEmail={participantsEmail}
+  //         email={`email${x + 2}`}
+  //       />
+  //     </div>
+  //   );
+  // }
 
   // const test5Arr = [];
 
@@ -76,23 +97,16 @@ function Tickets({ data }) {
   //   console.log(test5Arr);
   // }
 
-  function updateStateFullName(participantFullName, fullName, value) {
-    setParticipantsFullName((old) => {
-      const copy = clone(old);
-      copy[participantFullName] = {};
-      copy[participantFullName][fullName] = value;
-      return copy;
-    });
-  }
-
-  function updateStateEmail(participantEmail, email, value) {
-    setParticipantsEmail((old) => {
-      const copy = clone(old);
-      copy[participantEmail] = {};
-      copy[participantEmail][email] = value;
-      return copy;
-    });
-  }
+  // function updateStateEmail(participantFullName, email, value) {
+  //   setParticipantsEmail((old) => {
+  //     const copy = clone(old);
+  //     if (typeof copy[participantFullName] !== object) {
+  //       copy[participantFullName] = {};
+  //     }
+  //     copy[participantFullName].email = value;
+  //     return copy;
+  //   });
+  // }
 
   function handleReservation() {
     console.log("AMAZING");
@@ -384,30 +398,7 @@ function Tickets({ data }) {
               tentSetup1={tentForTwo}
               tentSetup2={tentForThree}
               ownTent={ownTent}
-              participantsFullName0={
-                participantsFullName["participantFullName0"]["fullName0"]
-              }
-              participantsFullName1={
-                participantsFullName["participantFullName1"]["fullName1"]
-              }
-              participantsFullName2={
-                participantsFullName["participantFullName2"]["fullName2"]
-              }
-              participantsFullName3={
-                participantsFullName["participantFullName3"]["fullName3"]
-              }
-              participantsEmail0={
-                participantsEmail["participantEmail0"]["email0"]
-              }
-              participantsEmail1={
-                participantsEmail["participantEmail1"]["email1"]
-              }
-              participantsEmail2={
-                participantsEmail["participantEmail2"]["email2"]
-              }
-              participantsEmail3={
-                participantsEmail["participantEmail3"]["email3"]
-              }
+              participantsInfo={participantsInfo}
             />
           </>
         );

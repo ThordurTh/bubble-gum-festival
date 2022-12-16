@@ -33,7 +33,6 @@ export default function WelcomeSection({ data }) {
       </div>
       <section className="countdown-wrapper">
         {/* <Countdown seconds={Date.parse("04 Jul 2023 00:12:00 GMT") / 100000} /> */}
-        {/* <Countdown seconds={date / 1000} /> */}
         <Countdown seconds={12738907890 / 1000} />
         {/* <Countdown
           seconds={Math.abs(new Date("7/4/2023") - new Date()) / 1000}
