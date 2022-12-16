@@ -1,19 +1,18 @@
 import TicketCard from "./TicketCard";
-import BackgroundLines from "../BackgroundLines";
 const ticketTypes = [
   {
     key: 1,
     type: "REG",
-    li1: "Entry to all stages",
-    li2: "other stuff",
-    price: "999kr",
+    li1: "Regular access to the festival",
+    li2: "Regular access to Festival aminites",
+    price: "799,-",
   },
   {
     key: 2,
     type: "VIP",
-    li1: "Exclusive discounts",
-    li2: "Entry to the front row",
-    price: "1199kr",
+    li1: "Backstage access on all scenes",
+    li2: "Meet and greet with artists & access to VIP lounge",
+    price: "1299,-",
   },
 ];
 
