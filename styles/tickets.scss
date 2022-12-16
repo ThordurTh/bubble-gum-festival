@@ -26,36 +26,55 @@
   .tickets-h3 {
   }
   .wrapper-step-1 {
+    margin: 3rem 0;
     display: flex;
     flex-direction: column;
     width: 100%;
     justify-content: space-between;
+    align-items: center;
     gap: 1rem;
+    @media screen and (min-width: 1080px) {
+      flex-direction: row;
+      align-items: initial;
+    }
     .step-1-tickets {
       display: flex;
       flex-direction: column;
-      gap: 6rem;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
       width: 100%;
-
+      @media screen and (min-width: 1080px) {
+        align-items: initial;
+      }
       .ticket-card {
         max-width: 500px;
         position: relative;
-        padding: 1rem;
+        padding: 0.5rem;
         .tickets-wrapper-boxes {
           display: flex;
           flex-direction: row;
           justify-content: space-around;
-          gap: 1rem;
+          gap: 0.5rem;
           .head-price {
             display: flex;
             flex-direction: column;
             justify-content: space-evenly;
+            gap: 1rem;
+            margin-left: 0.5rem;
+            min-width: 110px;
             h3 {
               margin: 0;
-              padding: 1rem;
+              padding: 0.5rem;
             }
             span {
               text-align: center;
+              margin: auto 0 0.5rem;
+            }
+          }
+          .desc-buttons {
+            margin-left: 0.5rem;
+            ul {
             }
           }
         }
@@ -65,7 +84,7 @@
         //   flex-direction: row;
         // }
         .tickets-buttons-wrapper {
-          margin: 1.5rem;
+          margin-right: 1.5rem;
           display: flex;
           justify-content: flex-end;
           align-items: center;
@@ -107,6 +126,7 @@
     width: 100%;
     max-width: 500px;
     padding: 1rem;
+    min-width: 358px;
   }
 }
 
@@ -401,7 +421,9 @@ input[type="text"] {
 .nextback-buttons {
   display: flex;
   justify-content: space-between;
-  margin: 0 2rem;
+  // margin: 0 2rem;
+  width: 90vw;
+  margin: 0 auto;
   button {
     border-radius: var(--small-border-radius);
     width: 8rem;
