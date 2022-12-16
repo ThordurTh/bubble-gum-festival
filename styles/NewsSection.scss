@@ -24,7 +24,8 @@
       justify-content: space-around;
     }
     .news-card {
-      background-color: var(--accent-teal);
+      background-color: var(--main-color);
+      color: var(--main-font);
       border-radius: var(--basic-border-radius);
       width: 100%;
       max-width: 400px;
