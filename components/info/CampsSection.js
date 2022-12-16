@@ -2,6 +2,9 @@ import React from "react";
 import CampsCard from "./CampsCard";
 import lagoonImg from "../../assets/lagoon.webp";
 import happy from "../../assets/happy.webp";
+import mm from "../../assets/mm.webp";
+import ww from "../../assets/ww.webp";
+import bbb from "../../assets/bbb.webp";
 
 const infocards = [
   {
@@ -21,21 +24,21 @@ const infocards = [
   {
     key: 3,
     infotitle: "Minty Mountain",
-    img: happy,
+    img: mm,
     infotext:
       "Are you a good climber? Because at the Minty Mountain camp site we have a climbable wall! Practice your skills, and if you are not into climbing, you can always enjoy the camp sites views. A bag of minty flavored bubblegum will be provided to all attendants that choose to camp here. All camps are connected to each other, with a clear path for the aminities present at the festival.",
   },
   {
     key: 4,
     infotitle: "Blueberry Beach",
-    img: happy,
+    img: bbb,
     infotext:
-      "Everyone loves a day at the beach, but how about partying at the festival then returning to your camp site, that is literally a beach? Blueberry Beach offers that for it's campers! A bag of blueberry flavored bubblegum will be provided to all attendants that choose to camp here. All camps are connected to each other, with a clear path for the aminities present at the festival.",
+      "Everyone loves a day at the beach, but how about partying at the festival then returning to your camp site, that is literally a beach? Blueberry Beach offers that for it's campers! Grab your towels and chill on the sunchairs! A bag of blueberry flavored bubblegum will be provided to all attendants that choose to camp here. All camps are connected to each other, with a clear path for the aminities present at the festival.",
   },
   {
     key: 5,
     infotitle: "Watermelon Wonderland",
-    img: happy,
+    img: ww,
     infotext:
       "Ever wondered what's it like living in a magical world? Well you can experience that in the Watermelon Wonderland camp site where animators are doing msystical shows everynight! A bag of watermelon flavored bubblegum will be provided to all attendants that choose to camp here. All camps are connected to each other, with a clear path for the aminities present at the festival.",
   },
