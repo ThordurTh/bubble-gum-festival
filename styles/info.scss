@@ -9,21 +9,15 @@
     margin: 0%;
     font-size: 1.6rem;
   }
-  .map {
-    @media screen and (min-width: 1080px) {
-    }
-    display: flex;
-    justify-content: center;
 
-    img {
-      @media screen and (min-width: 1080px) {
-        width: 29%;
-        height: auto;
-      }
-      width: 99%;
-      margin-top: 3%;
+  img {
+    @media screen and (min-width: 1080px) {
+      width: 29%;
       height: auto;
     }
+    width: 99%;
+    margin-top: 3%;
+    height: auto;
   }
   h1 {
     @media screen and (min-width: 1080px) {
@@ -58,6 +52,8 @@
       margin: 3% 0% 0% 0%;
       padding: 0% 0% 0% 4%;
     }
+    padding-left: 3%;
+    margin-bottom: 0%;
   }
   p {
     @media screen and (min-width: 1080px) {
@@ -66,7 +62,10 @@
       padding: 4%;
       margin-top: 0%;
     }
+    font-size: 0.9rem;
+    padding: 0% 3% 3% 3%;
   }
+
   article {
     @media screen and (min-width: 1080px) {
       max-width: 25%;
@@ -92,6 +91,7 @@
 
   h1 {
     font-size: 1.6rem;
+    margin-left: 1%;
   }
   h1 {
     @media screen and (min-width: 1080px) {
@@ -117,13 +117,23 @@
     font-size: 1.6rem;
     margin-left: 5%;
   }
+  .map {
+    @media screen and (min-width: 1080px) {
+    }
+    display: flex;
+    justify-content: center;
+  }
 
   p {
+    @media screen and (min-width: 1080px) {
+      width: 50%;
+      margin-left: 5%;
+    }
     padding-top: 4%;
     padding-bottom: 2%;
     margin-left: 5%;
+    margin-right: 5%;
     font-size: 0.9rem;
-    width: 70%;
   }
 
   .tester {
@@ -132,12 +142,19 @@
       gap: 5%;
       flex-wrap: nowrap;
     }
-    display: flex;
     flex-wrap: wrap;
-    gap: 5%;
+    gap: 4%;
     img {
-      width: 70%;
-      height: auto;
+      @media screen and (min-width: 1080px) {
+        width: 30vw;
+        height: 30vw;
+        min-width: 250px;
+        min-height: 250px;
+      }
+      width: 30vw;
+      height: 30vw;
+      min-width: 250px;
+      min-height: 250px;
     }
   }
 
