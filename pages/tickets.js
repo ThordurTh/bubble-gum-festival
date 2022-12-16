@@ -23,10 +23,7 @@ function Tickets({ data }) {
 
   const [participantsInfo, setParticipantsInfo] = useState({});
 
-  // console.log(participantsFirstName["participantFirstName1"]["firstName"]);
-
   let numberOfTickets = numRegular + numVIP;
-  // console.log(numberOfTickets);
   const formElements = [];
 
   for (let x = 0; x < numRegular; x++) {
@@ -44,7 +41,6 @@ function Tickets({ data }) {
     );
   }
   for (let x = numRegular; x < numRegular + numVIP; x++) {
-    // console.log(x);
     formElements.push(
       <div className="participant">
         <h3>VIP</h3>
@@ -69,44 +65,6 @@ function Tickets({ data }) {
       return copy;
     });
   }
-  // for (let x = 0; x < numVIP; x++) {
-  //   // console.log(x);
-  //   formElements.push(
-  //     <div className="participant">
-  //       <h3>VIP</h3>
-  //       <Participants
-  //         updateStateFullName={updateStateFullName}
-  //         participantFullName={`participantFullName${x + 2}`}
-  //         participantsFullName={participantsFullName}
-  //         fullName={`fullName${x + 2}`}
-  //         updateStateEmail={updateStateEmail}
-  //         participantEmail={`participantEmail${x + 2}`}
-  //         participantsEmail={participantsEmail}
-  //         email={`email${x + 2}`}
-  //       />
-  //     </div>
-  //   );
-  // }
-
-  // const test5Arr = [];
-
-  // for (let x = 0; x < 4; x++) {
-  //   test5Arr.push(
-  //     `participantsFullName[participantFullName${x}][fullName${x}]`
-  //   );
-  //   console.log(test5Arr);
-  // }
-
-  // function updateStateEmail(participantFullName, email, value) {
-  //   setParticipantsEmail((old) => {
-  //     const copy = clone(old);
-  //     if (typeof copy[participantFullName] !== object) {
-  //       copy[participantFullName] = {};
-  //     }
-  //     copy[participantFullName].email = value;
-  //     return copy;
-  //   });
-  // }
 
   function handleReservation() {
     console.log("AMAZING");
@@ -122,7 +80,6 @@ function Tickets({ data }) {
 
     fetch("http://localhost:8080/reserve-spot", options)
       .then((response) => response.json())
-      // .then((response) => console.log(response.id))
       .then((response) => setReserveID(JSON.stringify(response.id)))
       .catch((err) => console.error(err));
     console.log(typeof reserveID);
@@ -140,65 +97,73 @@ function Tickets({ data }) {
               <h3 className="underline tickets-h3">SELECT TICKET TYPES</h3>
               <section className="wrapper-step-1">
                 {/* SELECTING TICKETS */}
-                <div className="reg-ticket green-border">
-                  <div className="tickets-wrapper-boxes">
-                    <h3>REG</h3>
-                    <ul>
-                      <li>Regular access to the Festival</li>
-                      <li>
-                        Regular access to Festival aminites and other facilities
-                      </li>
-                    </ul>
-                    <span>PRICE: 799,-</span>
+                <div className="step-1-tickets">
+                  <div className="ticket-card reg-ticket green-border">
+                    <div className="tickets-wrapper-boxes">
+                      <div className="head-price">
+                        <h3>REG</h3>
+                        <span>PRICE: 799,-</span>
+                      </div>
+                      <div>
+                        <ul>
+                          <li>Regular access to the Festival</li>
+                          <li>
+                            Regular access to Festival aminites and other
+                            facilities
+                          </li>
+                        </ul>
+                        <div className="tickets-buttons-wrapper">
+                          <button
+                            className="tickets-ticket-buttons"
+                            disabled={numRegular === 0}
+                            onClick={() => setNumRegular((old) => old - 1)}
+                          >
+                            -
+                          </button>
+                          <div>{numRegular}</div>
+                          <button
+                            className="tickets-ticket-buttons"
+                            disabled={numRegular + numVIP > 3}
+                            onClick={() => setNumRegular((old) => old + 1)}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
+                    </div>
                   </div>
+                  <div className="ticket-card vip-ticket green-border">
+                    <div className="tickets-wrapper-boxes">
+                      <div className="head-price">
+                        <h3 className="vip-ticket-name">VIP</h3>
+                        <span>PRICE: 1299,-</span>
+                      </div>
+                      <ul>
+                        <li>VIP access to the Festival</li>
+                        <li>Backstage access on all scenes</li>
+                        <li>
+                          Meet and greet with artists & access to VIP lounge
+                        </li>
+                      </ul>
+                    </div>
 
-                  <div className="tickets-buttons-wrapper">
-                    <button
-                      className="tickets-ticket-buttons"
-                      disabled={numRegular === 0}
-                      onClick={() => setNumRegular((old) => old - 1)}
-                    >
-                      -
-                    </button>
-                    <div>{numRegular}</div>
-                    <button
-                      className="tickets-ticket-buttons"
-                      disabled={numRegular + numVIP > 3}
-                      onClick={() => setNumRegular((old) => old + 1)}
-                    >
-                      +
-                    </button>
-                  </div>
-                </div>
-                <div className="vip-ticket green-border">
-                  <div className="tickets-wrapper-boxes">
-                    <h3>VIP</h3>
-                    <ul>
-                      <li>VIP access to the Festival</li>
-                      <li>Backstage access on all scenes</li>
-                      <li>
-                        Meet and greet with artists & access to VIP lounge
-                      </li>
-                    </ul>
-                    <span>PRICE: 1299,-</span>
-                  </div>
-
-                  <div className="tickets-buttons-wrapper">
-                    <button
-                      className="tickets-ticket-buttons"
-                      disabled={numVIP === 0}
-                      onClick={() => setNumVIP((old) => old - 1)}
-                    >
-                      -
-                    </button>
-                    <div>{numVIP}</div>
-                    <button
-                      className="tickets-ticket-buttons"
-                      disabled={numVIP + numRegular > 3}
-                      onClick={() => setNumVIP((old) => old + 1)}
-                    >
-                      +
-                    </button>
+                    <div className="tickets-buttons-wrapper">
+                      <button
+                        className="tickets-ticket-buttons"
+                        disabled={numVIP === 0}
+                        onClick={() => setNumVIP((old) => old - 1)}
+                      >
+                        -
+                      </button>
+                      <div>{numVIP}</div>
+                      <button
+                        className="tickets-ticket-buttons"
+                        disabled={numVIP + numRegular > 3}
+                        onClick={() => setNumVIP((old) => old + 1)}
+                      >
+                        +
+                      </button>
+                    </div>
                   </div>
                 </div>
 
@@ -355,16 +320,6 @@ function Tickets({ data }) {
               <section className="wrapper-step-3">
                 <form className="participant-form green-border">
                   {formElements}
-                  {/* <Participants
-                    updateStateFullName={updateStateFullName}
-                    participantFullName="participantFullName1"
-                    participantsFullName={participantsFullName}
-                    fullName="fullName"
-                    updateStateEmail={updateStateEmail}
-                    participantEmail="participantEmail1"
-                    participantsEmail={participantsEmail}
-                    email="email"
-                  /> */}
                 </form>
 
                 <Selections
@@ -414,20 +369,39 @@ function Tickets({ data }) {
   return (
     <>
       {conditionalComponent()}
-      {step > 0 && <button onClick={() => setStep(step - 1)}>Back</button>}
+      <div className="nextback-buttons">
+        {step > 0 && (
+          <button className="back-button" onClick={() => setStep(step - 1)}>
+            Back
+          </button>
+        )}
 
-      {step === 0 && (
-        <button disabled={numVIP + numRegular === 0} onClick={handleNext}>
-          Next
-        </button>
-      )}
-      {step === 1 && (
-        <button disabled={campSelect === ""} onClick={handleReservation}>
-          Next
-        </button>
-      )}
-      {step === 2 && <button onClick={handleNext}>Next</button>}
-
+        {step === 0 && (
+          <button
+            className={`next-button first-next ${
+              numVIP + numRegular === 0 ? " disabled" : " "
+            }`}
+            disabled={numVIP + numRegular === 0}
+            onClick={handleNext}
+          >
+            Next
+          </button>
+        )}
+        {step === 1 && (
+          <button
+            className={`next-button ${campSelect === "" ? " disabled" : " "}`}
+            disabled={campSelect === ""}
+            onClick={handleReservation}
+          >
+            Next
+          </button>
+        )}
+        {step === 2 && (
+          <button className="next-button" onClick={handleNext}>
+            Next
+          </button>
+        )}
+      </div>
       {/* {(step === 0 || step === 1 || step === 2) && (
         <button disabled={numVIP + numRegular === 0} onClick={handleNext}>
           Next

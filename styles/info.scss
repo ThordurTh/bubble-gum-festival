@@ -1,18 +1,34 @@
 .map-section {
+  @media screen and (min-width: 1080px) {
+    padding-top: 1%;
+  }
   margin: 5%;
+  padding-top: 10%;
+
+  h1 {
+    margin: 0%;
+    font-size: 1.6rem;
+  }
   .map {
     @media screen and (min-width: 1080px) {
-      justify-content: center;
     }
     display: flex;
+    justify-content: center;
 
     img {
       @media screen and (min-width: 1080px) {
-        width: 35%;
-        height: 35%;
+        width: 29%;
+        height: auto;
       }
-      width: 100%;
-      height: 100%;
+      width: 99%;
+      margin-top: 3%;
+      height: auto;
+    }
+  }
+  h1 {
+    @media screen and (min-width: 1080px) {
+      margin: 0%;
+      font-size: 3.8rem;
     }
   }
 }
@@ -22,25 +38,121 @@
   flex-wrap: wrap;
   gap: 3rem;
   justify-content: center;
+  padding-top: 5%;
+  h1 {
+    margin: 0%;
+    font-size: 1.6rem;
+  }
+  h2 {
+    font-size: 1.6rem;
+  }
+  h1 {
+    @media screen and (min-width: 1080px) {
+      margin: 0%;
+      font-size: 3.8rem;
+    }
+  }
+  h2 {
+    @media screen and (min-width: 1080px) {
+      font-size: 2.25rem;
+      margin: 3% 0% 0% 0%;
+      padding: 0% 0% 0% 4%;
+    }
+  }
+  p {
+    @media screen and (min-width: 1080px) {
+      padding-top: 0%;
+      font-size: 1.1rem;
+      padding: 4%;
+      margin-top: 0%;
+    }
+  }
   article {
     @media screen and (min-width: 1080px) {
-      max-width: 28%;
+      max-width: 25%;
     }
-    border: var(--basic-border);
-    border-radius: 25px;
-    padding: 1%;
+    border: solid 6px var(--accent-teal);
+    border-radius: var(--basic-border-radius);
+    background-color: var(--main-color);
 
     img {
       width: 100%;
       height: auto;
+      border-radius: 6px 6px 0px 0px;
     }
   }
 }
 
 .margin {
+  @media screen and (min-width: 1080px) {
+    padding-top: 1%;
+  }
   margin: 5%;
+  padding-top: 10%;
+
+  h1 {
+    font-size: 1.6rem;
+  }
+  h1 {
+    @media screen and (min-width: 1080px) {
+      margin: 0%;
+      font-size: 3.8rem;
+    }
+  }
 }
 
 .info-section {
-  margin: 5%;
+  padding-top: 5%;
+  // background-color: #212121c5;
+  background: linear-gradient(
+    180deg,
+    rgba(33, 33, 33, 1) 0%,
+    rgba(33, 33, 33, 0.9) 30%,
+    rgba(33, 33, 33, 1) 100%
+  );
+
+  width: 100%;
+  h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    margin-left: 5%;
+  }
+
+  p {
+    padding-top: 4%;
+    padding-bottom: 2%;
+    margin-left: 5%;
+    font-size: 0.9rem;
+    width: 70%;
+  }
+
+  .tester {
+    @media screen and (min-width: 1080px) {
+      display: flex;
+      gap: 5%;
+      flex-wrap: nowrap;
+    }
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5%;
+    img {
+      width: 70%;
+      height: auto;
+    }
+  }
+
+  h1 {
+    @media screen and (min-width: 1080px) {
+      margin: 0%;
+      font-size: 3.8rem;
+      margin-left: 5%;
+    }
+  }
+
+  p {
+    @media screen and (min-width: 1080px) {
+      padding-top: 1%;
+      font-size: 1.1rem;
+    }
+  }
 }

@@ -1,5 +1,5 @@
 .ticket-section {
-  padding-top: 14rem;
+  padding-top: 8rem;
   height: 60vh;
   margin: auto 0;
   display: flex;
@@ -93,6 +93,19 @@
       color: var(--accent-hotpink);
       background-color: var(--main-color);
       border-color: var(--accent-hotpink);
+      transition: 0.4s;
     }
+  }
+}
+.ticket-cards {
+  .ticket-card-wrapper:nth-child(2) h3 {
+    background: linear-gradient(
+      180deg,
+      rgba(248, 44, 153, 0.9) 0%,
+      rgba(48, 213, 200, 0.9) 100%
+    );
+    background-clip: border-box;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 }

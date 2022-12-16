@@ -9,7 +9,9 @@ function NewsCard(props) {
         <h3>{props.heading}</h3>
         <p>{props.paragraph}</p>
         <div className="buy-now">
-          <Anchor href="/ticketflow">&#10132;</Anchor>
+          <Anchor className="arrow" href="/ticketflow">
+            &#10132;
+          </Anchor>
         </div>
       </div>
     </div>

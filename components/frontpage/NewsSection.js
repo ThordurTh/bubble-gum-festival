@@ -6,22 +6,23 @@ import newsImage3 from "../../assets/news-image3.webp";
 const news = [
   {
     key: 1,
-    heading: "Shocking news",
-    paragraph: "Alligator buys candyfloss at Bubble Gum Festival",
+    heading: "Bubblegum 2022",
+    paragraph:
+      "The Bubblegum Festival 2022 edition saw a rise of over 300.000 people attending!",
     image: newsImage1,
   },
   {
     key: 2,
-    heading: "OMG",
+    heading: "Crews incoming!",
     paragraph:
-      "Doctors don't want you to know about these festival toilet tips",
+      "Crews and bands are already testing their equipments for the 2023 festival edition.",
     image: newsImage2,
   },
   {
     key: 3,
-    heading: "Wait what?!",
+    heading: "Sustainable Partying",
     paragraph:
-      "Jimi Hendrix decides to resurrect to perform at Bubble Gum Festival",
+      "At Bubblegum, we care about the planet, read more about our sustainability efforts.",
     image: newsImage3,
   },
 ];

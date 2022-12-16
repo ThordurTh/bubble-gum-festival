@@ -7,44 +7,44 @@ import camp from "../../assets/camp.webp";
 const infocards = [
   {
     key: 1,
-    infotitle: "Camp 1",
+    infotitle: "Licorice Lagoon",
     img: lagoonImg,
     infotext:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet tincidunt dui, consectetur aliquam felis. Sed nulla risus, fermentum vel laoreet in, cursus nec risus. Cras varius auctor vehicula. Cras fringilla risus vel metus mattis, pretium suscipit tortor porttitor. Nullam pharetra vulputate eleifend. Duis scelerisque sodales elit ut tempor. Integer ultrices urna et mauris dapibus lacinia. Vivamus scelerisque dui vitae metus auctor sagittis ac vel orci. Aliquam vel ultrices turpis",
+      "The best camping spot for people that love to just chill. For the attendants that choose this camping spots, small boat and canoes can be rented out for rides on our small lake. A bag of licorice flavored bubblegum will be provided to all attendants that choose to camp here. All camps are connected to each other, with a clear path for the aminities present at the festival.",
   },
   {
     key: 2,
-    infotitle: "Camp 2",
+    infotitle: "Cherry Camp",
     img: happy,
     infotext:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet tincidunt dui, consectetur aliquam felis. Sed nulla risus, fermentum vel laoreet in, cursus nec risus. Cras varius auctor vehicula. Cras fringilla risus vel metus mattis, pretium suscipit tortor porttitor. Nullam pharetra vulputate eleifend. Duis scelerisque sodales elit ut tempor. Integer ultrices urna et mauris dapibus lacinia. Vivamus scelerisque dui vitae metus auctor sagittis ac vel orci. Aliquam vel ultrices turpis",
+      "Cherry Camp is the go to camping spot for outgoing people that love being in a community. Gather around the campfire at each end of day for fun activities with the other campers. A bag of cherry flavored bubblegum will be provided to all attendants that choose to camp here. All camps are connected to each other, with a clear path for the aminities present at the festival.",
   },
   {
     key: 3,
-    infotitle: "Camp 3",
+    infotitle: "Minty Mountain",
     img: camp,
     infotext:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet tincidunt dui, consectetur aliquam felis. Sed nulla risus, fermentum vel laoreet in, cursus nec risus. Cras varius auctor vehicula. Cras fringilla risus vel metus mattis, pretium suscipit tortor porttitor. Nullam pharetra vulputate eleifend. Duis scelerisque sodales elit ut tempor. Integer ultrices urna et mauris dapibus lacinia. Vivamus scelerisque dui vitae metus auctor sagittis ac vel orci. Aliquam vel ultrices turpis",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A bag of minty flavored bubblegum will be provided to all attendants that choose to camp here. All camps are connected to each other, with a clear path for the aminities present at the festival.",
   },
   {
     key: 4,
-    infotitle: "Camp 4",
+    infotitle: "Blueberry Beach",
     img: happy,
     infotext:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet tincidunt dui, consectetur aliquam felis. Sed nulla risus, fermentum vel laoreet in, cursus nec risus. Cras varius auctor vehicula. Cras fringilla risus vel metus mattis, pretium suscipit tortor porttitor. Nullam pharetra vulputate eleifend. Duis scelerisque sodales elit ut tempor. Integer ultrices urna et mauris dapibus lacinia. Vivamus scelerisque dui vitae metus auctor sagittis ac vel orci. Aliquam vel ultrices turpis",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A bag of blueberry flavored bubblegum will be provided to all attendants that choose to camp here. All camps are connected to each other, with a clear path for the aminities present at the festival.",
   },
   {
     key: 5,
-    infotitle: "Camp 5",
+    infotitle: "Watermelon Wonderland",
     img: happy,
     infotext:
-      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus sit amet tincidunt dui, consectetur aliquam felis. Sed nulla risus, fermentum vel laoreet in, cursus nec risus. Cras varius auctor vehicula. Cras fringilla risus vel metus mattis, pretium suscipit tortor porttitor. Nullam pharetra vulputate eleifend. Duis scelerisque sodales elit ut tempor. Integer ultrices urna et mauris dapibus lacinia. Vivamus scelerisque dui vitae metus auctor sagittis ac vel orci. Aliquam vel ultrices turpis",
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit. A bag of watermelon flavored bubblegum will be provided to all attendants that choose to camp here. All camps are connected to each other, with a clear path for the aminities present at the festival.",
   },
 ];
 function CampsSection() {
   return (
     <div className="margin">
-      <h1>CAMPS INFO</h1>
+      <h1 className="underline">CAMPS INFO</h1>
       <section className="info-cards">
         {infocards.map((item) => (
           <CampsCard
