@@ -104,7 +104,7 @@ function Tickets({ data }) {
                         <h3>REG</h3>
                         <span>PRICE: 799,-</span>
                       </div>
-                      <div>
+                      <div className="desc-buttons">
                         <ul>
                           <li>Regular access to the Festival</li>
                           <li>
@@ -132,37 +132,39 @@ function Tickets({ data }) {
                       </div>
                     </div>
                   </div>
+
                   <div className="ticket-card vip-ticket green-border">
                     <div className="tickets-wrapper-boxes">
                       <div className="head-price">
                         <h3 className="vip-ticket-name">VIP</h3>
                         <span>PRICE: 1299,-</span>
                       </div>
-                      <ul>
-                        <li>VIP access to the Festival</li>
-                        <li>Backstage access on all scenes</li>
-                        <li>
-                          Meet and greet with artists & access to VIP lounge
-                        </li>
-                      </ul>
-                    </div>
-
-                    <div className="tickets-buttons-wrapper">
-                      <button
-                        className="tickets-ticket-buttons"
-                        disabled={numVIP === 0}
-                        onClick={() => setNumVIP((old) => old - 1)}
-                      >
-                        -
-                      </button>
-                      <div>{numVIP}</div>
-                      <button
-                        className="tickets-ticket-buttons"
-                        disabled={numVIP + numRegular > 3}
-                        onClick={() => setNumVIP((old) => old + 1)}
-                      >
-                        +
-                      </button>
+                      <div className="desc-buttons">
+                        <ul>
+                          <li>VIP access to the Festival</li>
+                          <li>Backstage access on all scenes</li>
+                          <li>
+                            Meet and greet with artists & access to VIP lounge
+                          </li>
+                        </ul>
+                        <div className="tickets-buttons-wrapper">
+                          <button
+                            className="tickets-ticket-buttons"
+                            disabled={numVIP === 0}
+                            onClick={() => setNumVIP((old) => old - 1)}
+                          >
+                            -
+                          </button>
+                          <div>{numVIP}</div>
+                          <button
+                            className="tickets-ticket-buttons"
+                            disabled={numVIP + numRegular > 3}
+                            onClick={() => setNumVIP((old) => old + 1)}
+                          >
+                            +
+                          </button>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
