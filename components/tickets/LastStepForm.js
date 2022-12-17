@@ -38,7 +38,7 @@ function LastStepForm({ responseID }) {
       city: Yup.string().required("City is Required"),
       postcode: Yup.string()
         .required("Postcode Required")
-        .matches(/^SW\d{4}$/, "Postcode must be 4 digits"),
+        .matches(/\d{4}$/, "Postcode must be 4 digits"),
       creditCard: Yup.string()
         .required("Credit Card Number Required")
         .matches(/\d{12}$/, "Credit Card must be 12 digits"),
