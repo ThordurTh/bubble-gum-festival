@@ -97,160 +97,177 @@ function LastStepForm({ responseID }) {
 
   return (
     <>
-      <form onSubmit={formik.handleSubmit}>
-        <div className="input-container">
-          <label htmlFor="buyerFirstName">First Name:</label>
-          <input
-            id="buyerFirstName"
-            name="buyerFirstName"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.buyerFirstName}
-          />
+      <form
+        onSubmit={formik.handleSubmit}
+        className="input-wrapper green-border"
+      >
+        <div className="personal-info">
+          <h5>Personal Information</h5>
+          <div className="input-container">
+            <input
+              id="buyerFirstName"
+              name="buyerFirstName"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.buyerFirstName}
+              required
+            />
+            <label htmlFor="buyerFirstName">First Name:</label>
+            {formik.touched.buyerFirstName && formik.errors.buyerFirstName ? (
+              <p className="error">{formik.errors.buyerFirstName}</p>
+            ) : null}
+          </div>
+          <div className="input-container">
+            <input
+              id="buyerLastName"
+              name="buyerLastName"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.buyerLastName}
+              required
+            />
+            <label htmlFor="buyerLastName">Last Name:</label>
+            {formik.touched.buyerLastName && formik.errors.buyerLastName ? (
+              <p className="error">{formik.errors.buyerLastName}</p>
+            ) : null}
+          </div>
 
-          {formik.touched.buyerFirstName && formik.errors.buyerFirstName ? (
-            <p className="error">{formik.errors.buyerFirstName}</p>
-          ) : null}
-        </div>
-        <div className="input-container">
-          <label htmlFor="buyerLastName">Last Name:</label>
-          <input
-            id="buyerLastName"
-            name="buyerLastName"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.buyerLastName}
-          />
-          {formik.touched.buyerLastName && formik.errors.buyerLastName ? (
-            <p className="error">{formik.errors.buyerLastName}</p>
-          ) : null}
-        </div>
+          <div className="input-container">
+            <input
+              id="buyerEmail"
+              name="buyerEmail"
+              type="email"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.buyerEmail}
+              required
+            />
+            <label htmlFor="buyerEmail">Email:</label>
+            {formik.touched.buyerEmail && formik.errors.buyerEmail ? (
+              <p className="error">{formik.errors.buyerEmail}</p>
+            ) : null}
+          </div>
+          <div className="input-container">
+            <input
+              id="street"
+              name="street"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.street}
+              required
+            />
+            <label htmlFor="street">Street Name:</label>
+            {formik.touched.street && formik.errors.street ? (
+              <p className="error">{formik.errors.street}</p>
+            ) : null}
+          </div>
 
-        <div className="input-container">
-          <label htmlFor="buyerEmail">Email:</label>
-          <input
-            id="buyerEmail"
-            name="buyerEmail"
-            type="email"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.buyerEmail}
-          />
-          {formik.touched.buyerEmail && formik.errors.buyerEmail ? (
-            <p className="error">{formik.errors.buyerEmail}</p>
-          ) : null}
-        </div>
+          <div className="input-container">
+            <input
+              id="city"
+              name="city"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.city}
+              required
+            />
+            <label htmlFor="city">City:</label>
+            {formik.touched.city && formik.errors.city ? (
+              <p className="error">{formik.errors.city}</p>
+            ) : null}
+          </div>
 
-        <div className="input-container">
-          <label htmlFor="street">Street Name:</label>
-          <input
-            id="street"
-            name="street"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.street}
-          />
-          {formik.touched.street && formik.errors.street ? (
-            <p className="error">{formik.errors.street}</p>
-          ) : null}
-        </div>
-
-        <div className="input-container">
-          <label htmlFor="city">City:</label>
-          <input
-            id="city"
-            name="city"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.city}
-          />
-          {formik.touched.city && formik.errors.city ? (
-            <p className="error">{formik.errors.city}</p>
-          ) : null}
-        </div>
-
-        <div className="input-container">
-          <label htmlFor="postcode">Postcode:</label>
-          <input
-            id="postcode"
-            name="postcode"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.postcode}
-            maxLength={4}
-          />
-          {formik.touched.postcode && formik.errors.postcode ? (
-            <p className="error">{formik.errors.postcode}</p>
-          ) : null}
-        </div>
-
-        <div className="input-container">
-          <label htmlFor="creditCard">Credit Card Number:</label>
-          <input
-            className="credit-card"
-            id="creditCard"
-            name="creditCard"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            maxLength={12}
-          />
-          {formik.touched.creditCard && formik.errors.creditCard ? (
-            <p className="error">{formik.errors.creditCard}</p>
-          ) : null}
+          <div className="input-container">
+            <input
+              id="postcode"
+              name="postcode"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.postcode}
+              maxLength={4}
+              required
+            />
+            <label htmlFor="postcode">Postcode:</label>
+            {formik.touched.postcode && formik.errors.postcode ? (
+              <p className="error">{formik.errors.postcode}</p>
+            ) : null}
+          </div>
         </div>
 
-        <div className="input-container">
-          <label htmlFor="month">Month</label>
-          <input
-            className="month"
-            id="month"
-            name="month"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            maxLength={2}
-          />
-          {formik.touched.month && formik.errors.month ? (
-            <p className="error">{formik.errors.month}</p>
-          ) : null}
-        </div>
+        <div className="payment-info">
+          <h5>Payment Information</h5>
+          <div className="input-container">
+            <input
+              className="credit-card"
+              id="creditCard"
+              name="creditCard"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              maxLength={12}
+              required
+            />
+            <label htmlFor="creditCard">Credit Card Number:</label>
+            {formik.touched.creditCard && formik.errors.creditCard ? (
+              <p className="error">{formik.errors.creditCard}</p>
+            ) : null}
+          </div>
 
-        <div className="input-container">
-          <label htmlFor="year">Year ending digits:</label>
-          <input
-            className="year"
-            id="year"
-            name="year"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            maxLength={2}
-          />
-          {formik.touched.year && formik.errors.year ? (
-            <p className="error">{formik.errors.year}</p>
-          ) : null}
-        </div>
+          <div className="input-container">
+            <input
+              className="month"
+              id="month"
+              name="month"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              maxLength={2}
+              required
+            />
+            <label htmlFor="month">Month</label>
+            {formik.touched.month && formik.errors.month ? (
+              <p className="error">{formik.errors.month}</p>
+            ) : null}
+          </div>
 
-        <div className="input-container">
-          <label htmlFor="cww">CWW:</label>
-          <input
-            className="cww"
-            id="cww"
-            name="cww"
-            type="text"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            maxLength={4}
-          />
-          {formik.touched.cww && formik.errors.cww ? (
-            <p className="error">{formik.errors.cww}</p>
-          ) : null}
+          <div className="input-container">
+            <input
+              className="year"
+              id="year"
+              name="year"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              maxLength={2}
+              required
+            />
+            <label htmlFor="year">Year ending digits:</label>
+            {formik.touched.year && formik.errors.year ? (
+              <p className="error">{formik.errors.year}</p>
+            ) : null}
+          </div>
+
+          <div className="input-container">
+            <input
+              className="cww"
+              id="cww"
+              name="cww"
+              type="text"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              maxLength={4}
+              required
+            />
+            <label htmlFor="cww">CWW:</label>
+            {formik.touched.cww && formik.errors.cww ? (
+              <p className="error">{formik.errors.cww}</p>
+            ) : null}
+          </div>
         </div>
         <div className={`modal ${showModal ? " modal-show" : " "}`}>
           Modal

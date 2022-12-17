@@ -16,15 +16,25 @@ function Selections({
   for (const key in participantsInfo) {
     if (Object.hasOwnProperty.call(participantsInfo, key)) {
       const element = participantsInfo[key];
-      console.log(element.fullName);
-      console.log(element.email);
-      console.log(element.ticketType);
+      // console.log(element.fullName);
+      // console.log(element.email);
+      // console.log(element.ticketType);
       participants.push(
         <div key={key}>
-          <p>{element.ticketType}</p>
+          <p>Participant {parseFloat(key) + 1}</p>
           <ul>
-            <li>Full Name: {element.fullName}</li>
-            <li>Email: {element.email}</li>
+            <li>
+              <span>Ticket type:</span> <br />
+              {element.ticketType}
+            </li>
+            <li>
+              <span>Full name:</span> <br />
+              {element.fullName}
+            </li>
+            <li>
+              <span>Email:</span> <br />
+              {element.email}
+            </li>
           </ul>
         </div>
       );
@@ -44,30 +54,62 @@ function Selections({
       }
       <div className="items-container">
         <ul>
-          {campingSpot !== "" && <li>Camping spot: {campingSpot}</li>}
+          {campingSpot !== "" && (
+            <li className="selections-camping-spot">
+              Camping spot: {campingSpot}
+            </li>
+          )}
           {regularTickets > 0 && (
             <li>
-              TICKET REG x {regularTickets} = {regularTickets * 799},-
+              <span>{regularTickets} x REG Ticket</span> <span></span>
+              <span>{regularTickets * 799},-</span>
             </li>
           )}
           {vipTickets > 0 && (
             <li>
-              TICKET VIP x {vipTickets} = {vipTickets * 1299},-
+              <span>{vipTickets} x VIP Ticket</span>
+              <span></span> <span>{vipTickets * 1299},-</span>
             </li>
           )}
-          {greenCamping === true ? <li>Greencamping = 249,-</li> : ""}
+          {greenCamping === true ? (
+            <li>
+              <span>Greencamping</span>
+              <span></span>
+              <span>249,-</span>
+            </li>
+          ) : (
+            ""
+          )}
           {tentSetup1 > 0 && (
             <li>
-              2 person tent x {tentSetup1} = {tentSetup1 * 299}
+              <span>{tentSetup1} x two-person tent</span>
+              <span></span>
+              <span>{tentSetup1 * 299},-</span>
             </li>
           )}
           {tentSetup2 > 0 && (
             <li>
-              3 person tent x {tentSetup2} = {tentSetup2 * 399}
+              <span>{tentSetup2} x three-person tent</span>
+              <span></span>
+              <span>{tentSetup2 * 399},-</span>
             </li>
           )}
-          {ownTent && <li>Bringing own tent = 0,- </li>}
-          {regularTickets + vipTickets > 0 ? <li>Booking fee = 99,-</li> : ""}
+          {ownTent && (
+            <li>
+              <span>Bringing own tent</span>
+              <span></span>
+              <span>0,-</span>{" "}
+            </li>
+          )}
+          {regularTickets + vipTickets > 0 ? (
+            <li>
+              <span>Booking fee</span>
+              <span></span>
+              <span>99,-</span>
+            </li>
+          ) : (
+            ""
+          )}
         </ul>
         <ul>
           {regularTickets + vipTickets > 0 ? (

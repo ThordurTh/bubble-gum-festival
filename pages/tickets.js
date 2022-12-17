@@ -37,7 +37,7 @@ function Tickets({ data }) {
           setParticipantsInfo={updateStateParticipant}
           participantKey={x}
           participantsInfo={participantsInfo}
-          ticketType="regular"
+          ticketType="Reg"
         />
       </div>
     );
@@ -50,7 +50,7 @@ function Tickets({ data }) {
           setParticipantsInfo={updateStateParticipant}
           participantKey={x}
           participantsInfo={participantsInfo}
-          ticketType="vip"
+          ticketType="Vip"
         />
       </div>
     );
@@ -92,7 +92,6 @@ function Tickets({ data }) {
       case 0:
         return (
           <>
-            <BackgroundLines></BackgroundLines>
             <section className="step-1">
               <Heading></Heading>
 
@@ -187,7 +186,6 @@ function Tickets({ data }) {
       case 1:
         return (
           <>
-            <BackgroundLines></BackgroundLines>
             <section className="step-2">
               <Heading2 />
               <h3 className="underline tickets-h3">SELECT CAMPING OPTIONS</h3>
@@ -375,19 +373,21 @@ function Tickets({ data }) {
             <section className="step-4">
               <Heading4 />
               <h3 className="underline tickets-h3">FILL IN CREDIT CARD INFO</h3>
-              <section className="wrapper-step-4"></section>
+              <section className="wrapper-step-4">
+                <LastStepForm responseID={reserveID} />
+
+                <Selections
+                  regularTickets={numRegular}
+                  vipTickets={numVIP}
+                  campingSpot={campSelect}
+                  greenCamping={green}
+                  tentSetup1={tentForTwo}
+                  tentSetup2={tentForThree}
+                  ownTent={ownTent}
+                  participantsInfo={participantsInfo}
+                />
+              </section>
             </section>
-            <LastStepForm responseID={reserveID} />
-            <Selections
-              regularTickets={numRegular}
-              vipTickets={numVIP}
-              campingSpot={campSelect}
-              greenCamping={green}
-              tentSetup1={tentForTwo}
-              tentSetup2={tentForThree}
-              ownTent={ownTent}
-              participantsInfo={participantsInfo}
-            />
           </>
         );
     }
@@ -402,6 +402,7 @@ function Tickets({ data }) {
   return (
     <>
       {conditionalComponent()}
+      <BackgroundLines />
       <div className="nextback-buttons">
         {step > 0 && (
           <button className="back-button" onClick={() => setStep(step - 1)}>

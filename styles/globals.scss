@@ -148,6 +148,10 @@ input[type="radio"] {
 input[type="radio"]:checked {
   background-color: #f82c99;
 }
+input[type="radio"]:disabled {
+  background-color: var(--tickets-button);
+  border-color: var(--tickets-button);
+}
 
 input[type="checkbox"] {
   -webkit-appearance: none;
