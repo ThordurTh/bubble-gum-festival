@@ -40,7 +40,7 @@ const infocards = [
     infotitle: "Watermelon Wonderland",
     img: ww,
     infotext:
-      "Ever wondered what's it like living in a magical world? Well you can experience that in the Watermelon Wonderland camp site where animators are doing msystical shows everynight! A bag of watermelon flavored bubblegum will be provided to all attendants that choose to camp here. All camps are connected to each other, with a clear path for the aminities present at the festival.",
+      "Ever wondered what's it like living in a magical world? Well you can experience that in the Watermelon Wonderland camp site where animators are doing mystical shows everynight! A bag of watermelon flavored bubblegum will be provided to all attendants that choose to camp here. All camps are connected to each other, with a clear path for the aminities present at the festival.",
   },
 ];
 function CampsSection() {
