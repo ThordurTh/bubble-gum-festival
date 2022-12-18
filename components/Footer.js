@@ -12,16 +12,16 @@ function Footer() {
       <nav className="footer-nav">
         <ul>
           <li>
-            <Anchor href="inprogress">CONTACT</Anchor>
+            <Anchor href="/inprogress">CONTACT</Anchor>
           </li>
           <li>
-            <Anchor href="">INFO</Anchor>
+            <Anchor href="/inprogress">INFO</Anchor>
           </li>
           <li>
-            <Anchor href="inprogress">PRESS</Anchor>
+            <Anchor href="/inprogress">PRESS</Anchor>
           </li>
           <li>
-            <Anchor href="inprogress">TERMS</Anchor>
+            <Anchor href="/inprogress">TERMS</Anchor>
           </li>
         </ul>
       </nav>

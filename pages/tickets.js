@@ -6,12 +6,13 @@ import Heading4 from "../components/tickets/Heading4";
 import LastStepForm from "../components/tickets/LastStepForm";
 import Participants from "../components/tickets/Participants";
 import BackgroundLines from "../components/BackgroundLines";
-import { useState, useEffect, useRef } from "react";
+import { useState } from "react";
 import { nanoid } from "nanoid";
 import clone from "just-clone";
 import Image from "next/image";
 import map from "../assets/map.webp";
 import TimerComp from "../components/tickets/TimerComp";
+import Head from "next/head";
 
 function Tickets({ data }) {
   const [numRegular, setNumRegular] = useState(0);
@@ -27,7 +28,6 @@ function Tickets({ data }) {
 
   const [participantsInfo, setParticipantsInfo] = useState({});
 
-  let numberOfTickets = numRegular + numVIP;
   const formElements = [];
 
   for (let x = 0; x < numRegular; x++) {
@@ -70,8 +70,6 @@ function Tickets({ data }) {
   }
 
   function handleReservation() {
-    // console.log("AMAZING");
-    // console.log(typeof campSelect);
     const options = {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -86,7 +84,6 @@ function Tickets({ data }) {
       .then((response) => response.json())
       .then((response) => setReserveID(JSON.stringify(response.id)))
       .catch((err) => console.error(err));
-    // console.log(typeof reserveID);
   }
 
   const conditionalComponent = () => {
@@ -398,11 +395,13 @@ function Tickets({ data }) {
     setStep(step + 1);
   }
 
-  // function handleSubmit() {
-  //   console.log("SUCCESS");
-  // }
   return (
     <>
+      <Head>
+        <title>Bubble Gum Festival - Buy Tickets</title>
+        <meta name="keywords" content="Some, good, keywords"></meta>
+        <meta name="description" content="Bubble gum festival"></meta>
+      </Head>
       {conditionalComponent()}
       <BackgroundLines />
       {startTimer && <TimerComp seconds="30" />}
@@ -439,12 +438,6 @@ function Tickets({ data }) {
           </button>
         )}
       </div>
-      {/* {(step === 0 || step === 1 || step === 2) && (
-        <button disabled={numVIP + numRegular === 0} onClick={handleNext}>
-          Next
-        </button>
-      )} */}
-      {/* {step === 3 && <button onClick={handleSubmit}>Submit</button>} */}
     </>
   );
 }
@@ -455,7 +448,6 @@ export async function getStaticProps() {
   // Get data from api
   const res = await fetch("http://localhost:8080/available-spots");
   const data = await res.json();
-  // setOptions(data);
 
   return {
     props: {

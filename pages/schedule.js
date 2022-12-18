@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
 import BackgroundLines from "../components/BackgroundLines";
+import Head from "next/head";
 
 export default function Schedule({ data }) {
   const types = [
@@ -13,6 +14,7 @@ export default function Schedule({ data }) {
     "saturday",
     "sunday",
   ];
+
   const [day, setDay] = useState("mon");
   const [active, setActive] = useState(types[0]);
 
@@ -56,6 +58,11 @@ export default function Schedule({ data }) {
 
   return (
     <>
+      <Head>
+        <title>Bubble Gum Festival - Schedule</title>
+        <meta name="keywords" content="Some, good, keywords"></meta>
+        <meta name="description" content="Bubble gum festival"></meta>
+      </Head>
       <BackgroundLines></BackgroundLines>
       <div className="schedule-wrapper">
         <div className="heading-wrapper">
