@@ -404,7 +404,7 @@ function Tickets({ data }) {
       </Head>
       {conditionalComponent()}
       <BackgroundLines />
-      {startTimer && <TimerComp seconds="30" />}
+      {startTimer && <TimerComp seconds="360" />}
       <div className="nextback-buttons">
         {step > 0 && (
           <button className="back-button" onClick={() => setStep(step - 1)}>
