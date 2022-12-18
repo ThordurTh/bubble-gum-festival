@@ -1,28 +1,35 @@
 .schedule-wrapper {
-  width: 90vw;
-  margin: 2rem auto;
+  width: 100vw;
   @media screen and (min-width: 1080px) {
     width: 80vw;
+    margin: 2rem auto;
   }
 
   h1 {
-    font-size: calc(70px + 1.2vw);
     display: inline;
     border-bottom: 6px solid var(--accent-lavender);
     margin: 1rem 0;
+    margin-left: 1rem;
+    font-size: 4rem;
+
+    @media screen and (min-width: 1080px) {
+      font-size: calc(70px + 1.2vw);
+    }
   }
 
   .filtering {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
     gap: 1rem;
-    justify-content: space-evenly;
+    // justify-content: space-evenly;
     //   margin: 1rem;
-    flex-wrap: wrap;
+    // flex-wrap: wrap;
     width: 100%;
     margin: 3rem auto 2rem;
+    padding: 0 1rem;
     button {
-      background-color: var(--accent-teal-dark);
-      border: none;
+      background-color: var(--main-color);
+      border: 3px solid var(--accent-teal-dark);
       padding: 0.5rem 1.2rem;
       border-radius: 10px;
       cursor: pointer;
@@ -35,16 +42,24 @@
     .active {
       background-color: var(--accent-teal);
       color: var(--main-color);
+      font-weight: bold;
+      border-color: var(--accent-teal);
     }
   }
 
   .stages {
     width: 100%;
     margin: 0 auto;
+
     h2 {
       font-size: calc(40px + 1vw);
       // font-weight: 600;
       color: var(--main-color);
+      padding: 0 1rem;
+
+      @media screen and (min-width: 1080px) {
+        padding: 0;
+      }
     }
     .tutti-frutti {
       h2 {
@@ -63,10 +78,20 @@
     }
 
     ul {
+      background-color: var(--main-color);
+      opacity: 0.9;
+      border-radius: var(--basic-border-radius);
       display: flex;
       flex-direction: column;
       gap: 0.8rem;
       text-transform: uppercase;
+      font-size: 0.9rem;
+      padding: 1rem;
+
+      @media screen and (min-width: 1080px) {
+        // padding: 1rem;
+        font-size: calc(15px + 0.390625vw);
+      }
       .cancelled {
         color: rgb(113, 113, 113);
         text-decoration: line-through;
@@ -80,7 +105,6 @@
         justify-content: space-between;
         width: 100%;
         gap: 0.5rem;
-        font-size: calc(15px + 0.390625vw);
         .dotted-line {
           min-width: 1rem;
           flex-grow: 2;

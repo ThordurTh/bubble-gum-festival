@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
+import BackgroundLines from "../components/BackgroundLines";
 
 export default function Schedule({ data }) {
   const types = [
@@ -55,26 +56,29 @@ export default function Schedule({ data }) {
   }
 
   return (
-    <div className="schedule-wrapper">
-      <h1>Program</h1>
-      <div className="filtering">
-        <ToggleGroup />
+    <>
+      <BackgroundLines></BackgroundLines>
+      <div className="schedule-wrapper">
+        <h1>Program</h1>
+        <div className="filtering">
+          <ToggleGroup />
+        </div>
+        <div className="stages">
+          <section className="tutti-frutti">
+            <h2>Tutti Frutti</h2>
+            <ul>{data[stages[0]][day].map(getAct)}</ul>
+          </section>
+          <section className="wintergreen">
+            <h2>Wintergreen</h2>
+            <ul>{data[stages[1]][day].map(getAct)}</ul>
+          </section>
+          <section className="sour-apple">
+            <h2>Sour Apple</h2>
+            <ul>{data[stages[2]][day].map(getAct)}</ul>
+          </section>
+        </div>
       </div>
-      <div className="stages">
-        <section className="tutti-frutti">
-          <h2>Tutti Frutti</h2>
-          <ul>{data[stages[0]][day].map(getAct)}</ul>
-        </section>
-        <section className="wintergreen">
-          <h2>Wintergreen</h2>
-          <ul>{data[stages[1]][day].map(getAct)}</ul>
-        </section>
-        <section className="sour-apple">
-          <h2>Sour Apple</h2>
-          <ul>{data[stages[2]][day].map(getAct)}</ul>
-        </section>
-      </div>
-    </div>
+    </>
   );
 }
 
