@@ -6,7 +6,13 @@ function Heading2() {
   return (
     <>
       <h2 className="underline tickets-h2">TICKETS</h2>
-      <Image className="step-bar" src={progressbar2} alt="progressbar2"></Image>
+      <div className="step-bar-wrapper">
+        <Image
+          className="step-bar"
+          src={progressbar2}
+          alt="progressbar2"
+        ></Image>
+      </div>
     </>
   );
 }
