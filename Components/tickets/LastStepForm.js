@@ -5,7 +5,7 @@ import Anchor from "../Anchor";
 
 function LastStepForm({ responseID }) {
   const [showModal, setShowModal] = useState(false);
-
+  console.log(typeof responseID);
   const formik = useFormik({
     initialValues: {
       buyerFirstName: "",
@@ -271,9 +271,7 @@ function LastStepForm({ responseID }) {
           <div className="modal-content">
             <h3>Thank you for your order!</h3>
             <ul>
-              <li>
-                Your order number: {responseID.slice(1, -2)} has been confirmed.
-              </li>
+              <li>Your order number: {responseID} has been confirmed.</li>
               <li>Happy Partying!</li>
             </ul>
             <div className="back-front">
