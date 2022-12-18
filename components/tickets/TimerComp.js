@@ -1,15 +1,8 @@
 import { useState, useEffect, useRef } from "react";
 import Anchor from "../Anchor";
 
-function refreshPage() {
-  window.location.reload();
-}
-
 function TimerComp({ seconds }) {
   const [showModal, setShowModal] = useState(false);
-  // const [countdown, setCountdown] = useState(
-  //   Math.abs(new Date("7/4/2023") - new Date()) / 1000
-  // );
   const [countdown, setCountdown] = useState(seconds);
   const timerId = useRef();
 
@@ -38,7 +31,7 @@ function TimerComp({ seconds }) {
               <li>Please try again later!</li>
             </ul>
             <div className="back-front">
-              <Anchor href="/">TRY AGAIN</Anchor>
+              <Anchor href="/">HOME</Anchor>
             </div>
           </div>
         </div>

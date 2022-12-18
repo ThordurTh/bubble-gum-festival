@@ -1,5 +1,4 @@
 import React from "react";
-import { useState } from "react";
 function Participants(props) {
   return (
     <div className="input-wrapper">

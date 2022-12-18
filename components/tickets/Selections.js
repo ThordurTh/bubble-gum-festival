@@ -1,5 +1,4 @@
 import React from "react";
-import { nanoid } from "nanoid";
 
 function Selections({
   regularTickets,
@@ -16,9 +15,6 @@ function Selections({
   for (const key in participantsInfo) {
     if (Object.hasOwnProperty.call(participantsInfo, key)) {
       const element = participantsInfo[key];
-      // console.log(element.fullName);
-      // console.log(element.email);
-      // console.log(element.ticketType);
       participants.push(
         <div key={key}>
           <p>Participant {parseFloat(key) + 1}</p>
@@ -42,8 +38,6 @@ function Selections({
   }
 
   return (
-    // participantsFullName.participantFullName0.fullName0
-    // participantsFullName[participantFullName0]
     <section className="summary green-border">
       <h3>SUMMARY</h3>
 
@@ -98,7 +92,7 @@ function Selections({
             <li>
               <span>Bringing own tent</span>
               <span></span>
-              <span>0,-</span>{" "}
+              <span>0,-</span>
             </li>
           )}
           {regularTickets + vipTickets > 0 ? (

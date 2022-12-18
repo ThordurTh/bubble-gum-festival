@@ -89,15 +89,9 @@
           }
           .desc-buttons {
             margin-left: 0.5rem;
-            ul {
-            }
           }
         }
-        // .tickets-buttons-wrapper {
-        //   position: absolute;
-        //   display: flex;
-        //   flex-direction: row;
-        // }
+
         .tickets-buttons-wrapper {
           margin-right: 1.5rem;
           display: flex;
@@ -138,9 +132,6 @@
     }
   }
   .summary {
-    // width: 100%;
-    // max-width: 500px;
-    // padding: 1rem;
     min-width: 358px;
   }
 }
@@ -167,8 +158,6 @@
     gap: 1rem;
     @media screen and (min-width: 1080px) {
       flex-direction: row;
-      // display: grid;
-      // grid-template-columns: 1fr 1fr 1fr;
     }
     .camping-options-form {
       padding: 1rem;
@@ -210,7 +199,7 @@
           border-bottom: 1px dotted var(--accent-hotpink);
           .tooltiptext {
             visibility: hidden;
-            // width: 120px;
+
             background-color: var(--main-color);
             border: 3px solid var(--accent-hotpink);
             color: var(--font-color);
@@ -257,7 +246,6 @@
       align-items: center;
 
       .tent-buttons {
-        // margin-right: 1.5rem;
         display: flex;
         justify-content: flex-end;
         align-items: center;
@@ -346,8 +334,7 @@
           font-size: 1.8rem;
         }
       }
-      .input-wrapper {
-      }
+
       .user-box {
         label {
           position: relative;
@@ -365,7 +352,7 @@
           padding: 10px 0;
           font-size: 16px;
           color: #fff;
-          // margin-bottom: 20px;
+
           border: none;
           border-bottom: 1px solid #fff;
           outline: none;
@@ -378,12 +365,6 @@
           color: var(--accent-teal);
           font-size: 12px;
         }
-        // input:invalid ~ label {
-        //   top: -85px;
-        //   left: 0;
-        //   color: var(--accent-hotpink);
-        //   font-size: 12px;
-        // }
       }
     }
   }
@@ -450,7 +431,7 @@
           padding: 10px 0 3px;
           font-size: 16px;
           color: #fff;
-          // margin-bottom: 20px;
+
           border: none;
           border-bottom: 1px solid #fff;
           outline: none;
@@ -527,7 +508,6 @@
         div:nth-child(1) {
           border: none;
           @media screen and (min-width: 810px) {
-            // border-right: 3px dashed var(--accent-teal);
             padding-right: 1rem;
           }
         }
@@ -546,7 +526,6 @@
         div:nth-child(4) {
           @media screen and (min-width: 810px) {
             padding: 0 1rem;
-            // border-left: 3px dashed var(--accent-teal);
           }
         }
       }
@@ -668,298 +647,10 @@
   z-index: 5;
 }
 
-// .step-1 {
-//   padding: 2rem;
-//   .disclaimer {
-//     font-size: 12px;
-//   }
-//   .wrapper-step-1 {
-//     display: grid;
-//     grid-template-columns: 1fr 1fr;
-//     gap: 1rem;
-//     margin-top: 3rem;
-
-//     h3 {
-//       font-size: 2.3rem;
-//     }
-
-//     @media screen and (min-width: 768px) and (max-width: 1024px) {
-//       grid-template-columns: 1fr 1fr;
-//       .tickets-wrapper-boxes {
-//         display: grid;
-//         grid-template-columns: 1fr 1fr;
-//         h3 {
-//           text-align: center;
-//           margin: 3rem;
-//         }
-//       }
-//       .summary {
-//         // grid-column: 2/3;
-
-//         padding: 1rem;
-//       }
-//     }
-//     .reg-ticket {
-//       grid-column: 1/2;
-//       grid-row: 1/2;
-//       padding: 1rem;
-//     }
-//     .vip-ticket {
-//       grid-column: 1/2;
-//       grid-row: 2/2;
-//       padding: 1rem;
-//     }
-//   }
-//   @media (max-width: 768px) {
-//     .wrapper-step-1 {
-//       grid-template-columns: 1fr;
-//       .summary {
-//         grid-column: 1;
-//         grid-row: 3/3;
-//         padding: 1rem;
-//       }
-//     }
-//     .tickets-h2 {
-//       font-size: 3rem;
-//     }
-//     .tickets-h3 {
-//       font-size: 1.75rem;
-//     }
-//     .underline {
-//       margin: 0;
-//     }
-//   }
-// }
-
-// .heading {
-//   margin-bottom: 2rem;
-// }
-
-// .tickets-wrapper-boxes {
-//   display: grid;
-//   grid-template-columns: 1fr;
-
-//   h3 {
-//     margin: 0;
-//   }
-//   ul {
-//     display: grid;
-//     gap: 1rem;
-//   }
-//   li {
-//     font-size: 20px;
-//   }
-//   span {
-//     font-size: 1.5rem;
-//   }
-// }
-// button:disabled {
-//   border: none;
-// }
-
-// button:enabled {
-//   border: none;
-// }
-// .tickets-buttons-wrapper {
-//   margin: 1.5rem;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-//   gap: 0.8rem;
-//   div {
-//     background-color: var(--accent-hotpink);
-//     border-radius: 10px;
-//     font-size: 1.7rem;
-//     color: var(--main-font);
-//     width: 45px;
-//     height: 45px;
-//     text-align: center;
-//   }
-//   .tickets-ticket-buttons {
-//     background-color: var(--tickets-button);
-//     width: 45px;
-//     height: 45px;
-//     border-radius: 10px;
-//     font-size: 2rem;
-//     color: var(--main-font);
-//   }
-//   .tickets-ticket-buttons:active {
-//     filter: brightness(120%);
-//   }
-//   .tickets-ticket-buttons:hover {
-//     filter: brightness(120%);
-//   }
-
-//   .tickets-ticket-buttons:disabled {
-//     filter: brightness(65%);
-//   }
-// }
-
-// @media (max-width: 768px) {
-//   .wrapper-step-1 {
-//     grid-template-columns: 1fr;
-//     .summary {
-//       grid-column: 1;
-//       grid-row: 3/3;
-//       padding: 1rem;
-//     }
-//   }
-//   .tickets-h2 {
-//     font-size: 3rem;
-//   }
-//   .tickets-h3 {
-//     font-size: 1.75rem;
-//   }
-//   .underline {
-//     margin: 0;
-//   }
-// }
-
-// .summary {
-//   ul {
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: space-between;
-//     gap: 1rem;
-//     font-size: 20px;
-//   }
-//   h3 {
-//     margin: 0;
-//   }
-// }
-
-// .vip-ticket-name {
-//   background: linear-gradient(
-//     180deg,
-//     rgba(248, 44, 153, 0.9) 0%,
-//     rgba(48, 213, 200, 0.9) 100%
-//   );
-//   -webkit-background-clip: text;
-//   -webkit-text-fill-color: transparent;
-// }
-
-// .items-container {
-//   display: flex;
-//   justify-content: space-between;
-//   flex-direction: column;
-//   height: auto;
-// }
-
-// STEP 2
-
-// .step-2 {
-//   padding: 2rem;
-// }
-
-// .wrapper-step-2 {
-//   display: grid;
-//   grid-template-columns: 1fr 1fr 1fr;
-//   gap: 1rem;
-//   margin-top: 3rem;
-//   .camping-options-form {
-//     grid-column: 1/2;
-//     grid-row: 1/3;
-//     padding: 1rem;
-//     p {
-//       font-size: 24px;
-//     }
-//   }
-//   .additional-camping-options {
-//     grid-column: 2/3;
-//     grid-row: 1/2;
-//     padding: 1rem;
-//   }
-//   .tents-wrapper {
-//     grid-column: 2/3;
-//     grid-row: 2/3;
-//     padding: 1rem;
-//   }
-//   .summary {
-//     grid-column: 3/4;
-//     grid-row: 1/3;
-//     padding: 1rem;
-//   }
-// }
-// .total-amount {
-//   border-top: 1px solid white;
-//   font-size: 24px;
-// }
-
-// .input.container {
-//   text-align: left;
-// }
-
-// input[type="text"] {
-//   margin-top: 0.5rem;
-//   text-transform: capitalize;
-// }
-// .birthday-container {
-//   display: inline-block;
-//   margin-right: 5px;
-//   margin-left: 5px;
-// }
-
-// .date-field {
-//   width: 30px;
-//   text-align: center;
-
-//   &--year {
-//     width: 60px;
-//   }
-// }
-
-// .participants-details {
-//   display: flex;
-//   flex-direction: row;
-//   gap: 1rem;
-// }
-
-// .error {
-//   color: red;
-// }
-
-// .credit-card {
-//   color: blue;
-// }
-
-// STEP 3
-
-// .step-3 {
-//   padding: 2rem;
-//   .wrapper-step-3 {
-//     display: grid;
-//     grid-template-columns: 2fr 1fr;
-//     gap: 1rem;
-//     .participant-form {
-//       display: grid;
-//       grid-template-columns: 1fr 1fr;
-//       gap: 1rem;
-//       padding: 1rem;
-//     }
-//   }
-// }
-// .modal {
-//   display: none;
-//   visibility: hidden;
-//   pointer-events: none;
-//   width: 1000px;
-//   height: 750px;
-//   background-color: var(--font-color);
-//   position: absolute;
-//   top: 50%;
-//   left: 50%;
-// }
-
-// .modal-show {
-//   display: flex;
-//   visibility: initial;
-//   pointer-events: initial;
-// }
-
 .nextback-buttons {
   display: flex;
   justify-content: space-between;
-  // margin: 0 2rem;
+
   width: 90vw;
   margin: 0 auto 3rem;
 
@@ -983,7 +674,6 @@
     outline: 6px solid var(--tickets-button);
     outline-offset: -6px;
     background-color: var(--main-color);
-    // color: var(--accent-hotpink);
     transition: background-color 0.5s;
   }
   .first-next {

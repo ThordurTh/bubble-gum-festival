@@ -4,7 +4,6 @@ import TicketSection from "../components/frontpage/TicketSection";
 import NewsSection from "../components/frontpage/NewsSection";
 
 export default function Home({ data }) {
-  // console.log(typeof data);
   return (
     <>
       <Head>

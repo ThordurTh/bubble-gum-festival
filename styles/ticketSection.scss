@@ -28,7 +28,6 @@
       @media screen and (min-width: 1080px) {
         width: auto;
       }
-      //   margin: 0 3rem;
     }
     .ticket-card {
       display: flex;
@@ -45,8 +44,6 @@
         align-items: center;
         padding-bottom: 1rem;
       }
-    }
-    h3 {
     }
     ul {
       margin-top: 3rem;
@@ -75,7 +72,6 @@
         text-transform: uppercase;
         font-weight: bold;
         background-color: var(--accent-hotpink);
-        //   padding: 0.3rem 1.5rem;
         border-radius: var(--basic-border-radius);
         font-size: 1.3rem;
         border: 6px solid var(--main-color);
