@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import Anchor from "../Anchor";
 
 function LastStepForm({ responseID }) {
   const [showModal, setShowModal] = useState(false);
-
-  const handleClick = () => {
-    setShowModal(true);
-  };
 
   const formik = useFormik({
     initialValues: {
@@ -54,6 +51,7 @@ function LastStepForm({ responseID }) {
     }),
 
     onSubmit: (values) => {
+      setShowModal(true);
       const options1 = {
         method: "POST",
         headers: {
@@ -270,12 +268,20 @@ function LastStepForm({ responseID }) {
           </div>
         </div>
         <div className={`modal ${showModal ? " modal-show" : " "}`}>
-          Modal
-          <li>{responseID.slice(1, -2)}</li>
+          <div className="modal-content">
+            <h3>Thank you for your order!</h3>
+            <ul>
+              <li>
+                Your order number: {responseID.slice(1, -2)} has been confirmed.
+              </li>
+              <li>Happy Partying!</li>
+            </ul>
+            <div className="back-front">
+              <Anchor href="/">Home</Anchor>
+            </div>
+          </div>
         </div>
-        <button type="submit" onClick={handleClick}>
-          Buy
-        </button>
+        <button type="submit">Buy</button>
       </form>
     </>
   );
