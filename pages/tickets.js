@@ -6,11 +6,12 @@ import Heading4 from "../components/tickets/Heading4";
 import LastStepForm from "../components/tickets/LastStepForm";
 import Participants from "../components/tickets/Participants";
 import BackgroundLines from "../components/BackgroundLines";
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { nanoid } from "nanoid";
 import clone from "just-clone";
 import Image from "next/image";
 import map from "../assets/map.webp";
+import TimerComp from "../components/tickets/TimerComp";
 
 function Tickets({ data }) {
   const [numRegular, setNumRegular] = useState(0);
@@ -22,6 +23,7 @@ function Tickets({ data }) {
   const [ownTent, setOwnTent] = useState(false);
   const [campSelect, setCampSelect] = useState("");
   const [reserveID, setReserveID] = useState("");
+  const [startTimer, setStartTimer] = useState(false);
 
   const [participantsInfo, setParticipantsInfo] = useState({});
 
@@ -29,7 +31,6 @@ function Tickets({ data }) {
   const formElements = [];
 
   for (let x = 0; x < numRegular; x++) {
-    // console.log(x);
     formElements.push(
       <div key={x} className="participant">
         <h3>REG</h3>
@@ -79,6 +80,7 @@ function Tickets({ data }) {
       )}}`,
     };
     handleNext();
+    setStartTimer(true);
 
     fetch("http://localhost:8080/reserve-spot", options)
       .then((response) => response.json())
@@ -403,6 +405,7 @@ function Tickets({ data }) {
     <>
       {conditionalComponent()}
       <BackgroundLines />
+      {startTimer && <TimerComp milliseconds="5" />}
       <div className="nextback-buttons">
         {step > 0 && (
           <button className="back-button" onClick={() => setStep(step - 1)}>

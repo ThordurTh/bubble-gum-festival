@@ -31,6 +31,9 @@
   width: 90vw;
   margin: 0 auto;
   .tickets-h3 {
+    @media screen and (max-width: 1080px) {
+      font-size: 1.5rem;
+    }
   }
   .wrapper-step-1 {
     margin: 3rem 0;
@@ -142,6 +145,11 @@
 .step-2 {
   width: 90vw;
   margin: 0 auto;
+  .tickets-h3 {
+    @media screen and (max-width: 1080px) {
+      font-size: 1.5rem;
+    }
+  }
   .wrapper-step-2 {
     margin: 3rem 0;
     display: flex;
@@ -294,6 +302,11 @@
 }
 
 .step-3 {
+  .tickets-h3 {
+    @media screen and (max-width: 1080px) {
+      font-size: 1.5rem;
+    }
+  }
   width: 90vw;
   margin: 0 auto;
   .wrapper-step-3 {
@@ -369,6 +382,11 @@
   width: 90vw;
   margin: 0 auto;
   position: relative;
+  .ticket-h3 {
+    @media screen and (max-width: 1080px) {
+      font-size: 1.5rem;
+    }
+  }
   .wrapper-step-4 {
     margin: 3rem 0;
     display: flex;
