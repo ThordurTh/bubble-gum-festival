@@ -10,9 +10,6 @@ const formatTime = (time) => {
 };
 
 function Countdown({ seconds }) {
-  // const [countdown, setCountdown] = useState(
-  //   Math.abs(new Date("7/4/2023") - new Date()) / 1000
-  // );
   const [countdown, setCountdown] = useState(seconds);
   const timerId = useRef();
 
