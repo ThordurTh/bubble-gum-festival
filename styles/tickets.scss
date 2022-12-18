@@ -30,6 +30,11 @@
 .step-1 {
   width: 90vw;
   margin: 0 auto;
+  .tickets-h2 {
+    @media screen and (max-width: 1080px) {
+      font-size: 3rem;
+    }
+  }
   .tickets-h3 {
     @media screen and (max-width: 1080px) {
       font-size: 1.5rem;
@@ -145,6 +150,11 @@
 .step-2 {
   width: 90vw;
   margin: 0 auto;
+  .tickets-h2 {
+    @media screen and (max-width: 1080px) {
+      font-size: 3rem;
+    }
+  }
   .tickets-h3 {
     @media screen and (max-width: 1080px) {
       font-size: 1.5rem;
@@ -302,6 +312,11 @@
 }
 
 .step-3 {
+  .tickets-h2 {
+    @media screen and (max-width: 1080px) {
+      font-size: 3rem;
+    }
+  }
   .tickets-h3 {
     @media screen and (max-width: 1080px) {
       font-size: 1.5rem;
@@ -328,6 +343,7 @@
       .participant {
         h3 {
           margin-bottom: 1rem;
+          font-size: 1.8rem;
         }
       }
       .input-wrapper {
@@ -382,6 +398,11 @@
   width: 90vw;
   margin: 0 auto;
   position: relative;
+  .tickets-h2 {
+    @media screen and (max-width: 1080px) {
+      font-size: 3rem;
+    }
+  }
   .ticket-h3 {
     @media screen and (max-width: 1080px) {
       font-size: 1.5rem;
@@ -566,6 +587,10 @@
   }
   .total-amount {
     border-top: 1px solid var(--main-font);
+    padding-top: 1rem;
+  }
+  .disclaimer {
+    padding-top: 1rem;
   }
 }
 
@@ -637,6 +662,10 @@
   display: flex;
   visibility: initial;
   pointer-events: initial;
+}
+
+.behind {
+  z-index: 5;
 }
 
 // .step-1 {

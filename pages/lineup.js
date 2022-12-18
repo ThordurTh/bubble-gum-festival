@@ -5,7 +5,9 @@ import BackgroundLines from "../components/BackgroundLines";
 export default function lineup({ data }) {
   return (
     <section className="lineupSection">
-      <h2>LINEUP</h2>
+      <div className="heading-wrapper">
+        <h1>LINEUP</h1>
+      </div>
       <BackgroundLines />
       <div className="lineup-wrapper">
         <ul className="lineup">

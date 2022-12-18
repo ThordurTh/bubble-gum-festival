@@ -58,7 +58,9 @@ export default function Schedule({ data }) {
     <>
       <BackgroundLines></BackgroundLines>
       <div className="schedule-wrapper">
-        <h1>Schedule</h1>
+        <div className="heading-wrapper">
+          <h1>Schedule</h1>
+        </div>
         <div className="filtering">
           <ToggleGroup />
         </div>

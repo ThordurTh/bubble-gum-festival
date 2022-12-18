@@ -115,15 +115,19 @@ function Selections({
           {regularTickets + vipTickets > 0 ? (
             <>
               <li className="total-amount">
-                TOTAL ={" "}
-                {(regularTickets + vipTickets > 0 ? 99 : 0) +
-                  (regularTickets > 0 ? regularTickets * 799 : 0) +
-                  (vipTickets > 0 ? vipTickets * 1299 : 0) +
-                  (tentSetup1 > 0 ? tentSetup1 * 299 : 0) +
-                  (tentSetup2 > 0 ? tentSetup2 * 399 : 0) +
-                  (greenCamping === true ? 249 : 0)}
-                ,-
+                <span>TOTAL</span>
+                <span></span>
+                <span>
+                  {(regularTickets + vipTickets > 0 ? 99 : 0) +
+                    (regularTickets > 0 ? regularTickets * 799 : 0) +
+                    (vipTickets > 0 ? vipTickets * 1299 : 0) +
+                    (tentSetup1 > 0 ? tentSetup1 * 299 : 0) +
+                    (tentSetup2 > 0 ? tentSetup2 * 399 : 0) +
+                    (greenCamping === true ? 249 : 0)}
+                  ,-
+                </span>
               </li>
+
               <li className="disclaimer">
                 <small>
                   A booking fee of 99,- wil be paid alongside of your purchase.
