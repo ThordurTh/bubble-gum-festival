@@ -5,7 +5,6 @@ import Anchor from "../Anchor";
 
 function LastStepForm({ responseID }) {
   const [showModal, setShowModal] = useState(false);
-  console.log(typeof responseID);
   const formik = useFormik({
     initialValues: {
       buyerFirstName: "",
