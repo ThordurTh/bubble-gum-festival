@@ -86,7 +86,7 @@ function LastStepForm({ responseID }) {
         body: `{"id":${responseID}}`,
       };
 
-      fetch("http://localhost:8080/fullfill-reservation", options2)
+      fetch("https://touchgrassfestival.fly.dev/fullfill-reservation", options2)
         .then((response) => response.json())
         .then((response) => console.log(response))
         .catch((err) => console.error(err));
