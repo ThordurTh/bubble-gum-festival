@@ -56,7 +56,7 @@ export default function Schedule({ data }) {
 
   return (
     <div className="schedule-wrapper">
-      <h1>Program</h1>
+      <h1>Schedule</h1>
       <div className="filtering">
         <ToggleGroup />
       </div>
