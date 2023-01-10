@@ -1,11 +1,11 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import { nanoid } from "nanoid";
-import BackgroundLines from "../components/BackgroundLines";
+import BackgroundLines from "../Components/BackgroundLines";
 import Head from "next/head";
 
 export default function Schedule({ data }) {
-  const types = [
+  const days = [
     "monday",
     "tuesday",
     "wednesday",
@@ -15,30 +15,27 @@ export default function Schedule({ data }) {
     "sunday",
   ];
 
-  const [day, setDay] = useState("mon");
-  const [active, setActive] = useState(types[0]);
+  const stages = ["Tutti Frutti", "Wintergreen", "Sour Apple"];
+
+  const [activeDay, setActiveDay] = useState(days[0]);
 
   function ToggleGroup() {
     return (
       <>
-        {types.map((type) => (
+        {days.map((day) => (
           <button
-            className={active === type ? "active" : " "}
-            key={nanoid()}
-            active={active === type}
+            className={activeDay === day ? "active" : " "}
+            key={day}
             onClick={() => {
-              setActive(type);
-              setDay(type.slice(0, 3));
+              setActiveDay(day);
             }}
           >
-            {type}
+            {day}
           </button>
         ))}
       </>
     );
   }
-
-  const stages = ["Tutti Frutti", "Wintergreen", "Sour Apple"];
 
   function getAct(item) {
     if (item.act === "break") {
@@ -66,7 +63,7 @@ export default function Schedule({ data }) {
       <BackgroundLines></BackgroundLines>
       <div className="schedule-wrapper">
         <div className="heading-wrapper">
-          <h1>SCHEDULE</h1>
+          <h1>Schedule</h1>
         </div>
         <div className="filtering">
           <ToggleGroup />
@@ -74,15 +71,15 @@ export default function Schedule({ data }) {
         <div className="stages">
           <section className="tutti-frutti">
             <h2>Tutti Frutti</h2>
-            <ul>{data[stages[0]][day].map(getAct)}</ul>
+            <ul>{data[stages[0]][activeDay.slice(0, 3)].map(getAct)}</ul>
           </section>
           <section className="wintergreen">
             <h2>Wintergreen</h2>
-            <ul>{data[stages[1]][day].map(getAct)}</ul>
+            <ul>{data[stages[1]][activeDay.slice(0, 3)].map(getAct)}</ul>
           </section>
           <section className="sour-apple">
             <h2>Sour Apple</h2>
-            <ul>{data[stages[2]][day].map(getAct)}</ul>
+            <ul>{data[stages[2]][activeDay.slice(0, 3)].map(getAct)}</ul>
           </section>
         </div>
       </div>

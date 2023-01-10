@@ -1,17 +1,17 @@
-import Heading from "../components/tickets/Heading";
-import Selections from "../components/tickets/Selections";
-import Heading2 from "../components/tickets/Heading2";
-import Heading3 from "../components/tickets/Heading3";
-import Heading4 from "../components/tickets/Heading4";
-import LastStepForm from "../components/tickets/LastStepForm";
-import Participants from "../components/tickets/Participants";
-import BackgroundLines from "../components/BackgroundLines";
+import Heading from "../Components/tickets/Heading";
+import Selections from "../Components/tickets/Selections";
+import Heading2 from "../Components/tickets/Heading2";
+import Heading3 from "../Components/tickets/Heading3";
+import Heading4 from "../Components/tickets/Heading4";
+import LastStepForm from "../Components/tickets/LastStepForm";
+import Participants from "../Components/tickets/Participants";
+import BackgroundLines from "../Components/BackgroundLines";
 import { useState } from "react";
 import { nanoid } from "nanoid";
 import clone from "just-clone";
 import Image from "next/image";
 import map from "../assets/map.webp";
-import TimerComp from "../components/tickets/TimerComp";
+import TimerComp from "../Components/tickets/TimerComp";
 import Head from "next/head";
 
 function Tickets({ data }) {
@@ -392,6 +392,7 @@ function Tickets({ data }) {
     }
   };
   function handleNext() {
+    window.location.href = "#";
     setStep(step + 1);
   }
 
