@@ -135,7 +135,7 @@ function LastStepForm({ responseID }) {
             <input
               id="buyerEmail"
               name="buyerEmail"
-              type="text"
+              type="email"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.buyerEmail}
